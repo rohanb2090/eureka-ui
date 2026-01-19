@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo, KeyboardEvent as ReactKeyboardEvent } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { UseTableProps, UseTableReturn, TableRow, SortDirection } from './Table.types';
 
 /**
