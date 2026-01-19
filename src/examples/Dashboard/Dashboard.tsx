@@ -2,7 +2,7 @@ import { Surface } from '../../components/Surface';
 import { Button } from '../../components/Button';
 import { LineChart } from '../../components/LineChart';
 import { PieChart } from '../../components/PieChart';
-import { SparkLine } from '../../components/SparkLine';
+// SparkLine removed as per user request
 import { Table } from '../../components/Table';
 import { Skeleton } from '../../components/Skeleton';
 import { ToastProvider, useToast } from '../../components/Toast';
@@ -93,10 +93,10 @@ const DashboardContent = ({ isLoading = false }: { isLoading?: boolean }) => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {[
-                        { label: 'Total Revenue', value: '$45,231.89', change: '+20.1%', trend: 'up', data: [10, 15, 13, 17, 20, 25, 22] },
-                        { label: 'Subscriptions', value: '+2350', change: '+180.1%', trend: 'up', data: [5, 8, 12, 15, 12, 19, 25] },
-                        { label: 'Sales', value: '+12,234', change: '+19%', trend: 'up', data: [20, 18, 22, 25, 24, 28, 30] },
-                        { label: 'Active Now', value: '+573', change: '+201', trend: 'up', data: [15, 12, 18, 14, 20, 18, 22] },
+                        { label: 'Total Revenue', value: '$45,231.89', change: '+20.1%', trend: 'up' },
+                        { label: 'Subscriptions', value: '+2350', change: '+180.1%', trend: 'up' },
+                        { label: 'Sales', value: '+12,234', change: '+19%', trend: 'up' },
+                        { label: 'Active Now', value: '+573', change: '+201', trend: 'up' },
                     ].map((stat, i) => (
                         <Surface key={i} className="p-6">
                             <div className="flex justify-between items-start">
@@ -105,7 +105,6 @@ const DashboardContent = ({ isLoading = false }: { isLoading?: boolean }) => {
                                     <span className="text-2xl font-bold text-text-primary">{stat.value}</span>
                                     <span className="text-xs text-status-success font-medium">{stat.change} from last month</span>
                                 </div>
-                                <SparkLine data={stat.data} width={80} height={40} />
                             </div>
                         </Surface>
                     ))}
