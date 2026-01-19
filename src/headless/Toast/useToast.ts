@@ -45,19 +45,6 @@ export function useToast(): UseToastReturn {
     const timersRef = useRef<Map<string, ReturnType<typeof setTimeout>>>(new Map());
 
     /**
-     * Start auto-dismiss timer for a toast
-     */
-    const startTimer = useCallback((toast: Toast) => {
-        if (toast.duration === 0) return; // No auto-dismiss
-
-        const timer = setTimeout(() => {
-            dismiss(toast.id);
-        }, toast.duration);
-
-        timersRef.current.set(toast.id, timer);
-    }, []);
-
-    /**
      * Clear timer for a toast
      */
     const clearTimer = useCallback((toastId: string) => {
@@ -79,6 +66,19 @@ export function useToast(): UseToastReturn {
         const toast = toasts.find(t => t.id === id);
         toast?.onDismiss?.();
     }, [toasts, clearTimer]);
+
+    /**
+     * Start auto-dismiss timer for a toast
+     */
+    const startTimer = useCallback((toast: Toast) => {
+        if (toast.duration === 0) return; // No auto-dismiss
+
+        const timer = setTimeout(() => {
+            dismiss(toast.id);
+        }, toast.duration);
+
+        timersRef.current.set(toast.id, timer);
+    }, [dismiss]);
 
     /**
      * Dismiss all toasts
@@ -165,9 +165,10 @@ export function useToast(): UseToastReturn {
      * Cleanup timers on unmount
      */
     useEffect(() => {
+        const timers = timersRef.current;
         return () => {
-            timersRef.current.forEach(timer => clearTimeout(timer));
-            timersRef.current.clear();
+            timers.forEach(timer => clearTimeout(timer));
+            timers.clear();
         };
     }, []);
 

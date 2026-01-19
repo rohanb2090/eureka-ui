@@ -1,5 +1,5 @@
 
-import { useToast, ToastPosition, ToastConfig } from '../../headless/Toast';
+import { useToast, ToastPosition } from '../../headless/Toast';
 import { cn } from '../../utils/cn';
 
 export interface ToastProviderProps {
@@ -130,6 +130,4 @@ export function ToastProvider({ position = 'bottom-right', children }: ToastProv
     );
 }
 
-// Hook export for convenience
-export { useToast } from '../../headless/Toast';
-export type { ToastConfig };
+
