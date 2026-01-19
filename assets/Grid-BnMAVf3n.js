@@ -1,4 +1,4 @@
-import{j as e}from"./jsx-runtime-BYYWji4R.js";import{useMDXComponents as i}from"./index-DUy19JZU.js";import{M as s}from"./index-B7wtgG-K.js";import"./index-ClcD9ViR.js";import"./_commonjsHelpers-Cpj98o6Y.js";import"./iframe-D_9O1rJG.js";import"./index-BUAr5TKG.js";import"./index-Bhelpi4i.js";import"./index-DrFu-skq.js";function n(t){const r={code:"code",h1:"h1",h2:"h2",li:"li",p:"p",pre:"pre",strong:"strong",ul:"ul",...i(),...t.components};return e.jsxs(e.Fragment,{children:[e.jsx(s,{title:"Foundations/Grid System"}),`
+import{j as e}from"./jsx-runtime-BYYWji4R.js";import{useMDXComponents as i}from"./index-DUy19JZU.js";import{M as s}from"./index-ClYKjpSI.js";import"./index-ClcD9ViR.js";import"./_commonjsHelpers-Cpj98o6Y.js";import"./iframe-D9YPhaQm.js";import"./index-BUAr5TKG.js";import"./index-Bhelpi4i.js";import"./index-DrFu-skq.js";function n(t){const r={code:"code",h1:"h1",h2:"h2",li:"li",p:"p",pre:"pre",strong:"strong",ul:"ul",...i(),...t.components};return e.jsxs(e.Fragment,{children:[e.jsx(s,{title:"Foundations/Grid System"}),`
 `,e.jsx(r.h1,{id:"grid-system",children:"Grid System"}),`
 `,e.jsxs(r.p,{children:["We use a standard ",e.jsx(r.strong,{children:"12-column grid system"})," to organize content. It's built on top of CSS Grid and Flexbox, fully responsive and fluid."]}),`
 `,e.jsx(r.h2,{id:"columns",children:"Columns"}),`
@@ -11,6 +11,8 @@ import{j as e}from"./jsx-runtime-BYYWji4R.js";import{useMDXComponents as i}from"
 `,e.jsxs(r.li,{children:[e.jsx(r.code,{children:"gap-6"})," (24px) is the default layout gap."]}),`
 `,e.jsxs(r.li,{children:[e.jsx(r.code,{children:"gap-8"})," (32px) is used for major section separation."]}),`
 `]}),`
+`,e.jsx("br",{}),`
+`,e.jsx("br",{}),`
 `,e.jsx(r.h2,{id:"breakpoints",children:"Breakpoints"}),`
 `,e.jsx(r.p,{children:"Design for mobile first, then scale up using these breakpoints:"}),`
 `,e.jsxs(r.p,{children:[`| Breakpoint | Width | Prefix |
