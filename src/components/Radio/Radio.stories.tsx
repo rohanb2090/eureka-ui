@@ -23,8 +23,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
-        name: "example"
-    } as any,
+        name: "example",
+        children: null
+    },
     render: (args) => (
         <RadioGroup {...args}>
             <label className="flex items-center gap-2">
@@ -46,8 +47,9 @@ export const Default: Story = {
 export const DefaultSelected: Story = {
     args: {
         name: "example2",
-        defaultValue: "option2"
-    } as any,
+        defaultValue: "option2",
+        children: null
+    },
     render: (args) => (
         <RadioGroup {...args}>
             <label className="flex items-center gap-2">
@@ -69,8 +71,9 @@ export const DefaultSelected: Story = {
 export const Disabled: Story = {
     args: {
         name: "example3",
-        isDisabled: true
-    } as any,
+        isDisabled: true,
+        children: null
+    },
     render: (args) => (
         <RadioGroup {...args}>
             <label className="flex items-center gap-2">

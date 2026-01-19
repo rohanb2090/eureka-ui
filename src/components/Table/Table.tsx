@@ -67,7 +67,7 @@ export function Table<T extends TableRow = TableRow>({
                             return (
                                 <th
                                     key={column.id}
-                                    {...(headerProps as any)}
+                                    {...headerProps}
                                     style={{ width: column.width }}
                                     className={cn(
                                         'px-[var(--spacing-md)] py-[var(--spacing-sm)]',
@@ -116,7 +116,7 @@ export function Table<T extends TableRow = TableRow>({
                                         key={column.id}
                                         className="px-[var(--spacing-md)] py-[var(--spacing-sm)]"
                                     >
-                                        {column.render ? column.render(row) : row[column.id]}
+                                        {column.render ? column.render(row) : (row[column.id] as ReactNode)}
                                     </td>
                                 ))}
                             </tr>

@@ -1,7 +1,7 @@
 /**
  * Table row data (generic)
  */
-export type TableRow = Record<string, any>;
+export type TableRow = Record<string, unknown>;
 
 /**
  * Sort direction
@@ -48,7 +48,7 @@ export interface UseTableProps<T extends TableRow = TableRow> {
     onSelectionChange?: (selectedIds: Set<string>) => void;
 
     /** Function to get row ID */
-    getRowId?: (row: T) => string;
+    getRowId?: (row: T, index: number) => string;
 
     // Accessibility
     /** Table caption */

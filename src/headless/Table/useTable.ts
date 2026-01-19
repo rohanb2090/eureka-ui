@@ -29,7 +29,7 @@ export function useTable<T extends TableRow = TableRow>(
         onSort,
         selectedRowIds: controlledSelectedIds,
         onSelectionChange,
-        getRowId = (_row: any, index: any) => String(index),
+        getRowId = (_row: T, index: number) => String(index),
 
         'aria-label': ariaLabel,
         'aria-labelledby': ariaLabelledby,
