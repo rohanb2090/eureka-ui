@@ -59,6 +59,9 @@ module.exports = {
             opacity: {
                 disabled: 'var(--opacity-disabled)',
             },
+            fontFamily: {
+                sans: ['"IBM Plex Sans"', 'sans-serif'],
+            },
         },
     },
     plugins: [],
