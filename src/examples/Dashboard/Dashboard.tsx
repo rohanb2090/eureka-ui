@@ -5,6 +5,7 @@ import { BarChart } from '../../components/BarChart';
 import { Table } from '../../components/Table';
 import { Skeleton } from '../../components/Skeleton';
 import { ToastProvider, useToast } from '../../components/Toast';
+import { useElementSize } from '../../hooks/useElementSize';
 
 // Mock Data
 const REVENUE_DATA = [
@@ -40,6 +41,8 @@ const COLUMNS = [
 
 const DashboardContent = ({ isLoading = false }: { isLoading?: boolean }) => {
     const { show } = useToast();
+    const [revenueRef, { width: revenueWidth }] = useElementSize();
+    const [salesRef, { width: salesWidth }] = useElementSize();
 
     if (isLoading) {
         return (
@@ -63,25 +66,25 @@ const DashboardContent = ({ isLoading = false }: { isLoading?: boolean }) => {
     }
 
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
+        <div className="min-h-screen bg-bg-page text-text-primary transition-colors duration-200">
             {/* Top Navigation */}
-            <header className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-8 py-4 flex justify-between items-center sticky top-0 z-10">
+            <header className="bg-bg-surface border-b border-border-subtle px-4 md:px-8 py-4 flex justify-between items-center sticky top-0 z-10 transition-colors duration-200">
                 <div className="flex items-center gap-4">
-                    <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">E</div>
-                    <h1 className="text-xl font-bold text-slate-900 dark:text-white">Eureka Dashboard</h1>
+                    <div className="w-8 h-8 bg-action-primary rounded-lg flex items-center justify-center text-action-text-on-primary font-bold">E</div>
+                    <h1 className="text-lg md:text-xl font-bold text-text-primary">Eureka Dashboard</h1>
                 </div>
                 <div className="flex items-center gap-4">
                     <Button variant="ghost" onClick={() => show({ message: 'Notifications cleared', severity: 'info' })}>
                         Notifications
                     </Button>
-                    <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
+                    <div className="w-8 h-8 rounded-full bg-bg-subtle border border-border-default" />
                 </div>
             </header>
 
-            <main className="p-8 max-w-7xl mx-auto space-y-8">
+            <main className="p-4 md:p-8 max-w-7xl mx-auto space-y-8">
                 {/* Stats Row */}
-                <div className="flex justify-between items-center">
-                    <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Overview</h2>
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <h2 className="text-2xl font-bold text-text-primary">Overview</h2>
                     <Button onClick={() => show({ message: 'Report downloaded successfully', severity: 'success' })}>
                         Download Report
                     </Button>
@@ -96,9 +99,9 @@ const DashboardContent = ({ isLoading = false }: { isLoading?: boolean }) => {
                     ].map((stat, i) => (
                         <Surface key={i} className="p-6">
                             <div className="flex flex-col gap-2">
-                                <span className="text-sm font-medium text-slate-500 dark:text-slate-400">{stat.label}</span>
-                                <span className="text-2xl font-bold text-slate-900 dark:text-white">{stat.value}</span>
-                                <span className="text-xs text-green-600 font-medium">{stat.change} from last month</span>
+                                <span className="text-sm font-medium text-text-secondary">{stat.label}</span>
+                                <span className="text-2xl font-bold text-text-primary">{stat.value}</span>
+                                <span className="text-xs text-status-success font-medium">{stat.change} from last month</span>
                             </div>
                         </Surface>
                     ))}
@@ -107,15 +110,19 @@ const DashboardContent = ({ isLoading = false }: { isLoading?: boolean }) => {
                 {/* Charts Row */}
                 <div className="grid grid-cols-1 lg:grid-cols-7 gap-6">
                     <Surface className="lg:col-span-4 p-6 flex flex-col gap-4">
-                        <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">Revenue Over Time</h3>
-                        <div className="h-[300px] w-full">
-                            <AreaChart data={REVENUE_DATA} />
+                        <h3 className="text-lg font-semibold text-text-primary mb-4">Revenue Over Time</h3>
+                        <div ref={revenueRef} className="h-[300px] w-full">
+                            {revenueWidth > 0 && (
+                                <AreaChart data={REVENUE_DATA} width={revenueWidth} height={300} />
+                            )}
                         </div>
                     </Surface>
                     <Surface className="lg:col-span-3 p-6 flex flex-col gap-4">
-                        <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">Sales by Category</h3>
-                        <div className="h-[300px] w-full">
-                            <BarChart data={SALES_DATA} />
+                        <h3 className="text-lg font-semibold text-text-primary mb-4">Sales by Category</h3>
+                        <div ref={salesRef} className="h-[300px] w-full">
+                            {salesWidth > 0 && (
+                                <BarChart data={SALES_DATA} width={salesWidth} height={300} />
+                            )}
                         </div>
                     </Surface>
                 </div>
@@ -123,10 +130,12 @@ const DashboardContent = ({ isLoading = false }: { isLoading?: boolean }) => {
                 {/* Recent Transactions */}
                 <Surface className="p-6">
                     <div className="flex justify-between items-center mb-6">
-                        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Recent Transactions</h3>
+                        <h3 className="text-lg font-semibold text-text-primary">Recent Transactions</h3>
                         <Button variant="secondary" size="sm">View All</Button>
                     </div>
-                    <Table data={RECENT_TRANSACTIONS} columns={COLUMNS} />
+                    <div className="w-full overflow-hidden">
+                        <Table data={RECENT_TRANSACTIONS} columns={COLUMNS} />
+                    </div>
                 </Surface>
             </main>
         </div>
