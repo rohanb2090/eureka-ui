@@ -67,7 +67,7 @@ export function Table<T extends TableRow = TableRow>({
                             return (
                                 <th
                                     key={column.id}
-                                    {...headerProps}
+                                    {...(headerProps as any)}
                                     style={{ width: column.width }}
                                     className={cn(
                                         'px-[var(--spacing-md)] py-[var(--spacing-sm)]',

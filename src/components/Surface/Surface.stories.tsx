@@ -79,6 +79,9 @@ export const LargePadding: Story = {
 };
 
 export const ComplexCard: Story = {
+    args: {
+        children: null
+    },
     render: () => (
         <Card variant="card" padding="lg" className="max-w-md">
             <h3 className="text-lg font-semibold mb-2">Card Title</h3>
@@ -86,7 +89,7 @@ export const ComplexCard: Story = {
                 This is a more complex card example with multiple content sections.
             </p>
             <div className="flex gap-2">
-                <button className="px-4 py-2 bg-[var(--action-primary)] text-[var(--text-inverse)] rounded">
+                <button className="px-4 py-2 bg-[var(--action-primary)] text-[var(--action-text-on-primary)] rounded">
                     Action
                 </button>
                 <button className="px-4 py-2 border border-[var(--border-default)] rounded">

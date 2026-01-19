@@ -94,7 +94,7 @@ export interface UseTableReturn<T extends TableRow = TableRow> {
     };
 
     /** Get props for a row */
-    getRowProps: (row: T) => {
+    getRowProps: (row: T, index: number) => {
         role: 'row';
         'aria-selected'?: boolean;
         onClick?: () => void;
@@ -109,7 +109,7 @@ export interface UseTableReturn<T extends TableRow = TableRow> {
     };
 
     /** Get props for row selection checkbox */
-    getRowSelectProps: (row: T) => {
+    getRowSelectProps: (row: T, index: number) => {
         checked: boolean;
         onChange: () => void;
         'aria-label': string;
