@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+
 import { useToast, ToastPosition, ToastConfig } from '../../headless/Toast';
 import { cn } from '../../utils/cn';
 

@@ -42,7 +42,7 @@ function generateToastId(): string {
  */
 export function useToast(): UseToastReturn {
     const [toasts, setToasts] = useState<Toast[]>([]);
-    const timersRef = useRef<Map<string, NodeJS.Timeout>>(new Map());
+    const timersRef = useRef<Map<string, ReturnType<typeof setTimeout>>>(new Map());
 
     /**
      * Start auto-dismiss timer for a toast
@@ -100,7 +100,6 @@ export function useToast(): UseToastReturn {
         const duration = config.duration !== undefined ? config.duration : DEFAULT_DURATIONS[severity];
 
         // Deduplication: check if identical message exists within 2 seconds
-        const now = Date.now();
         const recentDuplicate = toasts.find(t =>
             t.message === config.message &&
             t.severity === severity
@@ -175,7 +174,7 @@ export function useToast(): UseToastReturn {
     /**
      * Get props for toast container
      */
-    const getContainerProps = useCallback((position: ToastPosition = 'bottom-right') => {
+    const getContainerProps = useCallback((_position: ToastPosition = 'bottom-right') => {
         return {
             role: 'region' as const,
             'aria-live': 'polite' as const,

@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo, KeyboardEvent } from 'react';
+import { useState, useCallback, useMemo, KeyboardEvent as ReactKeyboardEvent } from 'react';
 import { UseTableProps, UseTableReturn, TableRow, SortDirection } from './Table.types';
 
 /**
@@ -29,8 +29,8 @@ export function useTable<T extends TableRow = TableRow>(
         onSort,
         selectedRowIds: controlledSelectedIds,
         onSelectionChange,
-        getRowId = (row, index) => String(index),
-        caption,
+        getRowId = (_row: any, index: any) => String(index),
+
         'aria-label': ariaLabel,
         'aria-labelledby': ariaLabelledby,
     } = props;
@@ -152,7 +152,7 @@ export function useTable<T extends TableRow = TableRow>(
             props.onClick = () => handleSort(columnId);
 
             // Keyboard handler (Enter/Space)
-            props.onKeyDown = (e: KeyboardEvent) => {
+            props.onKeyDown = (e: ReactKeyboardEvent) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
                     handleSort(columnId);
@@ -174,7 +174,7 @@ export function useTable<T extends TableRow = TableRow>(
         const isSelected = selectedRowIds.has(rowId);
 
         return {
-            role: 'row',
+            role: 'row' as const,
             ...(isSelected && { 'aria-selected': true }),
             onClick: () => toggleRowSelection(rowId),
         };

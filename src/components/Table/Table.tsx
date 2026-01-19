@@ -93,7 +93,6 @@ export function Table<T extends TableRow = TableRow>({
                 {/* Body */}
                 <tbody {...bodyProps}>
                     {data.map((row, rowIndex) => {
-                        const rowProps = getRowProps(row, rowIndex);
                         const isSelected = state.selectedRowIds.has(String(rowIndex));
 
                         return (

@@ -83,7 +83,7 @@ export function useRadio(props: UseRadioProps): UseRadioReturn {
             disabled: isDisabled,
             readOnly: isReadOnly,
             required: isRequired,
-            name,
+            name: name || '',
             id,
 
             // ARIA attributes
@@ -161,7 +161,6 @@ export function useRadioGroup(props: UseRadioGroupProps): UseRadioGroupReturn {
                 }
 
                 onChange?.(value);
-                radioProps.onChange?.(value, e);
             },
         };
     }, [name, currentValue, isDisabled, isRequired, controlledValue, onChange]);

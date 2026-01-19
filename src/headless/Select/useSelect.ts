@@ -1,5 +1,5 @@
 import { useState, useCallback, useMemo, ChangeEvent, FocusEvent } from 'react';
-import { UseSelectProps, UseSelectReturn, SelectOption } from './Select.types';
+import { UseSelectProps, UseSelectReturn } from './Select.types';
 
 /**
  * Headless select hook
@@ -27,7 +27,6 @@ export function useSelect(props: UseSelectProps): UseSelectReturn {
         onChange,
         onFocus: onFocusProp,
         onBlur: onBlurProp,
-        placeholder,
         name,
         id,
         'aria-label': ariaLabel,

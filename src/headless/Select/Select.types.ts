@@ -1,4 +1,4 @@
-import { ChangeEvent, FocusEvent, KeyboardEvent, MouseEvent } from 'react';
+import { ChangeEvent, FocusEvent } from 'react';
 
 /**
  * Option in a select dropdown

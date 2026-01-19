@@ -1,4 +1,4 @@
-import { useState, useCallback, ChangeEvent, FocusEvent, KeyboardEvent } from 'react';
+import { useState, useCallback, ChangeEvent, FocusEvent } from 'react';
 import { UseInputProps, UseInputReturn } from './Input.types';
 
 /**
