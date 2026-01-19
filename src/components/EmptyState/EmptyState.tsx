@@ -33,7 +33,6 @@ export interface EmptyStateProps {
 }
 
 export function EmptyState({
-    type = 'no-data',
     icon,
     title,
     description,

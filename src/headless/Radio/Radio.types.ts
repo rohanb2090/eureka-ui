@@ -45,7 +45,7 @@ export interface UseRadioProps {
 
     // Behavior
     /** Radio name attribute (required for grouping) */
-    name: string;
+    name?: string;
 
     /** Radio ID */
     id?: string;
