@@ -1,0 +1,31 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Foundations/Motion" />
+
+# Motion
+
+Values for transitions and animations.
+
+## Duration
+
+| Token | Value | Usage |
+| :--- | :--- | :--- |
+| `duration-75` | 75ms | Micro-interactions |
+| `duration-100` | 100ms | Simple hover effects |
+| `duration-200` | 200ms | Standard transitions |
+| `duration-300` | 300ms | Larger movements |
+| `duration-500` | 500ms | Modal entry / exit |
+
+## Easing
+
+| Class | Value | Usage |
+| :--- | :--- | :--- |
+| `ease-linear` | linear | Color changes |
+| `ease-in` | cubic-bezier(0.4, 0, 1, 1) | Exits |
+| `ease-out` | cubic-bezier(0, 0, 0.2, 1) | Entries |
+| `ease-in-out` | cubic-bezier(0.4, 0, 0.2, 1) | General movement |
+
+## Usage
+```tsx
+<div className="transition-all duration-200 ease-in-out hover:bg-bg-subtle" />
+```
