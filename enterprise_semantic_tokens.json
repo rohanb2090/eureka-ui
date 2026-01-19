@@ -1,0 +1,86 @@
+{
+    "theme": {
+        "light": {
+            "bg": {
+                "page": "color.neutral.50",
+                "surface": "color.neutral.0",
+                "subtle": "color.neutral.100",
+                "elevated": "color.neutral.0",
+                "overlay": "color.neutral.overlay"
+            },
+            "text": {
+                "primary": "color.neutral.900",
+                "secondary": "color.neutral.700",
+                "muted": "color.neutral.600",
+                "inverse": "color.neutral.0",
+                "disabled": "color.neutral.500"
+            },
+            "border": {
+                "default": "color.neutral.300",
+                "subtle": "color.neutral.200",
+                "strong": "color.neutral.400",
+                "focus": "color.primary.500"
+            },
+            "interactive": {
+                "action": {
+                    "primary": "color.primary.600",
+                    "primaryHover": "color.primary.700",
+                    "primaryActive": "color.primary.800",
+                    "secondary": "color.neutral.0",
+                    "destructive": "color.error.500"
+                }
+            },
+            "status": {
+                "success": "color.success.500",
+                "warning": "color.warning.500",
+                "error": "color.error.500",
+                "info": "color.info.500"
+            },
+            "data": {
+                "categorical": "color.dataviz.categorical",
+                "sequential": "color.dataviz.sequential"
+            }
+        },
+        "dark": {
+            "bg": {
+                "page": "color.neutral.900",
+                "surface": "color.neutral.800",
+                "subtle": "color.neutral.900",
+                "elevated": "color.neutral.700",
+                "overlay": "color.neutral.overlay"
+            },
+            "text": {
+                "primary": "color.neutral.50",
+                "secondary": "color.neutral.300",
+                "muted": "color.neutral.500",
+                "inverse": "color.neutral.900",
+                "disabled": "color.neutral.600"
+            },
+            "border": {
+                "default": "color.neutral.600",
+                "subtle": "color.neutral.700",
+                "strong": "color.neutral.500",
+                "focus": "color.primary.400"
+            },
+            "interactive": {
+                "action": {
+                    "primary": "color.primary.400",
+                    "primaryHover": "color.primary.300",
+                    "primaryActive": "color.primary.200",
+                    "secondary": "color.neutral.800",
+                    "destructive": "color.error.900"
+                }
+            },
+            "status": {
+                "success": "color.success.500",
+                "warning": "color.warning.500",
+                "error": "color.error.500",
+                "info": "color.info.500"
+            },
+            "data": {
+                "categorical": "color.dataviz.categorical",
+                "sequential": "color.dataviz.sequential"
+            }
+        }
+    }
+}

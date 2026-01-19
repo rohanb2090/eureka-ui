@@ -1,0 +1,71 @@
+{
+  "cssVariables": ":root {\n  --bg-page: #F8F9FA;\n  --bg-surface: #FFFFFF;\n  --bg-subtle: #F1F3F5;\n  --bg-elevated: #FFFFFF;\n  --bg-overlay: rgba(33, 37, 41, 0.4);\n  --text-primary: #212529;\n  --text-secondary: #495057;\n  --text-muted: #868E96;\n  --text-inverse: #FFFFFF;\n  --text-disabled: #ADB5BD;\n  --border-default: #DEE2E6;\n  --border-subtle: #E9ECEF;\n  --border-strong: #CED4DA;\n  --border-focus: #339AF0;\n  --interactive-action-primary: #228BE6;\n  --interactive-action-primaryHover: #1C7ED6;\n  --interactive-action-primaryActive: #1971C2;\n  --interactive-action-secondary: #FFFFFF;\n  --interactive-action-destructive: #FA5252;\n  --status-success: #40C057;\n  --status-warning: #FCC419;\n  --status-error: #FA5252;\n  --status-info: #339AF0;\n}\n\n@media (prefers-color-scheme: dark) {\n  :root {\n    --bg-page: #212529;\n    --bg-surface: #343A40;\n    --bg-subtle: #212529;\n    --bg-elevated: #495057;\n    --bg-overlay: rgba(33, 37, 41, 0.4);\n    --text-primary: #F8F9FA;\n    --text-secondary: #DEE2E6;\n    --text-muted: #ADB5BD;\n    --text-inverse: #212529;\n    --text-disabled: #868E96;\n    --border-default: #868E96;\n    --border-subtle: #495057;\n    --border-strong: #ADB5BD;\n    --border-focus: #4DABF7;\n    --interactive-action-primary: #4DABF7;\n    --interactive-action-primaryHover: #74C0FC;\n    --interactive-action-primaryActive: #A5D8FF;\n    --interactive-action-secondary: #343A40;\n    --interactive-action-destructive: #C92A2A;\n    --status-success: #40C057;\n    --status-warning: #FCC419;\n    --status-error: #FA5252;\n    --status-info: #339AF0;\n  }\n}",
+  "tailwindConfig": {
+    "theme": {
+      "extend": {
+        "backgroundColor": {
+          "page": "var(--bg-page)",
+          "surface": "var(--bg-surface)",
+          "subtle": "var(--bg-subtle)",
+          "elevated": "var(--bg-elevated)",
+          "overlay": "var(--bg-overlay)",
+          "action-primary": "var(--interactive-action-primary)",
+          "action-primaryHover": "var(--interactive-action-primaryHover)",
+          "action-primaryActive": "var(--interactive-action-primaryActive)",
+          "action-secondary": "var(--interactive-action-secondary)",
+          "action-destructive": "var(--interactive-action-destructive)",
+          "success": "var(--status-success)",
+          "warning": "var(--status-warning)",
+          "error": "var(--status-error)",
+          "info": "var(--status-info)"
+        },
+        "textColor": {
+          "primary": "var(--text-primary)",
+          "secondary": "var(--text-secondary)",
+          "muted": "var(--text-muted)",
+          "inverse": "var(--text-inverse)",
+          "disabled": "var(--text-disabled)",
+          "action-primary": "var(--interactive-action-primary)",
+          "action-primaryHover": "var(--interactive-action-primaryHover)",
+          "action-primaryActive": "var(--interactive-action-primaryActive)",
+          "action-secondary": "var(--interactive-action-secondary)",
+          "action-destructive": "var(--interactive-action-destructive)",
+          "success": "var(--status-success)",
+          "warning": "var(--status-warning)",
+          "error": "var(--status-error)",
+          "info": "var(--status-info)"
+        },
+        "borderColor": {
+          "default": "var(--border-default)",
+          "subtle": "var(--border-subtle)",
+          "strong": "var(--border-strong)",
+          "focus": "var(--border-focus)",
+          "action-primary": "var(--interactive-action-primary)",
+          "action-primaryHover": "var(--interactive-action-primaryHover)",
+          "action-primaryActive": "var(--interactive-action-primaryActive)",
+          "action-secondary": "var(--interactive-action-secondary)",
+          "action-destructive": "var(--interactive-action-destructive)",
+          "success": "var(--status-success)",
+          "warning": "var(--status-warning)",
+          "error": "var(--status-error)",
+          "info": "var(--status-info)"
+        },
+        "ringColor": {
+          "default": "var(--border-default)",
+          "subtle": "var(--border-subtle)",
+          "strong": "var(--border-strong)",
+          "focus": "var(--border-focus)",
+          "action-primary": "var(--interactive-action-primary)",
+          "action-primaryHover": "var(--interactive-action-primaryHover)",
+          "action-primaryActive": "var(--interactive-action-primaryActive)",
+          "action-secondary": "var(--interactive-action-secondary)",
+          "action-destructive": "var(--interactive-action-destructive)",
+          "success": "var(--status-success)",
+          "warning": "var(--status-warning)",
+          "error": "var(--status-error)",
+          "info": "var(--status-info)"
+        }
+      }
+    }
+  }
+}

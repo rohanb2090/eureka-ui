@@ -1,0 +1,337 @@
+{
+    "_comment": "Enterprise Design Token System - Primitive Level",
+    "meta": {
+        "description": "A strict, accessible, and high-density design token system for financial, healthcare, and operations dashboards.",
+        "version": "1.0.0",
+        "baseFontSize": "14px"
+    },
+    "color": {
+        "_comment": "Neutral scale optimized for long-duration usage, minimizing eye strain. High contrast for text accessibility.",
+        "neutral": {
+            "0": {
+                "value": "#FFFFFF",
+                "comment": "Surface base, Cards"
+            },
+            "50": {
+                "value": "#F8F9FA",
+                "comment": "Page background, subtle wash"
+            },
+            "100": {
+                "value": "#F1F3F5",
+                "comment": "Hover states, table headers"
+            },
+            "200": {
+                "value": "#E9ECEF",
+                "comment": "Dividers, light borders"
+            },
+            "300": {
+                "value": "#DEE2E6",
+                "comment": "Input borders, disabled states"
+            },
+            "400": {
+                "value": "#CED4DA",
+                "comment": "Icons, secondary borders"
+            },
+            "500": {
+                "value": "#ADB5BD",
+                "comment": "Disabled text, placeholders"
+            },
+            "600": {
+                "value": "#868E96",
+                "comment": "Tertiary text, metadata"
+            },
+            "700": {
+                "value": "#495057",
+                "comment": "Secondary text, labels"
+            },
+            "800": {
+                "value": "#343A40",
+                "comment": "Primary text, headings"
+            },
+            "900": {
+                "value": "#212529",
+                "comment": "High contrast text"
+            },
+            "1000": {
+                "value": "#000000",
+                "comment": "Pure black (use sparingly)"
+            },
+            "overlay": {
+                "value": "rgba(33, 37, 41, 0.4)",
+                "comment": "Modal backdrops"
+            }
+        },
+        "primary": {
+            "_comment": "Calm, trustworthy blue for financial/healthcare context. Accessible against white.",
+            "50": {
+                "value": "#E7F5FF"
+            },
+            "100": {
+                "value": "#D0EBFF"
+            },
+            "200": {
+                "value": "#A5D8FF"
+            },
+            "300": {
+                "value": "#74C0FC"
+            },
+            "400": {
+                "value": "#4DABF7"
+            },
+            "500": {
+                "value": "#339AF0",
+                "comment": "Base brand color"
+            },
+            "600": {
+                "value": "#228BE6",
+                "comment": "Hover state"
+            },
+            "700": {
+                "value": "#1C7ED6",
+                "comment": "Active state"
+            },
+            "800": {
+                "value": "#1971C2"
+            },
+            "900": {
+                "value": "#1864AB"
+            }
+        },
+        "success": {
+            "_comment": "For positive trends, completion, safe states.",
+            "50": {
+                "value": "#EBFBEE"
+            },
+            "500": {
+                "value": "#40C057"
+            },
+            "900": {
+                "value": "#2B8A3E",
+                "comment": "WCAG AA accessible on light bg"
+            }
+        },
+        "warning": {
+            "_comment": "For alerts, required actions, evolving states.",
+            "50": {
+                "value": "#FFF9DB"
+            },
+            "500": {
+                "value": "#FCC419"
+            },
+            "900": {
+                "value": "#E67700",
+                "comment": "WCAG AA accessible on light bg"
+            }
+        },
+        "error": {
+            "_comment": "For critical failures, negative trends, deletions.",
+            "50": {
+                "value": "#FFF5F5"
+            },
+            "500": {
+                "value": "#FA5252"
+            },
+            "900": {
+                "value": "#C92A2A",
+                "comment": "WCAG AA accessible on light bg"
+            }
+        },
+        "info": {
+            "_comment": "For neutral system messages and guidance.",
+            "50": {
+                "value": "#E7F5FF"
+            },
+            "500": {
+                "value": "#339AF0"
+            },
+            "900": {
+                "value": "#1864AB",
+                "comment": "WCAG AA accessible on light bg"
+            }
+        },
+        "dataviz": {
+            "_comment": "Dataviz colors are ONLY for charts and visualizations. Never use for UI states or surfaces. Distinct palette for charts/graphs, distinguishable by color blindness.",
+            "categorical": [
+                {
+                    "name": "blue",
+                    "value": "#339AF0"
+                },
+                {
+                    "name": "cyan",
+                    "value": "#22B8CF"
+                },
+                {
+                    "name": "teal",
+                    "value": "#20C997"
+                },
+                {
+                    "name": "green",
+                    "value": "#51CF66"
+                },
+                {
+                    "name": "lime",
+                    "value": "#94D82D"
+                },
+                {
+                    "name": "yellow",
+                    "value": "#FCC419"
+                },
+                {
+                    "name": "orange",
+                    "value": "#FF922B"
+                },
+                {
+                    "name": "red",
+                    "value": "#FF6B6B"
+                },
+                {
+                    "name": "pink",
+                    "value": "#F06595"
+                },
+                {
+                    "name": "violet",
+                    "value": "#845EF7"
+                }
+            ],
+            "sequential": {
+                "start": "#E7F5FF",
+                "end": "#1864AB"
+            }
+        }
+    },
+    "typography": {
+        "_comment": "Inter or system fonts preferred. Base 14px for high information density.",
+        "family": {
+            "sans": "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+            "mono": "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
+        },
+        "size": {
+            "xs": {
+                "value": "11px",
+                "rem": "0.785rem",
+                "comment": "Labels, tiny metadata"
+            },
+            "sm": {
+                "value": "12px",
+                "rem": "0.857rem",
+                "comment": "Secondary text, table dense mode"
+            },
+            "base": {
+                "value": "14px",
+                "rem": "1rem",
+                "comment": "Body text, standard table cells, inputs"
+            },
+            "lg": {
+                "value": "16px",
+                "rem": "1.143rem",
+                "comment": "Section headers, key stats"
+            },
+            "xl": {
+                "value": "20px",
+                "rem": "1.428rem",
+                "comment": "Page titles"
+            },
+            "2xl": {
+                "value": "24px",
+                "rem": "1.714rem",
+                "comment": "Dashboard main assertions"
+            }
+        },
+        "weight": {
+            "regular": 400,
+            "medium": 500,
+            "semibold": 600
+        },
+        "lineHeight": {
+            "tight": 1.2,
+            "base": 1.5,
+            "loose": 1.75
+        }
+    },
+    "spacing": {
+        "_comment": "Strict 4px scale for precise alignment in dense layouts.",
+        "0": {
+            "value": "0px"
+        },
+        "xs": {
+            "value": "4px",
+            "comment": "Extra tight"
+        },
+        "sm": {
+            "value": "8px",
+            "comment": "Tight, related items"
+        },
+        "md": {
+            "value": "12px",
+            "comment": "Base spacing"
+        },
+        "lg": {
+            "value": "16px",
+            "comment": "Component padding"
+        },
+        "xl": {
+            "value": "24px",
+            "comment": "Section gap"
+        },
+        "2xl": {
+            "value": "32px",
+            "comment": "Container padding"
+        },
+        "3xl": {
+            "value": "48px"
+        },
+        "4xl": {
+            "value": "64px"
+        }
+    },
+    "radius": {
+        "_comment": "Subtle radii to reduce visual noise while maintaining modern feel.",
+        "none": {
+            "value": "0px"
+        },
+        "sm": {
+            "value": "2px",
+            "comment": "Checkboxes, tags, tight containers"
+        },
+        "md": {
+            "value": "4px",
+            "comment": "Buttons, inputs, cards"
+        },
+        "pill": {
+            "value": "9999px",
+            "comment": "Status badges only"
+        }
+    },
+    "elevation": {
+        "_comment": "Used sparingly. Flat design preferred for density.",
+        "none": {
+            "value": "none"
+        },
+        "sm": {
+            "value": "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+            "comment": "Subtle borders/cards"
+        },
+        "md": {
+            "value": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+            "comment": "Dropdowns, popovers"
+        },
+        "lg": {
+            "value": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+            "comment": "Modals, floating actions"
+        }
+    },
+    "system": {
+        "z_index": {
+            "dropdown": 1000,
+            "sticky": 1100,
+            "fixed": 1200,
+            "modal": 1300,
+            "popover": 1400,
+            "tooltip": 1500
+        },
+        "opacity": {
+            "disabled": 0.5,
+            "interactive_hover": 0.9
+        }
+    }
+}
