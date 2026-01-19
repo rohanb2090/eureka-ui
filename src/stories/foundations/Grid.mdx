@@ -1,0 +1,65 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Foundations/Grid System" />
+
+# Grid System
+
+We use a standard **12-column grid system** to organize content. It's built on top of CSS Grid and Flexbox, fully responsive and fluid.
+
+## Columns
+
+The grid is divided into 12 vertical columns. You can span content across any number of columns.
+
+<div className="grid grid-cols-12 gap-4 p-4 bg-bg-subtle rounded-lg mb-8">
+  <div className="col-span-1 bg-action-primary/20 border border-action-primary text-action-primary text-center py-2 text-xs rounded">1</div>
+  <div className="col-span-1 bg-action-primary/20 border border-action-primary text-action-primary text-center py-2 text-xs rounded">1</div>
+  <div className="col-span-1 bg-action-primary/20 border border-action-primary text-action-primary text-center py-2 text-xs rounded">1</div>
+  <div className="col-span-1 bg-action-primary/20 border border-action-primary text-action-primary text-center py-2 text-xs rounded">1</div>
+  <div className="col-span-1 bg-action-primary/20 border border-action-primary text-action-primary text-center py-2 text-xs rounded">1</div>
+  <div className="col-span-1 bg-action-primary/20 border border-action-primary text-action-primary text-center py-2 text-xs rounded">1</div>
+  <div className="col-span-1 bg-action-primary/20 border border-action-primary text-action-primary text-center py-2 text-xs rounded">1</div>
+  <div className="col-span-1 bg-action-primary/20 border border-action-primary text-action-primary text-center py-2 text-xs rounded">1</div>
+  <div className="col-span-1 bg-action-primary/20 border border-action-primary text-action-primary text-center py-2 text-xs rounded">1</div>
+  <div className="col-span-1 bg-action-primary/20 border border-action-primary text-action-primary text-center py-2 text-xs rounded">1</div>
+  <div className="col-span-1 bg-action-primary/20 border border-action-primary text-action-primary text-center py-2 text-xs rounded">1</div>
+  <div className="col-span-1 bg-action-primary/20 border border-action-primary text-action-primary text-center py-2 text-xs rounded">1</div>
+
+  <div className="col-span-4 bg-action-primary/20 border border-action-primary text-action-primary text-center py-2 text-xs rounded">4</div>
+  <div className="col-span-4 bg-action-primary/20 border border-action-primary text-action-primary text-center py-2 text-xs rounded">4</div>
+  <div className="col-span-4 bg-action-primary/20 border border-action-primary text-action-primary text-center py-2 text-xs rounded">4</div>
+
+  <div className="col-span-6 bg-action-primary/20 border border-action-primary text-action-primary text-center py-2 text-xs rounded">6</div>
+  <div className="col-span-6 bg-action-primary/20 border border-action-primary text-action-primary text-center py-2 text-xs rounded">6</div>
+  
+  <div className="col-span-12 bg-action-primary/20 border border-action-primary text-action-primary text-center py-2 text-xs rounded">12</div>
+</div>
+
+## Gaps
+
+We use our spacing scale for gaps between columns and rows.
+
+- `gap-4` (16px) is the default component gap.
+- `gap-6` (24px) is the default layout gap.
+- `gap-8` (32px) is used for major section separation.
+
+## Breakpoints
+
+Design for mobile first, then scale up using these breakpoints:
+
+| Breakpoint | Width | Prefix |
+| :--- | :--- | :--- |
+| **Small** | 640px | `sm:` |
+| **Medium** | 768px | `md:` |
+| **Large** | 1024px | `lg:` |
+| **X-Large** | 1280px | `xl:` |
+| **2X-Large** | 1536px | `2xl:` |
+
+## Container
+
+Use the `container` class to center content and apply horizontal padding.
+
+```tsx
+<div className="container mx-auto px-4">
+  {/* Page Content */}
+</div>
+```
