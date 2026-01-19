@@ -1,0 +1,47 @@
+import{j as a}from"./jsx-runtime-DF2Pcvd1.js";import{r as l}from"./index-B2-qRKKC.js";import{C as L}from"./Checkbox-CJHu7YLk.js";import{a as J}from"./cn-Dj5kSLHa.js";import"./_commonjsHelpers-Cpj98o6Y.js";import"./index-BvxWzTOX.js";function pe(v){const{data:s,columns:c,sortBy:S,sortDirection:R,onSort:h,selectedRowIds:m,onSelectionChange:i,getRowId:p=(r,e)=>String(e),"aria-label":j,"aria-labelledby":C}=v,[z,x]=l.useState(null),[o,u]=l.useState(null),[f,d]=l.useState(new Set),T=S!==void 0?S:z,g=R!==void 0?R:o,n=m!==void 0?m:f,U=l.useCallback(r=>{const e=c.find(b=>b.id===r);if(!(e!=null&&e.isSortable))return;let t="asc";T===r&&(g==="asc"?t="desc":g==="desc"&&(t=null)),S===void 0&&(x(t?r:null),u(t)),h==null||h(r,t)},[c,T,g,S,h]),q=l.useCallback(r=>{const e=new Set(n);e.has(r)?e.delete(r):e.add(r),m===void 0&&d(e),i==null||i(e)},[n,m,i]),F=l.useCallback(()=>{const r=s.map((t,b)=>p(t,b)),e=new Set;n.size===s.length||r.forEach(t=>e.add(t)),m===void 0&&d(e),i==null||i(e)},[s,p,n,m,i]),_=l.useMemo(()=>s.length>0&&n.size===s.length,[s,n]),H=l.useMemo(()=>n.size>0&&n.size<s.length,[s,n]),ie=l.useCallback(r=>{const e=c.find(D=>D.id===r),t=(e==null?void 0:e.isSortable)??!1,b=T===r,y={role:"columnheader"};return t&&(b&&g?y["aria-sort"]=g==="asc"?"ascending":"descending":y["aria-sort"]="none",y.onClick=()=>U(r),y.onKeyDown=D=>{(D.key==="Enter"||D.key===" ")&&(D.preventDefault(),U(r))},y.tabIndex=0),y},[c,T,g,U]),ce=l.useCallback((r,e)=>{const t=p(r,e);return{role:"row",...n.has(t)&&{"aria-selected":!0},onClick:()=>q(t)}},[p,n,q]),de=l.useCallback(()=>({checked:_,indeterminate:H,onChange:F,"aria-label":"Select all rows"}),[_,H,F]),me=l.useCallback((r,e)=>{const t=p(r,e);return{checked:n.has(t),onChange:()=>q(t),"aria-label":`Select row ${e+1}`}},[p,n,q]);return{tableProps:{role:"table",...j&&{"aria-label":j},...C&&{"aria-labelledby":C},...s.length&&{"aria-rowcount":s.length+1},...c.length&&{"aria-colcount":c.length}},headerProps:{role:"rowgroup"},bodyProps:{role:"rowgroup"},getColumnHeaderProps:ie,getRowProps:ce,getSelectAllProps:de,getRowSelectProps:me,state:{sortBy:T,sortDirection:g,selectedRowIds:n,allRowsSelected:_,someRowsSelected:H}}}function le({data:v,columns:s,selectable:c=!1,striped:S=!1,className:R,...h}){const{tableProps:m,headerProps:i,bodyProps:p,getColumnHeaderProps:j,getSelectAllProps:C,getRowSelectProps:z,state:x}=pe({data:v,columns:s,...h});return a.jsxs("div",{className:"w-full overflow-x-auto",children:[a.jsxs("table",{...m,className:J("w-full border-collapse","text-sm text-[var(--text-primary)]",R),children:[a.jsx("thead",{...i,children:a.jsxs("tr",{className:"border-b border-[var(--border-subtle)]",children:[c&&a.jsx("th",{className:"w-12 px-[var(--spacing-md)] py-[var(--spacing-sm)] text-left",children:a.jsx(L,{...C(),size:"sm"})}),s.map(o=>{const u=j(o.id),f=o.isSortable,d=x.sortBy===o.id;return a.jsx("th",{...u,style:{width:o.width},className:J("px-[var(--spacing-md)] py-[var(--spacing-sm)]","text-left font-medium text-[var(--text-secondary)]",f&&"cursor-pointer hover:text-[var(--text-primary)]","select-none"),children:a.jsxs("div",{className:"flex items-center gap-2",children:[o.header,f&&d&&a.jsx("span",{className:"text-xs","aria-hidden":"true",children:x.sortDirection==="asc"?"↑":"↓"})]})},o.id)})]})}),a.jsx("tbody",{...p,children:v.map((o,u)=>{const f=x.selectedRowIds.has(String(u));return a.jsxs("tr",{className:J("border-b border-[var(--border-subtle)]","transition-colors",S&&u%2===1&&"bg-[var(--bg-subtle)]",f&&"bg-blue-50 dark:bg-blue-950","hover:bg-[var(--bg-subtle)]"),children:[c&&a.jsx("td",{className:"px-[var(--spacing-md)] py-[var(--spacing-sm)]",children:a.jsx(L,{...z(o,u),size:"sm"})}),s.map(d=>a.jsx("td",{className:"px-[var(--spacing-md)] py-[var(--spacing-sm)]",children:d.render?d.render(o):o[d.id]},d.id))]},u)})})]}),v.length===0&&a.jsx("div",{className:"py-[var(--spacing-4xl)] text-center text-[var(--text-muted)]",children:"No data available"})]})}le.__docgenInfo={description:"",methods:[],displayName:"Table",props:{data:{required:!0,tsType:{name:"Array",elements:[{name:"T"}],raw:"T[]"},description:"Table rows"},columns:{required:!0,tsType:{name:"Array",elements:[{name:"signature",type:"object",raw:`{
+    id: string;
+    header: string;
+    isSortable?: boolean;
+    render?: (row: T) => ReactNode;
+    width?: string;
+}`,signature:{properties:[{key:"id",value:{name:"string",required:!0}},{key:"header",value:{name:"string",required:!0}},{key:"isSortable",value:{name:"boolean",required:!1}},{key:"render",value:{name:"signature",type:"function",raw:"(row: T) => ReactNode",signature:{arguments:[{type:{name:"T"},name:"row"}],return:{name:"ReactNode"}},required:!1}},{key:"width",value:{name:"string",required:!1}}]}}],raw:`Array<{
+    id: string;
+    header: string;
+    isSortable?: boolean;
+    render?: (row: T) => ReactNode;
+    width?: string;
+}>`},description:"Column definitions"},sortBy:{required:!1,tsType:{name:"string"},description:"Current sort column ID (controlled)"},sortDirection:{required:!1,tsType:{name:"union",raw:"'asc' | 'desc' | null",elements:[{name:"literal",value:"'asc'"},{name:"literal",value:"'desc'"},{name:"null"}]},description:"Current sort direction (controlled)"},onSort:{required:!1,tsType:{name:"signature",type:"function",raw:"(columnId: string, direction: SortDirection) => void",signature:{arguments:[{type:{name:"string"},name:"columnId"},{type:{name:"union",raw:"'asc' | 'desc' | null",elements:[{name:"literal",value:"'asc'"},{name:"literal",value:"'desc'"},{name:"null"}]},name:"direction"}],return:{name:"void"}}},description:"Called when sort changes"},selectedRowIds:{required:!1,tsType:{name:"Set",elements:[{name:"string"}],raw:"Set<string>"},description:"Selected row IDs (controlled)"},onSelectionChange:{required:!1,tsType:{name:"signature",type:"function",raw:"(selectedIds: Set<string>) => void",signature:{arguments:[{type:{name:"Set",elements:[{name:"string"}],raw:"Set<string>"},name:"selectedIds"}],return:{name:"void"}}},description:"Called when selection changes"},getRowId:{required:!1,tsType:{name:"signature",type:"function",raw:"(row: T) => string",signature:{arguments:[{type:{name:"T"},name:"row"}],return:{name:"string"}}},description:"Function to get row ID"},caption:{required:!1,tsType:{name:"string"},description:"Table caption"},"aria-label":{required:!1,tsType:{name:"string"},description:"ARIA label"},"aria-labelledby":{required:!1,tsType:{name:"string"},description:"ID of element labeling the table"},selectable:{required:!1,tsType:{name:"boolean"},description:"Whether table has selectable rows",defaultValue:{value:"false",computed:!1}},striped:{required:!1,tsType:{name:"boolean"},description:"Whether table has striped rows",defaultValue:{value:"false",computed:!1}},className:{required:!1,tsType:{name:"string"},description:""}}};const k=[{id:1,name:"John Doe",email:"john@example.com",role:"Admin"},{id:2,name:"Jane Smith",email:"jane@example.com",role:"User"},{id:3,name:"Bob Johnson",email:"bob@example.com",role:"User"},{id:4,name:"Alice Brown",email:"alice@example.com",role:"Editor"}],w=[{id:"name",header:"Name",isSortable:!0},{id:"email",header:"Email",isSortable:!0},{id:"role",header:"Role",isSortable:!1}],ye={title:"Components/Table",component:le,parameters:{layout:"padded"},tags:["autodocs"],argTypes:{selectable:{control:"boolean",description:"Enable row selection"},striped:{control:"boolean",description:"Striped row background"}}},N={args:{data:k,columns:w}},P={args:{data:k,columns:w}},I={args:{data:k,columns:w,selectable:!0}},A={args:{data:k,columns:w,striped:!0}},E={args:{data:k,columns:w,selectable:!0,striped:!0}},B={args:{data:[],columns:w}};var M,V,W;N.parameters={...N.parameters,docs:{...(M=N.parameters)==null?void 0:M.docs,source:{originalSource:`{
+  args: {
+    data: sampleData,
+    columns
+  }
+}`,...(W=(V=N.parameters)==null?void 0:V.docs)==null?void 0:W.source}}};var K,O,$;P.parameters={...P.parameters,docs:{...(K=P.parameters)==null?void 0:K.docs,source:{originalSource:`{
+  args: {
+    data: sampleData,
+    columns
+  }
+}`,...($=(O=P.parameters)==null?void 0:O.docs)==null?void 0:$.source}}};var G,Q,X;I.parameters={...I.parameters,docs:{...(G=I.parameters)==null?void 0:G.docs,source:{originalSource:`{
+  args: {
+    data: sampleData,
+    columns,
+    selectable: true
+  }
+}`,...(X=(Q=I.parameters)==null?void 0:Q.docs)==null?void 0:X.source}}};var Y,Z,ee;A.parameters={...A.parameters,docs:{...(Y=A.parameters)==null?void 0:Y.docs,source:{originalSource:`{
+  args: {
+    data: sampleData,
+    columns,
+    striped: true
+  }
+}`,...(ee=(Z=A.parameters)==null?void 0:Z.docs)==null?void 0:ee.source}}};var re,te,ae;E.parameters={...E.parameters,docs:{...(re=E.parameters)==null?void 0:re.docs,source:{originalSource:`{
+  args: {
+    data: sampleData,
+    columns,
+    selectable: true,
+    striped: true
+  }
+}`,...(ae=(te=E.parameters)==null?void 0:te.docs)==null?void 0:ae.source}}};var se,ne,oe;B.parameters={...B.parameters,docs:{...(se=B.parameters)==null?void 0:se.docs,source:{originalSource:`{
+  args: {
+    data: [],
+    columns
+  }
+}`,...(oe=(ne=B.parameters)==null?void 0:ne.docs)==null?void 0:oe.source}}};const we=["Default","Sortable","Selectable","Striped","SelectableStriped","Empty"];export{N as Default,B as Empty,I as Selectable,E as SelectableStriped,P as Sortable,A as Striped,we as __namedExportsOrder,ye as default};
