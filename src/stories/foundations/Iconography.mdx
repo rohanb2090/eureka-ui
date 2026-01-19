@@ -1,0 +1,63 @@
+import { Meta } from '@storybook/blocks';
+import * as LucideIcons from 'lucide-react';
+
+<Meta title="Foundations/Iconography" />
+
+# Iconography
+
+We use **Lucide React** for our iconography. It provides a consistent, clean, and accessible set of SVG icons.
+
+## Usage
+
+```tsx
+import { Mail, Settings, User } from 'lucide-react';
+
+function Example() {
+  return (
+    <div className="flex gap-4">
+      <Mail size={24} />
+      <Settings size={24} />
+      <User size={24} />
+    </div>
+  );
+}
+```
+
+## Icon Set Preview (Sample)
+
+<div className="grid grid-cols-4 gap-8 py-8">
+  <div className="flex flex-col items-center gap-2">
+    <LucideIcons.ArrowRight />
+    <span className="text-xs text-text-secondary">ArrowRight</span>
+  </div>
+   <div className="flex flex-col items-center gap-2">
+    <LucideIcons.Check />
+    <span className="text-xs text-text-secondary">Check</span>
+  </div>
+   <div className="flex flex-col items-center gap-2">
+    <LucideIcons.X />
+    <span className="text-xs text-text-secondary">X</span>
+  </div>
+   <div className="flex flex-col items-center gap-2">
+    <LucideIcons.Search />
+    <span className="text-xs text-text-secondary">Search</span>
+  </div>
+    <div className="flex flex-col items-center gap-2">
+    <LucideIcons.Settings />
+    <span className="text-xs text-text-secondary">Settings</span>
+  </div>
+    <div className="flex flex-col items-center gap-2">
+    <LucideIcons.User />
+    <span className="text-xs text-text-secondary">User</span>
+  </div>
+    <div className="flex flex-col items-center gap-2">
+    <LucideIcons.Bell />
+    <span className="text-xs text-text-secondary">Bell</span>
+  </div>
+    <div className="flex flex-col items-center gap-2">
+    <LucideIcons.Menu />
+    <span className="text-xs text-text-secondary">Menu</span>
+  </div>
+</div>
+
+For the full list of icons, visit [Lucide using the link below](https://lucide.dev/icons).

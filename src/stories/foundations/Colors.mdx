@@ -1,0 +1,82 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+
+<Meta title="Foundations/Colors" />
+
+# Color Palette
+
+The Enterprise Design System uses a semantic color system based on the **Blues/Purples/Rich Black** palette.
+
+## Primitive Palette
+The raw colors extracted from the design tokens.
+
+<ColorPalette>
+  <ColorItem
+    title="Rich Black"
+    subtitle="--color-rich-black"
+    colors={{ 'Rich Black': '#0c0c16' }}
+  />
+  <ColorItem
+    title="Medium Slate Blue"
+    subtitle="--color-medium-slate-blue"
+    colors={{ 'Slate Blue': '#6666ff' }}
+  />
+  <ColorItem
+    title="Periwinkle"
+    subtitle="--color-periwinkle"
+    colors={{ 'Periwinkle': '#b8baff' }}
+  />
+  <ColorItem
+    title="Columbia Blue"
+    subtitle="--color-columbia-blue"
+    colors={{ 'Columbia Blue': '#c9e8ff' }}
+  />
+  <ColorItem
+    title="Celadon"
+    subtitle="--color-celadon"
+    colors={{ 'Celadon': '#b9f0d7' }}
+  />
+</ColorPalette>
+
+## Semantic Tokens (Theme Aware)
+
+The system automatically switches these tokens based on `[data-theme="light"]` or `[data-theme="dark"]`.
+
+<ColorPalette>
+  <ColorItem
+    title="Actions"
+    subtitle="Primary & Secondary interactions"
+    colors={{ 
+        'Primary Default': 'var(--action-primary)',
+        'Primary Hover': 'var(--action-primary-hover)',
+        'Secondary': 'var(--action-secondary)' 
+    }}
+  />
+  <ColorItem
+    title="Backgrounds"
+    subtitle="Page & Surface layers"
+    colors={{ 
+        'Page': 'var(--bg-page)',
+        'Surface': 'var(--bg-surface)',
+        'Subtle': 'var(--bg-subtle)' 
+    }}
+  />
+  <ColorItem
+    title="Text"
+    subtitle="Typography colors"
+    colors={{ 
+        'Primary': 'var(--text-primary)',
+        'Secondary': 'var(--text-secondary)',
+        'Disabled': 'var(--text-disabled)' 
+    }}
+  />
+   <ColorItem
+    title="Status"
+    subtitle="Feedback state colors"
+    colors={{ 
+        'Info': 'var(--status-info)',
+        'Success': 'var(--status-success)',
+        'Warning': 'var(--status-warning)',
+        'Error': 'var(--status-error)'
+    }}
+  />
+</ColorPalette>

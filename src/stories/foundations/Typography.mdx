@@ -1,0 +1,45 @@
+import { Meta, Typeset } from '@storybook/blocks';
+
+<Meta title="Foundations/Typography" />
+
+# Typography
+
+**Font Family:** `IBM Plex Sans`
+
+The typography system is designed to provide hierarchy and readability. We use **IBM Plex Sans** for all text.
+
+## Headings
+
+<Typeset
+  fontSizes={[
+    '2.25rem', // 4xl
+    '1.875rem', // 3xl
+    '1.5rem', // 2xl
+    '1.25rem', // xl
+  ]}
+  fontWeight={700}
+  sampleText="The quick brown fox jumps over the lazy dog."
+  fontFamily="'IBM Plex Sans', sans-serif"
+/>
+
+## Body Text
+
+<Typeset
+  fontSizes={[
+    '1rem', // base
+    '0.875rem', // sm
+    '0.75rem', // xs
+  ]}
+  fontWeight={400}
+  sampleText="The quick brown fox jumps over the lazy dog."
+  fontFamily="'IBM Plex Sans', sans-serif"
+/>
+
+## Font Weights
+
+| Weight | CSS Value | Usage |
+| :--- | :--- | :--- |
+| Regular | 400 | Body text |
+| Medium | 500 | Labels, secondary headings |
+| Semibold | 600 | Emphasized text, buttons |
+| Bold | 700 | Primary headings |

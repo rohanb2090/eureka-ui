@@ -1,0 +1,57 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Foundations/Elevation" />
+
+# Elevation & Shadows
+
+Elevation uses shadows to indicate depth and hierarchy.
+
+## Levels
+
+<div className="flex flex-col gap-8 p-8 bg-bg-subtle rounded-lg">
+  
+  <div className="flex items-center gap-8">
+    <div className="w-32 h-32 bg-bg-surface shadow-sm rounded-lg flex items-center justify-center text-text-secondary text-sm">
+      shadow-sm
+    </div>
+    <p className="text-text-secondary">Subtle details, pressed states</p>
+  </div>
+
+  <div className="flex items-center gap-8">
+    <div className="w-32 h-32 bg-bg-surface shadow rounded-lg flex items-center justify-center text-text-secondary text-sm">
+      shadow
+    </div>
+    <p className="text-text-secondary">Default components, cards, buttons</p>
+  </div>
+
+  <div className="flex items-center gap-8">
+    <div className="w-32 h-32 bg-bg-surface shadow-md rounded-lg flex items-center justify-center text-text-secondary text-sm">
+      shadow-md
+    </div>
+    <p className="text-text-secondary">Hover states, dropdowns</p>
+  </div>
+
+  <div className="flex items-center gap-8">
+    <div className="w-32 h-32 bg-bg-surface shadow-lg rounded-lg flex items-center justify-center text-text-secondary text-sm">
+      shadow-lg
+    </div>
+    <p className="text-text-secondary">Modals, floating actions, popovers</p>
+  </div>
+
+  <div className="flex items-center gap-8">
+    <div className="w-32 h-32 bg-bg-surface shadow-xl rounded-lg flex items-center justify-center text-text-secondary text-sm">
+      shadow-xl
+    </div>
+    <p className="text-text-secondary">Major overlays, toasts</p>
+  </div>
+
+</div>
+
+## Usage
+
+Use the Tailwind shadow utilities directly.
+
+```tsx
+<div className="shadow-sm">...</div>
+<div className="shadow-lg">...</div>
+```

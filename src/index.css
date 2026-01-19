@@ -3,9 +3,30 @@
 @tailwind utilities;
 
 /* Eureka UI - Semantic Tokens */
-:root,
-[data-theme="light"] {
-  /* Spacing Scale */
+/* Eureka UI - Semantic Tokens */
+:root {
+  /* Primitive Colors - Palette Reference */
+  --color-rich-black: #0c0c16;
+  --color-medium-slate-blue: #6666ff;
+  --color-periwinkle: #b8baff;
+  --color-columbia-blue: #c9e8ff;
+  --color-celadon: #b9f0d7;
+
+  /* Expanded Grays (derived from Rich Black/Slate) */
+  --gray-950: #0c0c16;
+  /* Rich Black */
+  --gray-900: #151525;
+  --gray-800: #1e1e30;
+  --gray-700: #25253a;
+  --gray-600: #30304a;
+  --gray-500: #4a4a5a;
+  --gray-400: #757585;
+  --gray-300: #a0a0b0;
+  --gray-200: #e0e0ea;
+  --gray-100: #f0f0fa;
+  --gray-50: #fbfcff;
+
+  /* Primitive Spacing */
   --spacing-xs: 4px;
   --spacing-sm: 8px;
   --spacing-md: 12px;
@@ -15,87 +36,80 @@
   --spacing-3xl: 40px;
   --spacing-4xl: 48px;
 
-  /* Radius */
+  /* Primitive Radius */
   --radius-sm: 2px;
   --radius-md: 4px;
   --radius-lg: 8px;
   --radius-pill: 9999px;
 
-  /* Opacity */
+  /* Primitive Opacity */
   --opacity-disabled: 0.4;
+}
 
-  /* Light Theme */
-  --bg-page: #FBFBFF;
-  /* Extremely light tint of Periwinkle for cohesive feel */
+[data-theme="light"] {
+  /* Light Theme Semantic Mapping */
+  --bg-page: var(--gray-50);
   --bg-surface: #ffffff;
-  --bg-subtle: #f0f0fa;
+  --bg-subtle: var(--gray-100);
   --bg-elevated: #ffffff;
 
-  --text-primary: #0c0c16;
-  /* Rich Black */
-  --text-secondary: #4a4a5a;
-  --text-tertiary: #757585;
-  --text-disabled: #a0a0b0;
+  --text-primary: var(--gray-950);
+  --text-secondary: var(--gray-500);
+  --text-tertiary: var(--gray-400);
+  --text-disabled: var(--gray-300);
   --text-inverse: #ffffff;
 
-  --border-default: #e0e0ea;
-  --border-subtle: #f0f0fa;
-  --border-strong: #d0d0da;
-  --border-focus: #6666ff;
+  --border-default: var(--gray-200);
+  --border-subtle: var(--gray-100);
+  --border-strong: var(--gray-300);
+  --border-focus: var(--color-medium-slate-blue);
 
-  --action-primary: #6666ff;
-  /* Medium Slate Blue */
+  --action-primary: var(--color-medium-slate-blue);
   --action-primary-hover: #5050e0;
+  /* Darker variant manually defined */
   --action-primary-active: #4040c0;
-  --action-secondary: #f0f0fa;
-  --action-secondary-hover: #e0e0ea;
+  --action-secondary: var(--gray-100);
+  --action-secondary-hover: var(--gray-200);
   --action-destructive: #dc2626;
   --action-destructive-hover: #b91c1c;
   --action-text-on-primary: #ffffff;
 
-  --status-info: #6666ff;
+  --status-info: var(--color-medium-slate-blue);
   --status-success: #16a34a;
-  /* Accessible green for text/icons */
+  /* Accessible green for text/icons on light */
   --status-warning: #f59e0b;
   --status-error: #dc2626;
 }
 
-/* Dark Theme */
 [data-theme="dark"] {
-  --bg-page: #0c0c16;
-  /* Rich Black */
-  --bg-surface: #151525;
-  /* Slightly lighter Rich Black */
-  --bg-subtle: #1e1e30;
-  --bg-elevated: #25253a;
+  /* Dark Theme Semantic Mapping */
+  --bg-page: var(--color-rich-black);
+  --bg-surface: var(--gray-900);
+  --bg-subtle: var(--gray-800);
+  --bg-elevated: var(--gray-700);
 
   --text-primary: #ffffff;
-  --text-secondary: #b8baff;
-  /* Periwinkle tint for secondary */
-  --text-tertiary: #808090;
-  --text-disabled: #505060;
-  --text-inverse: #0c0c16;
+  --text-secondary: var(--color-periwinkle);
+  --text-tertiary: var(--gray-400);
+  --text-disabled: var(--gray-600);
+  --text-inverse: var(--gray-950);
 
-  --border-default: #25253a;
-  --border-subtle: #1e1e30;
-  --border-strong: #30304a;
-  --border-focus: #b8baff;
+  --border-default: var(--gray-700);
+  --border-subtle: var(--gray-800);
+  --border-strong: var(--gray-600);
+  --border-focus: var(--color-periwinkle);
 
-  --action-primary: #b8baff;
-  /* Periwinkle - High contrast on dark */
-  --action-primary-hover: #c9e8ff;
-  /* Columbia Blue */
+  --action-primary: var(--color-periwinkle);
+  --action-primary-hover: var(--color-columbia-blue);
   --action-primary-active: #a0a0ff;
-  --action-secondary: #1e1e30;
-  --action-secondary-hover: #25253a;
+  --action-secondary: var(--gray-800);
+  --action-secondary-hover: var(--gray-700);
   --action-destructive: #ef4444;
   --action-destructive-hover: #f87171;
-  --action-text-on-primary: #0c0c16;
-  /* Rich Black on Periwinkle */
+  --action-text-on-primary: var(--gray-950);
 
-  --status-info: #6666ff;
-  --status-success: #b9f0d7;
-  /* Celadon - Perfect for dark mode */
+  --status-info: var(--color-medium-slate-blue);
+  --status-success: var(--color-celadon);
   --status-warning: #fbbf24;
   --status-error: #ef4444;
 }

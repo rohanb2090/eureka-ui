@@ -1,0 +1,27 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Foundations/Spacing" />
+
+# Spacing Scale
+
+The spacing scale is used for margins, padding, and layout positioning. It follows a geometric progression to ensure visual consistency.
+
+## Tokens
+
+| Token | Variable | Value | Pixels | Example |
+| :--- | :--- | :--- | :--- | :--- |
+| **xs** | `--spacing-xs` | 0.25rem | 4px | <div style={{ width: '4px', height: '16px', background: 'var(--action-primary)' }}></div> |
+| **sm** | `--spacing-sm` | 0.5rem | 8px | <div style={{ width: '8px', height: '16px', background: 'var(--action-primary)' }}></div> |
+| **md** | `--spacing-md` | 0.75rem | 12px | <div style={{ width: '12px', height: '16px', background: 'var(--action-primary)' }}></div> |
+| **lg** | `--spacing-lg` | 1rem | 16px | <div style={{ width: '16px', height: '16px', background: 'var(--action-primary)' }}></div> |
+| **xl** | `--spacing-xl` | 1.5rem | 24px | <div style={{ width: '24px', height: '16px', background: 'var(--action-primary)' }}></div> |
+| **2xl** | `--spacing-2xl` | 2rem | 32px | <div style={{ width: '32px', height: '16px', background: 'var(--action-primary)' }}></div> |
+| **3xl** | `--spacing-3xl` | 2.5rem | 40px | <div style={{ width: '40px', height: '16px', background: 'var(--action-primary)' }}></div> |
+| **4xl** | `--spacing-4xl` | 3rem | 48px | <div style={{ width: '48px', height: '16px', background: 'var(--action-primary)' }}></div> |
+
+## Usage Guideline
+
+- **4px - 8px**: Related items (icon + text, dense lists)
+- **12px - 16px**: Component padding, separation of groups
+- **24px - 32px**: Section padding, major component separation
+- **48px+**: Page layout structure
