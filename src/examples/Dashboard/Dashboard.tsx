@@ -109,17 +109,17 @@ const DashboardContent = ({ isLoading = false }: { isLoading?: boolean }) => {
 
                 {/* Charts Row */}
                 <div className="grid grid-cols-1 lg:grid-cols-7 gap-6">
-                    <Surface className="lg:col-span-4 p-6 flex flex-col gap-4">
+                    <Surface className="lg:col-span-4 p-6 flex flex-col gap-4 min-w-0">
                         <h3 className="text-lg font-semibold text-text-primary mb-4">Revenue Over Time</h3>
-                        <div ref={revenueRef} className="h-[300px] w-full">
+                        <div ref={revenueRef} className="h-[300px] w-full overflow-hidden">
                             {revenueWidth > 0 && (
                                 <AreaChart data={REVENUE_DATA} width={revenueWidth} height={300} />
                             )}
                         </div>
                     </Surface>
-                    <Surface className="lg:col-span-3 p-6 flex flex-col gap-4">
+                    <Surface className="lg:col-span-3 p-6 flex flex-col gap-4 min-w-0">
                         <h3 className="text-lg font-semibold text-text-primary mb-4">Sales by Category</h3>
-                        <div ref={salesRef} className="h-[300px] w-full">
+                        <div ref={salesRef} className="h-[300px] w-full overflow-hidden">
                             {salesWidth > 0 && (
                                 <BarChart data={SALES_DATA} width={salesWidth} height={300} />
                             )}
@@ -128,7 +128,7 @@ const DashboardContent = ({ isLoading = false }: { isLoading?: boolean }) => {
                 </div>
 
                 {/* Recent Transactions */}
-                <Surface className="p-6">
+                <Surface className="p-6 min-w-0">
                     <div className="flex justify-between items-center mb-6">
                         <h3 className="text-lg font-semibold text-text-primary">Recent Transactions</h3>
                         <Button variant="secondary" size="sm">View All</Button>
