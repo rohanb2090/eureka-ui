@@ -154,7 +154,7 @@ export function useRadioGroup(props: UseRadioGroupProps): UseRadioGroupReturn {
             isChecked: currentValue === radioProps.value,
             isDisabled: isDisabled || radioProps.isDisabled,
             isRequired,
-            onChange: (value: string, e: ChangeEvent<HTMLInputElement>) => {
+            onChange: (value: string, _e: ChangeEvent<HTMLInputElement>) => {
                 // Update uncontrolled state if not controlled
                 if (controlledValue === undefined) {
                     setUncontrolledValue(value);

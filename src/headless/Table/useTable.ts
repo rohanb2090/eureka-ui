@@ -152,7 +152,7 @@ export function useTable<T extends TableRow = TableRow>(
             props.onClick = () => handleSort(columnId);
 
             // Keyboard handler (Enter/Space)
-            props.onKeyDown = (e: ReactKeyboardEvent) => {
+            props.onKeyDown = (e: React.KeyboardEvent) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
                     handleSort(columnId);

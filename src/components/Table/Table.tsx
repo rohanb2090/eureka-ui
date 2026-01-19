@@ -35,7 +35,7 @@ export function Table<T extends TableRow = TableRow>({
         headerProps,
         bodyProps,
         getColumnHeaderProps,
-        getRowProps,
+        // getRowProps,
         getSelectAllProps,
         getRowSelectProps,
         state,

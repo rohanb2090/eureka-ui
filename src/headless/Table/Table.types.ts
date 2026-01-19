@@ -89,7 +89,7 @@ export interface UseTableReturn<T extends TableRow = TableRow> {
         role: 'columnheader';
         'aria-sort'?: 'ascending' | 'descending' | 'none';
         onClick?: () => void;
-        onKeyDown?: (e: KeyboardEvent) => void;
+        onKeyDown?: (e: React.KeyboardEvent) => void;
         tabIndex?: number;
     };
 
