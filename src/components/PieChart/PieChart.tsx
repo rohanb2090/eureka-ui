@@ -30,7 +30,7 @@ export function PieChart({
                 {...chartProps}
                 width={size}
                 height={size}
-                viewBox="0 0 200 200"
+                viewBox="-5 -5 210 210"
                 className="select-none"
             >
                 {segments.map((segment, index) => (

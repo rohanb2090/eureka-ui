@@ -40,11 +40,19 @@ export function useSparkLine(props: UseSparkLineProps): UseSparkLineReturn {
         const points = data.map((value, index) => {
             const x = (index / (data.length - 1 || 1)) * width;
             const normalizedY = (value - min) / range;
-            const y = height - normalizedY * height;
+            const y = height - normalizedY * height; // Invert Y
             return { x, y, value };
         });
 
-        const path = points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ');
+        // Simple smoothing using quadratic bezier curves
+        let path = `M ${points[0].x} ${points[0].y}`;
+        for (let i = 0; i < points.length - 1; i++) {
+            const current = points[i];
+            const next = points[i + 1];
+            const controlX = (current.x + next.x) / 2;
+            path += ` Q ${controlX} ${current.y}, ${controlX} ${(current.y + next.y) / 2}`;
+            path += ` Q ${controlX} ${next.y}, ${next.x} ${next.y}`;
+        }
 
         return {
             pathData: path,
