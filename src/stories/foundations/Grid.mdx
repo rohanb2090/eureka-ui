@@ -25,22 +25,22 @@ The grid consists of three core elements: **Columns**, **Gutters**, and **Margin
   <div className="min-w-[800px] flex flex-col gap-4">
     
     {/* Labels Row */}
-    <div className="flex relative h-8 text-xs font-mono text-text-secondary">
-      <div className="absolute left-4 flex flex-col items-center">
-        <span>Margin</span>
-        <div className="h-2 w-px bg-text-secondary/30"></div>
+    <div className="flex relative h-12 text-xs font-mono text-text-secondary mb-4">
+      <div className="absolute left-[5%] flex flex-col items-center -translate-x-1/2">
+        <span className="whitespace-nowrap">Margin</span>
+        <div className="h-4 w-px bg-text-secondary/50"></div>
       </div>
-       <div className="absolute left-1/4 flex flex-col items-center">
-        <span>Column</span>
-        <div className="h-2 w-px bg-text-secondary/30"></div>
+       <div className="absolute left-[30%] flex flex-col items-center -translate-x-1/2">
+        <span className="whitespace-nowrap">Gutter</span>
+        <div className="h-4 w-px bg-text-secondary/50"></div>
       </div>
-       <div className="absolute left-[20%] flex flex-col items-center">
-        <span>Gutter</span>
-        <div className="h-2 w-px bg-text-secondary/30"></div>
+       <div className="absolute left-[55%] flex flex-col items-center -translate-x-1/2">
+        <span className="whitespace-nowrap">Column</span>
+        <div className="h-4 w-px bg-text-secondary/50"></div>
       </div>
-      <div className="absolute right-4 flex flex-col items-center">
-        <span>Margin</span>
-        <div className="h-2 w-px bg-text-secondary/30"></div>
+      <div className="absolute right-[5%] flex flex-col items-center translate-x-1/2">
+        <span className="whitespace-nowrap">Margin</span>
+        <div className="h-4 w-px bg-text-secondary/50"></div>
       </div>
     </div>
 
