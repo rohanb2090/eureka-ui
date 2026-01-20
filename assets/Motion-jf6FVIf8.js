@@ -1,4 +1,4 @@
-import{j as n}from"./jsx-runtime-BYYWji4R.js";import{useMDXComponents as s}from"./index-DUy19JZU.js";import{M as r}from"./index-Dn-hOC9a.js";import"./index-ClcD9ViR.js";import"./_commonjsHelpers-Cpj98o6Y.js";import"./iframe-BQK6O3Q4.js";import"./index-BUAr5TKG.js";import"./index-Bhelpi4i.js";import"./index-DrFu-skq.js";function o(i){const e={code:"code",h1:"h1",h2:"h2",p:"p",pre:"pre",...s(),...i.components};return n.jsxs(n.Fragment,{children:[n.jsx(r,{title:"Foundations/Motion"}),`
+import{j as n}from"./jsx-runtime-BYYWji4R.js";import{useMDXComponents as s}from"./index-DUy19JZU.js";import{M as r}from"./index-CByln311.js";import"./index-ClcD9ViR.js";import"./_commonjsHelpers-Cpj98o6Y.js";import"./iframe-HbM1k8PY.js";import"./index-BUAr5TKG.js";import"./index-Bhelpi4i.js";import"./index-DrFu-skq.js";function o(i){const e={code:"code",h1:"h1",h2:"h2",p:"p",pre:"pre",...s(),...i.components};return n.jsxs(n.Fragment,{children:[n.jsx(r,{title:"Foundations/Motion"}),`
 `,n.jsx(e.h1,{id:"motion",children:"Motion"}),`
 `,n.jsx(e.p,{children:"Values for transitions and animations."}),`
 `,n.jsx(e.h2,{id:"duration",children:"Duration"}),`
