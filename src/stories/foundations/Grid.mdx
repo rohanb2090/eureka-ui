@@ -24,22 +24,22 @@ The grid consists of three core elements: **Columns**, **Gutters**, and **Margin
 <div className="relative w-full overflow-x-auto border border-border-default rounded bg-bg-canvas mb-12 p-8">
   <div className="min-w-[800px] flex flex-col gap-4">
     
-    {/* Labels Row */}
-    <div className="flex relative h-12 text-xs font-mono text-text-secondary mb-4">
-      <div className="absolute left-[5%] flex flex-col items-center -translate-x-1/2">
-        <span className="whitespace-nowrap">Margin</span>
+    {/* Labels Row - Using flex justify-between */}
+    <div className="flex justify-between items-start h-12 text-xs font-mono text-text-secondary mb-2 px-4">
+      <div className="flex flex-col items-center">
+        <span className="whitespace-nowrap mb-1">Margin</span>
         <div className="h-4 w-px bg-text-secondary/50"></div>
       </div>
-       <div className="absolute left-[30%] flex flex-col items-center -translate-x-1/2">
-        <span className="whitespace-nowrap">Gutter</span>
+      <div className="flex flex-col items-center">
+        <span className="whitespace-nowrap mb-1">Gutter</span>
         <div className="h-4 w-px bg-text-secondary/50"></div>
       </div>
-       <div className="absolute left-[55%] flex flex-col items-center -translate-x-1/2">
-        <span className="whitespace-nowrap">Column</span>
+      <div className="flex flex-col items-center">
+        <span className="whitespace-nowrap mb-1">Column</span>
         <div className="h-4 w-px bg-text-secondary/50"></div>
       </div>
-      <div className="absolute right-[5%] flex flex-col items-center translate-x-1/2">
-        <span className="whitespace-nowrap">Margin</span>
+      <div className="flex flex-col items-center">
+        <span className="whitespace-nowrap mb-1">Margin</span>
         <div className="h-4 w-px bg-text-secondary/50"></div>
       </div>
     </div>
@@ -68,6 +68,22 @@ The grid consists of three core elements: **Columns**, **Gutters**, and **Margin
        <span>Fluid Space</span>
        <span>1280px / 1440px / 1920px</span>
        <span>Fluid Space</span>
+    </div>
+     
+    {/* Color Legend */}
+    <div className="flex gap-6 text-[10px] text-text-secondary mt-4">
+      <div className="flex items-center gap-2">
+        <div className="w-4 h-4 bg-success-500/20 border border-success-500/30"></div>
+        <span>Margin</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <div className="w-4 h-4 bg-red-500/20 border border-red-500/10"></div>
+        <span>Column</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <div className="w-4 h-4 bg-bg-surface border border-text-disabled/20"></div>
+        <span>Gutter</span>
+      </div>
     </div>
   </div>
 </div>
