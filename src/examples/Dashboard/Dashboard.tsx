@@ -71,18 +71,18 @@ const DashboardContent = ({ isLoading = false }: { isLoading?: boolean }) => {
             {/* Top Navigation */}
             <header className="bg-bg-surface border-b border-border-subtle px-4 md:px-8 py-4 flex justify-between items-center sticky top-0 z-10 transition-colors duration-200">
                 <div className="flex items-center gap-4">
-                    <div className="w-8 h-8 bg-action-primary rounded-lg flex items-center justify-center text-action-text-on-primary font-bold">E</div>
+                    <div className="w-8 h-8 bg-action-primary rounded-lg flex items-center justify-center text-action-text-on-primary font-bold shadow-sm">E</div>
                     <h1 className="text-lg md:text-xl font-bold text-text-primary">Eureka Dashboard</h1>
                 </div>
                 <div className="flex items-center gap-4">
                     <Button variant="ghost" onClick={() => show({ message: 'Notifications cleared', severity: 'info' })}>
                         Notifications
                     </Button>
-                    <div className="w-8 h-8 rounded-full bg-bg-subtle border border-border-default" />
+                    <div className="w-8 h-8 rounded-full bg-bg-subtle border border-border-default hover:border-action-primary transition-colors cursor-pointer" />
                 </div>
             </header>
 
-            <main className="p-4 md:p-8 max-w-7xl mx-auto space-y-8">
+            <main className="p-4 md:p-8 max-w-[1440px] mx-auto space-y-8">
                 {/* Stats Row */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                     <h2 className="text-2xl font-bold text-text-primary">Overview</h2>
@@ -91,14 +91,15 @@ const DashboardContent = ({ isLoading = false }: { isLoading?: boolean }) => {
                     </Button>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {/* Stat Cards - 4 Columns (Mobile), 8 Columns (Tablet), 12 Columns (Desktop) */}
+                <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-6">
                     {[
                         { label: 'Total Revenue', value: '$45,231.89', change: '+20.1%', trend: 'up' },
                         { label: 'Subscriptions', value: '+2350', change: '+180.1%', trend: 'up' },
                         { label: 'Sales', value: '+12,234', change: '+19%', trend: 'up' },
                         { label: 'Active Now', value: '+573', change: '+201', trend: 'up' },
                     ].map((stat, i) => (
-                        <Surface key={i} className="p-6">
+                        <Surface key={i} variant="card" className="col-span-4 p-6 shadow-sm hover:shadow-md transition-shadow">
                             <div className="flex justify-between items-start">
                                 <div className="flex flex-col gap-2">
                                     <span className="text-sm font-medium text-text-secondary">{stat.label}</span>
@@ -111,27 +112,27 @@ const DashboardContent = ({ isLoading = false }: { isLoading?: boolean }) => {
                 </div>
 
                 {/* Charts Row */}
-                <div className="grid grid-cols-1 lg:grid-cols-7 gap-6">
-                    <Surface className="lg:col-span-4 p-6 flex flex-col gap-4 min-w-0">
+                <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-6">
+                    <Surface variant="card" className="col-span-4 md:col-span-8 lg:col-span-8 p-6 flex flex-col gap-4 min-w-0 shadow-md">
                         <h3 className="text-lg font-semibold text-text-primary mb-4">Revenue Over Time</h3>
-                        <div ref={revenueRef} className="h-[300px] w-full overflow-x-auto pb-4">
+                        <div ref={revenueRef} className="h-[300px] w-full hover-scroll pb-4">
                             {revenueWidth > 0 && (
                                 <LineChart
                                     data={REVENUE_DATA}
-                                    width={Math.max(revenueWidth, 500)}
+                                    width={Math.max(revenueWidth, 600)}
                                     height={300}
                                     smooth
                                 />
                             )}
                         </div>
                     </Surface>
-                    <Surface className="lg:col-span-3 p-6 flex flex-col gap-4 min-w-0">
+                    <Surface variant="card" className="col-span-4 md:col-span-8 lg:col-span-4 p-6 flex flex-col gap-4 min-w-0 shadow-md">
                         <h3 className="text-lg font-semibold text-text-primary mb-4">Sales by Category</h3>
-                        <div ref={salesRef} className="h-[300px] w-full overflow-x-auto pb-4 flex justify-center">
+                        <div ref={salesRef} className="h-[300px] w-full hover-scroll flex justify-center">
                             {salesWidth > 0 && (
                                 <PieChart
                                     data={SALES_DATA}
-                                    size={300}
+                                    size={280}
                                     variant="donut"
                                     showPercentages
                                 />
@@ -142,13 +143,15 @@ const DashboardContent = ({ isLoading = false }: { isLoading?: boolean }) => {
 
 
                 {/* Recent Transactions */}
-                <Surface className="p-6 min-w-0">
+                <Surface variant="card" className="col-span-4 md:col-span-8 lg:col-span-12 p-6 min-w-0 shadow-md">
                     <div className="flex justify-between items-center mb-6">
                         <h3 className="text-lg font-semibold text-text-primary">Recent Transactions</h3>
                         <Button variant="secondary" size="sm">View All</Button>
                     </div>
-                    <div className="w-full overflow-x-auto">
-                        <Table data={RECENT_TRANSACTIONS} columns={COLUMNS} />
+                    <div className="w-full hover-scroll">
+                        <div className="min-w-[600px]">
+                            <Table data={RECENT_TRANSACTIONS} columns={COLUMNS} />
+                        </div>
                     </div>
                 </Surface>
             </main>
