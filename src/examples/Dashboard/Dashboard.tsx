@@ -99,7 +99,7 @@ const DashboardContent = ({ isLoading = false }: { isLoading?: boolean }) => {
                         { label: 'Sales', value: '+12,234', change: '+19%', trend: 'up' },
                         { label: 'Active Now', value: '+573', change: '+201', trend: 'up' },
                     ].map((stat, i) => (
-                        <Surface key={i} variant="card" className="col-span-4 p-6 transition-shadow" style={{ boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)' }}>
+                        <Surface key={i} variant="card" className="col-span-4 p-6 shadow-sm hover:shadow-md transition-shadow">
                             <div className="flex justify-between items-start">
                                 <div className="flex flex-col gap-2">
                                     <span className="text-sm font-medium text-text-secondary">{stat.label}</span>
@@ -113,7 +113,7 @@ const DashboardContent = ({ isLoading = false }: { isLoading?: boolean }) => {
 
                 {/* Charts Row */}
                 <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-6">
-                    <Surface variant="card" className="col-span-4 md:col-span-8 lg:col-span-8 p-6 flex flex-col gap-4 min-w-0" style={{ boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}>
+                    <Surface variant="card" className="col-span-4 md:col-span-8 lg:col-span-8 p-6 flex flex-col gap-4 min-w-0 shadow-md">
                         <h3 className="text-lg font-semibold text-text-primary mb-4">Revenue Over Time</h3>
                         <div ref={revenueRef} className="h-[300px] w-full hover-scroll pb-4">
                             {revenueWidth > 0 && (
@@ -126,7 +126,7 @@ const DashboardContent = ({ isLoading = false }: { isLoading?: boolean }) => {
                             )}
                         </div>
                     </Surface>
-                    <Surface variant="card" className="col-span-4 md:col-span-8 lg:col-span-4 p-6 flex flex-col gap-4 min-w-0" style={{ boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}>
+                    <Surface variant="card" className="col-span-4 md:col-span-8 lg:col-span-4 p-6 flex flex-col gap-4 min-w-0 shadow-md">
                         <h3 className="text-lg font-semibold text-text-primary mb-4">Sales by Category</h3>
                         <div ref={salesRef} className="h-[300px] w-full hover-scroll flex justify-center">
                             {salesWidth > 0 && (
@@ -143,7 +143,7 @@ const DashboardContent = ({ isLoading = false }: { isLoading?: boolean }) => {
 
 
                 {/* Recent Transactions */}
-                <Surface variant="card" className="col-span-4 md:col-span-8 lg:col-span-12 p-6 min-w-0" style={{ boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}>
+                <Surface variant="card" className="col-span-4 md:col-span-8 lg:col-span-12 p-6 min-w-0 shadow-md">
                     <div className="flex justify-between items-center mb-6">
                         <h3 className="text-lg font-semibold text-text-primary">Recent Transactions</h3>
                         <Button variant="secondary" size="sm">View All</Button>

@@ -12,8 +12,7 @@
     "type-check": "tsc --noEmit",
     "lint": "eslint src --ext .ts,.tsx",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=chpt_1ed5b32912734b4"
+    "build-storybook": "storybook build"
   },
   "peerDependencies": {
     "react": "^18.0.0",
@@ -39,9 +38,7 @@
     "@vitejs/plugin-react": "^4.2.0",
     "@vitest/browser-playwright": "^4.0.17",
     "@vitest/coverage-v8": "^4.0.17",
-    "anima-storybook-cli": "^0.13.1",
     "autoprefixer": "^10.4.16",
-    "chromatic": "^13.3.5",
     "eslint": "^8.57.1",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.26",

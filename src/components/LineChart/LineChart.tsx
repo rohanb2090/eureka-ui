@@ -10,6 +10,8 @@ export interface LineChartProps extends UseLineChartProps {
     showLabels?: boolean;
 }
 
+const CHART_WIDTH = 400;
+const CHART_HEIGHT = 300;
 const PADDING = { top: 20, right: 20, bottom: 40, left: 60 };
 
 export function LineChart({
@@ -24,8 +26,8 @@ export function LineChart({
     lineColor = 'var(--action-primary)',
     pointColor = 'var(--action-primary)',
     className,
-    width = 400,
-    height = 300,
+    width = CHART_WIDTH,
+    height = CHART_HEIGHT,
 }: LineChartProps) {
     const {
         pathData,
@@ -36,9 +38,8 @@ export function LineChart({
         getPointProps,
         gridLines: gridLineValues,
         hoveredIndex,
-    } = useLineChart({ data, maxY, minY, smooth, showPoints, showGrid, gridLines, width, height });
+    } = useLineChart({ data, maxY, minY, smooth, showPoints, showGrid, gridLines });
 
-    // Ensure we use the exact same width/height as the hook for axes
     const chartWidth = width - PADDING.left - PADDING.right;
     const chartHeight = height - PADDING.top - PADDING.bottom;
     const yRange = calculatedMaxY - calculatedMinY || 1;
