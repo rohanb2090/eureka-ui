@@ -21,70 +21,49 @@ The grid consists of three core elements: **Columns**, **Gutters**, and **Margin
 
 ## Grid Anatomy
 
-<div className="relative w-full overflow-x-auto border border-border-default rounded bg-bg-canvas mb-12 p-8">
-  <div className="min-w-[800px] flex flex-col gap-4">
+<div className="w-full border border-border-default rounded bg-bg-canvas mb-12 p-6">
+  {/* The Grid Visual - Simplified */}
+  <div className="flex w-full h-48 border-2 border-slate-300 rounded overflow-hidden mb-6">
     
-    {/* Labels Row - Using flex justify-between */}
-    <div className="flex justify-between items-start h-12 text-xs font-mono text-text-secondary mb-2 px-4">
-      <div className="flex flex-col items-center">
-        <span className="whitespace-nowrap mb-1">Margin</span>
-        <div className="h-4 w-px bg-text-secondary/50"></div>
-      </div>
-      <div className="flex flex-col items-center">
-        <span className="whitespace-nowrap mb-1">Gutter</span>
-        <div className="h-4 w-px bg-text-secondary/50"></div>
-      </div>
-      <div className="flex flex-col items-center">
-        <span className="whitespace-nowrap mb-1">Column</span>
-        <div className="h-4 w-px bg-text-secondary/50"></div>
-      </div>
-      <div className="flex flex-col items-center">
-        <span className="whitespace-nowrap mb-1">Margin</span>
-        <div className="h-4 w-px bg-text-secondary/50"></div>
-      </div>
+    {/* Left Margin */}
+    <div className="w-12 h-full bg-green-100 border-r-2 border-green-300 flex items-center justify-center">
+      <span className="text-[10px] font-mono text-green-700 -rotate-90 whitespace-nowrap">Margin</span>
     </div>
 
-    {/* The Grid Visual */}
-    <div className="flex w-full h-64 border border-text-disabled/20 relative">
-      
-      {/* Left Margin (Green) */}
-      <div className="w-8 h-full bg-success-500/20 border-r border-success-500/30 flex-shrink-0 flex items-center justify-center">
-      </div>
-
-      {/* Grid Container (Columns + Gutters) */}
-      <div className="flex-1 grid grid-cols-12 gap-4 h-full bg-bg-surface">
-        {Array.from({ length: 12 }).map((_, i) => (
-          <div key={i} className="bg-red-500/20 h-full border-x border-red-500/10 hover:bg-red-500/30 transition-colors"></div>
-        ))}
-      </div>
-
-      {/* Right Margin (Green) */}
-      <div className="w-8 h-full bg-success-500/20 border-l border-success-500/30 flex-shrink-0 flex items-center justify-center">
-      </div>
+    {/* Grid Container (Columns + Gutters) */}
+    <div className="flex-1 grid grid-cols-12 gap-3 h-full bg-slate-50 p-3">
+      {Array.from({ length: 12 }).map((_, i) => (
+        <div key={i} className="bg-pink-100 h-full border border-pink-200 rounded-sm hover:bg-pink-200 transition-colors flex items-center justify-center">
+          {i === 5 && <span className="text-[10px] text-pink-600 font-mono">Col</span>}
+        </div>
+      ))}
     </div>
 
-    {/* Dimensions Row */}
-    <div className="flex justify-between text-[10px] text-text-secondary font-mono border-t border-text-disabled/20 pt-2 mt-2">
-       <span>Fluid Space</span>
-       <span>1280px / 1440px / 1920px</span>
-       <span>Fluid Space</span>
+    {/* Right Margin */}
+    <div className="w-12 h-full bg-green-100 border-l-2 border-green-300 flex items-center justify-center">
+      <span className="text-[10px] font-mono text-green-700 -rotate-90 whitespace-nowrap">Margin</span>
     </div>
-     
-    {/* Color Legend */}
-    <div className="flex gap-6 text-[10px] text-text-secondary mt-4">
-      <div className="flex items-center gap-2">
-        <div className="w-4 h-4 bg-success-500/20 border border-success-500/30"></div>
-        <span>Margin</span>
-      </div>
-      <div className="flex items-center gap-2">
-        <div className="w-4 h-4 bg-red-500/20 border border-red-500/10"></div>
-        <span>Column</span>
-      </div>
-      <div className="flex items-center gap-2">
-        <div className="w-4 h-4 bg-bg-surface border border-text-disabled/20"></div>
-        <span>Gutter</span>
-      </div>
+  </div>
+
+  {/* Legend */}
+  <div className="flex flex-wrap gap-6 text-sm">
+    <div className="flex items-center gap-2">
+      <div className="w-6 h-6 bg-green-100 border-2 border-green-300 rounded"></div>
+      <span className="font-mono text-slate-700">Margin (outer spacing)</span>
     </div>
+    <div className="flex items-center gap-2">
+      <div className="w-6 h-6 bg-pink-100 border border-pink-200 rounded"></div>
+      <span className="font-mono text-slate-700">Column (content areas)</span>
+    </div>
+    <div className="flex items-center gap-2">
+      <div className="w-6 h-6 bg-slate-50 border border-slate-200 rounded"></div>
+      <span className="font-mono text-slate-700">Gutter (gaps between columns)</span>
+    </div>
+  </div>
+
+  {/* Dimensions */}
+  <div className="mt-6 text-xs text-slate-500 font-mono text-center">
+    Standard breakpoints: 1280px / 1440px / 1920px
   </div>
 </div>
 
