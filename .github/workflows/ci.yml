@@ -32,6 +32,8 @@ jobs:
           node-version: '18'
       - run: npm ci
       - run: npm run build-storybook
+        env:
+          STORYBOOK_GHP_DEPLOY: true
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
