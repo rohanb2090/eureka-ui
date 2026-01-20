@@ -20,38 +20,52 @@ Every spacing, sizing, and layout decision in the Enterprise Design System is a 
 The grid consists of three core elements: **Columns**, **Gutters**, and **Margins**.
 
 ## 1. Columns
-Content is placed within columns. Use a **12-column** grid for most standard layouts to allow for flexible division into halves, thirds, quarters, and sixths.
+Content is placed within columns. Use a **12-column** grid for most standard layouts.
 
-<div className="grid grid-cols-12 gap-4 h-32 mb-8 mt-4">
-  <div className="col-span-1 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-action-primary font-mono">1</div>
-  <div className="col-span-1 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-action-primary font-mono">2</div>
-  <div className="col-span-1 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-action-primary font-mono">3</div>
-  <div className="col-span-1 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-action-primary font-mono">4</div>
-  <div className="col-span-1 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-action-primary font-mono">5</div>
-  <div className="col-span-1 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-action-primary font-mono">6</div>
-  <div className="col-span-1 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-action-primary font-mono">7</div>
-  <div className="col-span-1 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-action-primary font-mono">8</div>
-  <div className="col-span-1 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-action-primary font-mono">9</div>
-  <div className="col-span-1 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-action-primary font-mono">10</div>
-  <div className="col-span-1 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-action-primary font-mono">11</div>
-  <div className="col-span-1 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-action-primary font-mono">12</div>
+<div className="grid grid-cols-12 gap-2 w-full mb-12 border border-border-default p-2 rounded bg-bg-canvas">
+  {Array.from({ length: 12 }).map((_, i) => (
+    <div key={i} className="col-span-1 h-32 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-text-secondary font-mono">
+      Col {i + 1}
+    </div>
+  ))}
 </div>
 
-<br />
-
 ## 2. Gutters
-Gutters are the gaps between columns. They help separate content and are defined by our spacing tokens.
-*   **Compact (`gap-4` / 16px)**: High-density dashboards and data tables.
-*   **Standard (`gap-6` / 24px)**: Default application layouts.
-*   **Wide (`gap-8` / 32px)**: Marketing pages or low-density views.
+Gutters are the gaps between columns.
 
-<br />
+<div className="flex flex-col gap-8 mb-12">
+    {/* Gap 4 */}
+    <div>
+        <div className="text-xs font-mono mb-2 text-text-secondary">Compact (gap-4 / 16px)</div>
+        <div className="grid grid-cols-2 gap-4 border border-border-default p-2 rounded bg-bg-canvas">
+             <div className="h-16 bg-action-primary/10 border border-action-primary flex items-center justify-center text-xs">Content</div>
+             <div className="hidden md:flex absolute left-1/2 -ml-2 w-4 bg-error-500/20 h-16 items-center justify-center text-[10px] text-error-700">16px</div>
+             <div className="h-16 bg-action-primary/10 border border-action-primary flex items-center justify-center text-xs">Content</div>
+        </div>
+    </div>
+    
+     {/* Gap 8 */}
+    <div>
+        <div className="text-xs font-mono mb-2 text-text-secondary">Wide (gap-8 / 32px)</div>
+        <div className="grid grid-cols-2 gap-8 border border-border-default p-2 rounded bg-bg-canvas">
+             <div className="h-16 bg-action-primary/10 border border-action-primary flex items-center justify-center text-xs">Content</div>
+             <div className="h-16 bg-action-primary/10 border border-action-primary flex items-center justify-center text-xs">Content</div>
+        </div>
+    </div>
+</div>
 
 ## 3. Margins
-Margins are the outer spacing of the grid container. They prevent content from touching the edges of the screen.
-*   **Mobile**: `px-4` (16px)
-*   **Tablet**: `px-6` (24px)
-*   **Desktop**: `px-8` (32px) or centered `container`
+Margins are the outer spacing of the grid container.
+
+<div className="mb-12">
+    <div className="text-xs font-mono mb-2 text-text-secondary">Example: Desktop Margin (px-8)</div>
+    <div className="w-full bg-warning-100 border border-warning-300 p-8 rounded relative">
+        <div className="absolute top-0 left-0 p-1 text-[10px] text-warning-800 font-mono">Margin (32px)</div>
+        <div className="w-full h-24 bg-bg-canvas border border-dashed border-text-disabled flex items-center justify-center text-text-secondary">
+            Grid Container Content
+        </div>
+    </div>
+</div>
 
 <br />
 <br />
