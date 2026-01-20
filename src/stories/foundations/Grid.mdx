@@ -13,41 +13,41 @@ The grid consists of three elements: **Columns**, **Gutters**, and **Margins**.
 <div className="flex flex-col gap-8 my-12">
   
   {/* Anatomy Visual */}
-  <div className="w-full border border-border-default rounded-lg bg-bg-canvas overflow-hidden">
-    <div className="relative h-64 w-full flex items-center justify-center p-6 bg-slate-50 dark:bg-neutral-900">
+  <div className="w-full border-2 border-slate-300 rounded-lg bg-white overflow-hidden shadow-sm">
+    <div className="relative h-64 w-full flex items-center justify-center p-6 bg-slate-100 dark:bg-neutral-900">
       
       {/* Container */}
-      <div className="h-full w-full max-w-4xl flex relative">
+      <div className="h-full w-full max-w-4xl flex relative shadow-inner">
         
         {/* Left Margin */}
-        <div className="h-full w-8 bg-green-200 dark:bg-green-900/30 border-x border-green-300 dark:border-green-800 flex items-center justify-center relative z-10">
-          <span className="text-[10px] font-mono text-green-800 dark:text-green-400 -rotate-90">Margin</span>
+        <div className="h-full w-12 bg-green-200/80 dark:bg-green-900/50 border-r-2 border-green-400 dark:border-green-600 flex items-center justify-center relative z-10">
+          <span className="text-xs font-bold font-mono text-green-800 dark:text-green-300 -rotate-90 tracking-widest">MARGIN</span>
         </div>
 
         {/* Columns & Gutters */}
-        <div className="flex-1 flex gap-4 h-full bg-bg-surface px-4">
-             <div className="flex-1 bg-pink-100 dark:bg-pink-900/30 border-x border-pink-200 dark:border-pink-800 h-full flex items-center justify-center relative">
-               <span className="text-[10px] font-mono text-pink-700 dark:text-pink-400">Col</span>
+        <div className="flex-1 flex gap-4 h-full bg-white dark:bg-neutral-800 px-4">
+             <div className="flex-1 bg-pink-200 dark:bg-pink-900/50 border-x-2 border-pink-300 dark:border-pink-700 h-full flex items-center justify-center relative">
+               <span className="text-xs font-bold font-mono text-pink-700 dark:text-pink-300">COL</span>
              </div>
-             <div className="flex-1 bg-pink-100 dark:bg-pink-900/30 border-x border-pink-200 dark:border-pink-800 h-full flex items-center justify-center relative">
-               <span className="text-[10px] font-mono text-pink-700 dark:text-pink-400">Col</span>
+             <div className="flex-1 bg-pink-200 dark:bg-pink-900/50 border-x-2 border-pink-300 dark:border-pink-700 h-full flex items-center justify-center relative">
+               <span className="text-xs font-bold font-mono text-pink-700 dark:text-pink-300">COL</span>
              </div>
-             <div className="flex-1 bg-pink-100 dark:bg-pink-900/30 border-x border-pink-200 dark:border-pink-800 h-full flex items-center justify-center relative">
-               <span className="text-[10px] font-mono text-pink-700 dark:text-pink-400">Col</span>
+             <div className="flex-1 bg-pink-200 dark:bg-pink-900/50 border-x-2 border-pink-300 dark:border-pink-700 h-full flex items-center justify-center relative">
+               <span className="text-xs font-bold font-mono text-pink-700 dark:text-pink-300">COL</span>
              </div>
-             <div className="flex-1 bg-pink-100 dark:bg-pink-900/30 border-x border-pink-200 dark:border-pink-800 h-full flex items-center justify-center relative">
-               <span className="text-[10px] font-mono text-pink-700 dark:text-pink-400">Col</span>
+             <div className="flex-1 bg-pink-200 dark:bg-pink-900/50 border-x-2 border-pink-300 dark:border-pink-700 h-full flex items-center justify-center relative">
+               <span className="text-xs font-bold font-mono text-pink-700 dark:text-pink-300">COL</span>
              </div>
         </div>
 
         {/* Right Margin */}
-        <div className="h-full w-8 bg-green-200 dark:bg-green-900/30 border-x border-green-300 dark:border-green-800 flex items-center justify-center relative z-10">
-          <span className="text-[10px] font-mono text-green-800 dark:text-green-400 -rotate-90">Margin</span>
+        <div className="h-full w-12 bg-green-200/80 dark:bg-green-900/50 border-l-2 border-green-400 dark:border-green-600 flex items-center justify-center relative z-10">
+          <span className="text-xs font-bold font-mono text-green-800 dark:text-green-300 -rotate-90 tracking-widest">MARGIN</span>
         </div>
         
         {/* Gutter Callout (Overlay) */}
-         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-full bg-slate-200/50 dark:bg-slate-700/50 border-x border-slate-300 dark:border-slate-600 flex items-center justify-center">
-             <span className="text-[10px] font-mono text-slate-600 dark:text-slate-300 -rotate-90 bg-white/80 dark:bg-neutral-800/80 px-1 rounded">Gutter</span>
+         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-[110%] bg-slate-300/80 dark:bg-slate-600/80 border-x-2 border-slate-400 dark:border-slate-500 flex items-center justify-center shadow-sm z-20">
+             <span className="text-[10px] font-bold font-mono text-slate-700 dark:text-slate-200 -rotate-90 bg-white dark:bg-black px-1 py-0.5 rounded shadow-sm whitespace-nowrap">GUTTER</span>
          </div>
 
       </div>
