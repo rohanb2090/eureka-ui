@@ -22,47 +22,70 @@ The grid consists of three core elements: **Columns**, **Gutters**, and **Margin
 ## 1. Columns
 Content is placed within columns. Use a **12-column** grid for most standard layouts.
 
-<div className="grid grid-cols-12 gap-2 w-full mb-12 border border-border-default p-2 rounded bg-bg-canvas">
-  {Array.from({ length: 12 }).map((_, i) => (
-    <div key={i} className="col-span-1 h-32 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-text-secondary font-mono">
-      Col {i + 1}
-    </div>
-  ))}
+<div className="w-full overflow-x-auto border border-border-default rounded bg-bg-canvas mb-12">
+  <div className="min-w-[800px] grid grid-cols-12 gap-2 p-4">
+    {Array.from({ length: 12 }).map((_, i) => (
+      <div key={i} className="col-span-1 h-32 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-text-secondary font-mono">
+        Col {i + 1}
+      </div>
+    ))}
+  </div>
 </div>
 
 ## 2. Gutters
-Gutters are the gaps between columns.
+Gutters are the gaps between columns. We use a **Pink** color to visualize gaps below.
 
 <div className="flex flex-col gap-8 mb-12">
     {/* Gap 4 */}
     <div>
         <div className="text-xs font-mono mb-2 text-text-secondary">Compact (gap-4 / 16px)</div>
-        <div className="grid grid-cols-2 gap-4 border border-border-default p-2 rounded bg-bg-canvas">
-             <div className="h-16 bg-action-primary/10 border border-action-primary flex items-center justify-center text-xs">Content</div>
-             <div className="hidden md:flex absolute left-1/2 -ml-2 w-4 bg-error-500/20 h-16 items-center justify-center text-[10px] text-error-700">16px</div>
-             <div className="h-16 bg-action-primary/10 border border-action-primary flex items-center justify-center text-xs">Content</div>
+        <div className="relative border border-border-default rounded bg-bg-canvas p-4">
+            {/* The pink background on the grid container shows through the gaps */}
+            <div className="grid grid-cols-3 gap-4 bg-pink-500/30 rounded">
+                 <div className="h-16 bg-bg-surface border border-border-default flex items-center justify-center text-xs z-10">Col</div>
+                 <div className="h-16 bg-bg-surface border border-border-default flex items-center justify-center text-xs z-10">Col</div>
+                 <div className="h-16 bg-bg-surface border border-border-default flex items-center justify-center text-xs z-10">Col</div>
+            </div>
+            <div className="flex items-center gap-2 mt-2">
+                <div className="w-4 h-4 bg-pink-500/30 rounded"></div>
+                <span className="text-[10px] text-text-secondary uppercase tracking-wider">Gutter (16px)</span>
+            </div>
         </div>
     </div>
     
      {/* Gap 8 */}
     <div>
         <div className="text-xs font-mono mb-2 text-text-secondary">Wide (gap-8 / 32px)</div>
-        <div className="grid grid-cols-2 gap-8 border border-border-default p-2 rounded bg-bg-canvas">
-             <div className="h-16 bg-action-primary/10 border border-action-primary flex items-center justify-center text-xs">Content</div>
-             <div className="h-16 bg-action-primary/10 border border-action-primary flex items-center justify-center text-xs">Content</div>
+        <div className="relative border border-border-default rounded bg-bg-canvas p-4">
+            <div className="grid grid-cols-3 gap-8 bg-pink-500/30 rounded">
+                 <div className="h-16 bg-bg-surface border border-border-default flex items-center justify-center text-xs z-10">Col</div>
+                 <div className="h-16 bg-bg-surface border border-border-default flex items-center justify-center text-xs z-10">Col</div>
+                 <div className="h-16 bg-bg-surface border border-border-default flex items-center justify-center text-xs z-10">Col</div>
+            </div>
+             <div className="flex items-center gap-2 mt-2">
+                <div className="w-4 h-4 bg-pink-500/30 rounded"></div>
+                <span className="text-[10px] text-text-secondary uppercase tracking-wider">Gutter (32px)</span>
+            </div>
         </div>
     </div>
 </div>
 
 ## 3. Margins
-Margins are the outer spacing of the grid container.
+Margins are the outer spacing of the grid container. We use **Blue** to visualize margins.
 
 <div className="mb-12">
     <div className="text-xs font-mono mb-2 text-text-secondary">Example: Desktop Margin (px-8)</div>
-    <div className="w-full bg-warning-100 border border-warning-300 p-8 rounded relative">
-        <div className="absolute top-0 left-0 p-1 text-[10px] text-warning-800 font-mono">Margin (32px)</div>
-        <div className="w-full h-24 bg-bg-canvas border border-dashed border-text-disabled flex items-center justify-center text-text-secondary">
-            Grid Container Content
+    <div className="w-full border border-border-default rounded p-4">
+        {/* The Blue container represents the margin area */}
+        <div className="bg-action-primary/20 p-8 w-full rounded">
+            {/* The inner white box is the actual grid content */}
+            <div className="w-full h-24 bg-bg-surface border border-dashed border-text-disabled flex items-center justify-center text-text-secondary relative">
+                Grid Content
+            </div>
+        </div>
+         <div className="flex items-center gap-2 mt-2">
+            <div className="w-4 h-4 bg-action-primary/20 rounded"></div>
+            <span className="text-[10px] text-text-secondary uppercase tracking-wider">Margin / Padding (32px)</span>
         </div>
     </div>
 </div>
