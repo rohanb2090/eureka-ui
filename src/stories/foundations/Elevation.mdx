@@ -14,47 +14,114 @@ In the Enterprise Design System, all elements base themselves on a 0dp surface l
 -   **Shadows** are the only visual cue for depth (we do not use Z-axis translation).
 
 ## Light Mode Preview
-<div className="p-12 rounded-xl mb-12 shadow-inner" style={{ backgroundColor: '#E2E8F0' }}>
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-    {/* Shadow Cards (Light) */}
-    {[
-      { level: 0, shadow: 'none', label: 'No Shadow' },
-      { level: 1, shadow: 'shadow-sm', label: 'Shadow SM' },
-      { level: 2, shadow: 'shadow', label: 'Shadow' },
-      { level: 3, shadow: 'shadow-md', label: 'Shadow MD' },
-      { level: 4, shadow: 'shadow-lg', label: 'Shadow LG' },
-      { level: 5, shadow: 'shadow-xl', label: 'Shadow XL' },
-    ].map((item) => (
-      <div key={item.level} className="flex flex-col items-center">
-        <div className={`w-32 h-32 bg-white rounded-lg ${item.shadow} flex items-center justify-center text-xs text-slate-600 font-medium`}>
-          {item.label}
-        </div>
-        <div className="mt-4 text-xs font-semibold text-slate-500 uppercase tracking-widest">Level {item.level}</div>
+
+<div className="p-12 rounded-xl mb-12 bg-slate-100 border border-slate-200 shadow-inner">
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
+    
+    {/* Level 0 */}
+    <div className="flex flex-col items-center">
+      <div className="w-32 h-32 bg-white rounded-lg flex items-center justify-center text-xs text-slate-500 font-medium">
+        No Shadow
       </div>
-    ))}
+      <div className="mt-4 text-xs font-bold text-slate-400 uppercase tracking-widest">Level 0</div>
+    </div>
+
+    {/* Level 1 (shadow-sm) */}
+    <div className="flex flex-col items-center">
+      <div className="w-32 h-32 bg-white rounded-lg shadow-sm flex items-center justify-center text-xs text-slate-600 font-medium">
+        Shadow SM
+      </div>
+      <div className="mt-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Level 1</div>
+    </div>
+
+    {/* Level 2 (shadow) */}
+    <div className="flex flex-col items-center">
+      <div className="w-32 h-32 bg-white rounded-lg shadow flex items-center justify-center text-xs text-slate-700 font-medium">
+        Shadow
+      </div>
+      <div className="mt-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Level 2</div>
+    </div>
+
+    {/* Level 3 (shadow-md) */}
+    <div className="flex flex-col items-center">
+      <div className="w-32 h-32 bg-white rounded-lg shadow-md flex items-center justify-center text-xs text-slate-800 font-medium">
+        Shadow MD
+      </div>
+      <div className="mt-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Level 3</div>
+    </div>
+
+    {/* Level 4 (shadow-lg) */}
+    <div className="flex flex-col items-center">
+      <div className="w-32 h-32 bg-white rounded-lg shadow-lg flex items-center justify-center text-xs text-slate-900 font-bold">
+        Shadow LG
+      </div>
+      <div className="mt-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Level 4</div>
+    </div>
+
+    {/* Level 5 (shadow-xl) */}
+    <div className="flex flex-col items-center">
+      <div className="w-32 h-32 bg-white rounded-lg shadow-xl flex items-center justify-center text-xs text-slate-900 font-bold">
+        Shadow XL
+      </div>
+      <div className="mt-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Level 5</div>
+    </div>
+
   </div>
 </div>
 
 ## Dark Mode Preview
-<div className="p-12 rounded-xl mb-12 shadow-inner" style={{ backgroundColor: '#0F172A' }}>
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-    {/* Shadow Cards (Dark) */}
-     {[
-      { level: 0, shadow: 'none', label: 'No Shadow' },
-      { level: 1, shadow: 'shadow-sm', label: 'Shadow SM' },
-      { level: 2, shadow: 'shadow', label: 'Shadow' },
-      { level: 3, shadow: 'shadow-md', label: 'Shadow MD' },
-      { level: 4, shadow: 'shadow-lg', label: 'Shadow LG' },
-      { level: 5, shadow: 'shadow-xl', label: 'Shadow XL' },
-    ].map((item) => (
-      <div key={item.level} className="flex flex-col items-center">
-        {/* Slate-800 Surface on Slate-900 Background with Strong Black Shadows */}
-        <div className={`w-32 h-32 rounded-lg ${item.shadow} shadow-black/80 flex items-center justify-center text-xs text-slate-300 font-medium`} style={{ backgroundColor: '#1E293B' }}>
-          {item.label}
-        </div>
-        <div className="mt-4 text-xs font-semibold text-slate-500 uppercase tracking-widest">Level {item.level}</div>
+
+<div className="p-12 rounded-xl mb-12 bg-slate-950 border border-slate-900 shadow-inner">
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
+    
+    {/* Level 0 (Dark) */}
+    <div className="flex flex-col items-center">
+      <div className="w-32 h-32 bg-slate-900 rounded-lg flex items-center justify-center text-xs text-slate-600 font-medium border border-slate-800">
+        No Shadow
       </div>
-    ))}
+      <div className="mt-4 text-xs font-bold text-slate-600 uppercase tracking-widest">Level 0</div>
+    </div>
+
+    {/* Level 1 (Dark) */}
+    <div className="flex flex-col items-center">
+      <div className="w-32 h-32 bg-slate-800 rounded-lg shadow-sm shadow-black/50 flex items-center justify-center text-xs text-slate-400 font-medium">
+        Shadow SM
+      </div>
+      <div className="mt-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Level 1</div>
+    </div>
+
+    {/* Level 2 (Dark) */}
+    <div className="flex flex-col items-center">
+      <div className="w-32 h-32 bg-slate-800 rounded-lg shadow shadow-black/50 flex items-center justify-center text-xs text-slate-300 font-medium">
+        Shadow
+      </div>
+      <div className="mt-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Level 2</div>
+    </div>
+
+    {/* Level 3 (Dark) */}
+    <div className="flex flex-col items-center">
+      <div className="w-32 h-32 bg-slate-800 rounded-lg shadow-md shadow-black/60 flex items-center justify-center text-xs text-slate-200 font-medium">
+        Shadow MD
+      </div>
+      <div className="mt-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Level 3</div>
+    </div>
+
+    {/* Level 4 (Dark) */}
+    <div className="flex flex-col items-center">
+      <div className="w-32 h-32 bg-slate-800 rounded-lg shadow-lg shadow-black/70 flex items-center justify-center text-xs text-white font-bold">
+        Shadow LG
+      </div>
+      <div className="mt-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Level 4</div>
+    </div>
+
+    {/* Level 5 (Dark) */}
+    <div className="flex flex-col items-center">
+      <div className="w-32 h-32 bg-slate-800 rounded-lg shadow-xl shadow-black/80 flex items-center justify-center text-xs text-white font-bold">
+        Shadow XL
+      </div>
+      <div className="mt-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Level 5</div>
+    </div>
+
   </div>
 </div>
 
