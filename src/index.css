@@ -133,3 +133,33 @@
     @apply bg-bg-page text-text-primary;
   }
 }
+/* Hover-only scrollbar utility */
+.hover-scroll {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  overflow: auto !important;
+}
+
+.hover-scroll::-webkit-scrollbar {
+  display: none !important;
+}
+
+.hover-scroll:hover {
+  scrollbar-width: thin !important;
+  -ms-overflow-style: auto !important;
+}
+
+.hover-scroll:hover::-webkit-scrollbar {
+  display: block !important;
+  width: 6px !important;
+  height: 6px !important;
+}
+
+.hover-scroll:hover::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1 !important;
+  border-radius: 3px !important;
+}
+
+.hover-scroll:hover::-webkit-scrollbar-track {
+  background-color: transparent !important;
+}
