@@ -1,4 +1,4 @@
-import { Meta, Typeset } from '@storybook/blocks';
+import { Meta } from '@storybook/blocks';
 
 <Meta title="Foundations/Typography" />
 
@@ -10,36 +10,158 @@ The typography system is designed to provide hierarchy and readability. We use *
 
 ## Headings
 
-<Typeset
-  fontSizes={[
-    '2.25rem', // 4xl
-    '1.875rem', // 3xl
-    '1.5rem', // 2xl
-    '1.25rem', // xl
-  ]}
-  fontWeight={700}
-  sampleText="The quick brown fox jumps over the lazy dog."
-  fontFamily="'IBM Plex Sans', sans-serif"
-/>
+<div className="p-8 rounded-xl mb-12 border border-slate-200" style={{ backgroundColor: '#ffffff' }}>
+  <div style={{ color: '#0f172a' }}>
+    <div className="mb-8 border-b pb-4 border-slate-100 flex items-baseline justify-between">
+      <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Scale</span>
+      <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Sample</span>
+    </div>
+    
+    <div className="flex items-baseline mb-6">
+      <span className="w-16 text-xs font-mono text-slate-400">2.25rem</span>
+      <span style={{ fontSize: '2.25rem', fontWeight: 700, fontFamily: "'IBM Plex Sans', sans-serif" }}>Heading 4XL</span>
+    </div>
+    
+    <div className="flex items-baseline mb-6">
+      <span className="w-16 text-xs font-mono text-slate-400">1.875rem</span>
+      <span style={{ fontSize: '1.875rem', fontWeight: 700, fontFamily: "'IBM Plex Sans', sans-serif" }}>Heading 3XL</span>
+    </div>
+    
+    <div className="flex items-baseline mb-6">
+      <span className="w-16 text-xs font-mono text-slate-400">1.5rem</span>
+      <span style={{ fontSize: '1.5rem', fontWeight: 700, fontFamily: "'IBM Plex Sans', sans-serif" }}>Heading 2XL</span>
+    </div>
+    
+    <div className="flex items-baseline">
+      <span className="w-16 text-xs font-mono text-slate-400">1.25rem</span>
+      <span style={{ fontSize: '1.25rem', fontWeight: 700, fontFamily: "'IBM Plex Sans', sans-serif" }}>Heading XL</span>
+    </div>
+  </div>
+</div>
+
+<div className="p-8 rounded-xl mb-12" style={{ backgroundColor: '#0f172a' }}>
+  <div style={{ color: '#f8fafc' }}>
+    <div className="mb-8 border-b pb-4 border-slate-800 flex items-baseline justify-between">
+      <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Dark Mode</span>
+      <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Sample</span>
+    </div>
+    
+    <div className="flex items-baseline mb-6">
+      <span className="w-16 text-xs font-mono text-slate-500">2.25rem</span>
+      <span style={{ fontSize: '2.25rem', fontWeight: 700, fontFamily: "'IBM Plex Sans', sans-serif" }}>Heading 4XL</span>
+    </div>
+    
+    <div className="flex items-baseline mb-6">
+      <span className="w-16 text-xs font-mono text-slate-500">1.875rem</span>
+      <span style={{ fontSize: '1.875rem', fontWeight: 700, fontFamily: "'IBM Plex Sans', sans-serif" }}>Heading 3XL</span>
+    </div>
+
+    <div className="flex items-baseline mb-6">
+      <span className="w-16 text-xs font-mono text-slate-500">1.5rem</span>
+      <span style={{ fontSize: '1.5rem', fontWeight: 700, fontFamily: "'IBM Plex Sans', sans-serif" }}>Heading 2XL</span>
+    </div>
+    
+    <div className="flex items-baseline">
+      <span className="w-16 text-xs font-mono text-slate-500">1.25rem</span>
+      <span style={{ fontSize: '1.25rem', fontWeight: 700, fontFamily: "'IBM Plex Sans', sans-serif" }}>Heading XL</span>
+    </div>
+  </div>
+</div>
 
 ## Body Text
 
-<Typeset
-  fontSizes={[
-    '1rem', // base
-    '0.875rem', // sm
-    '0.75rem', // xs
-  ]}
-  fontWeight={400}
-  sampleText="The quick brown fox jumps over the lazy dog."
-  fontFamily="'IBM Plex Sans', sans-serif"
-/>
+<div className="p-8 rounded-xl mb-12 border border-slate-200" style={{ backgroundColor: '#ffffff' }}>
+  <div style={{ color: '#0f172a' }}>
+    <div className="mb-8 border-b pb-4 border-slate-100 flex items-baseline justify-between">
+      <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Scale</span>
+      <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Sample</span>
+    </div>
+    
+    <div className="flex items-baseline mb-6">
+      <span className="w-16 text-xs font-mono text-slate-400">1rem</span>
+      <p style={{ fontSize: '1rem', fontWeight: 400, fontFamily: "'IBM Plex Sans', sans-serif", margin: 0 }}>
+        Base: The quick brown fox jumps over the lazy dog.
+      </p>
+    </div>
+    
+    <div className="flex items-baseline mb-6">
+      <span className="w-16 text-xs font-mono text-slate-400">0.875rem</span>
+      <p style={{ fontSize: '0.875rem', fontWeight: 400, fontFamily: "'IBM Plex Sans', sans-serif", margin: 0 }}>
+        Small: The quick brown fox jumps over the lazy dog.
+      </p>
+    </div>
+    
+    <div className="flex items-baseline">
+      <span className="w-16 text-xs font-mono text-slate-400">0.75rem</span>
+      <p style={{ fontSize: '0.75rem', fontWeight: 400, fontFamily: "'IBM Plex Sans', sans-serif", margin: 0 }}>
+        Caption: The quick brown fox jumps over the lazy dog.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div className="p-8 rounded-xl mb-12" style={{ backgroundColor: '#0f172a' }}>
+  <div style={{ color: '#f8fafc' }}>
+    <div className="mb-8 border-b pb-4 border-slate-800 flex items-baseline justify-between">
+      <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Dark Mode</span>
+      <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Sample</span>
+    </div>
+    
+    <div className="flex items-baseline mb-6">
+      <span className="w-16 text-xs font-mono text-slate-500">1rem</span>
+      <p style={{ fontSize: '1rem', fontWeight: 400, fontFamily: "'IBM Plex Sans', sans-serif", margin: 0 }}>
+        Base: The quick brown fox jumps over the lazy dog.
+      </p>
+    </div>
+    
+    <div className="flex items-baseline mb-6">
+      <span className="w-16 text-xs font-mono text-slate-500">0.875rem</span>
+      <p style={{ fontSize: '0.875rem', fontWeight: 400, fontFamily: "'IBM Plex Sans', sans-serif", margin: 0 }}>
+        Small: The quick brown fox jumps over the lazy dog.
+      </p>
+    </div>
+    
+    <div className="flex items-baseline">
+      <span className="w-16 text-xs font-mono text-slate-500">0.75rem</span>
+      <p style={{ fontSize: '0.75rem', fontWeight: 400, fontFamily: "'IBM Plex Sans', sans-serif", margin: 0 }}>
+        Caption: The quick brown fox jumps over the lazy dog.
+      </p>
+    </div>
+  </div>
+</div>
 
 ## Font Weights
 
-| Weight | CSS Value | Usage |
-| :--- | :--- | :--- |
-| Regular | 400 | Body text |
-| Medium | 500 | Labels, secondary headings |
-| Semibold | 600 | Emphasized text, buttons |
-| Bold | 700 | Primary headings |
+<div className="overflow-x-auto">
+  <table className="w-full text-left border-collapse">
+    <thead>
+      <tr className="border-b border-slate-200" style={{ borderBottomColor: '#e2e8f0' }}>
+        <th className="py-2 px-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Weight</th>
+        <th className="py-2 px-4 text-xs font-bold text-slate-500 uppercase tracking-wider">CSS Value</th>
+        <th className="py-2 px-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Usage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr className="border-b border-slate-100" style={{ borderBottomColor: '#f1f5f9' }}>
+        <td className="py-3 px-4" style={{ fontWeight: 400 }}>Regular</td>
+        <td className="py-3 px-4 font-mono text-sm text-slate-500">400</td>
+        <td className="py-3 px-4 text-sm text-slate-600">Body text</td>
+      </tr>
+      <tr className="border-b border-slate-100" style={{ borderBottomColor: '#f1f5f9' }}>
+        <td className="py-3 px-4" style={{ fontWeight: 500 }}>Medium</td>
+        <td className="py-3 px-4 font-mono text-sm text-slate-500">500</td>
+        <td className="py-3 px-4 text-sm text-slate-600">Labels, secondary headings</td>
+      </tr>
+      <tr className="border-b border-slate-100" style={{ borderBottomColor: '#f1f5f9' }}>
+        <td className="py-3 px-4" style={{ fontWeight: 600 }}>Semibold</td>
+        <td className="py-3 px-4 font-mono text-sm text-slate-500">600</td>
+        <td className="py-3 px-4 text-sm text-slate-600">Emphasized text, buttons</td>
+      </tr>
+      <tr className="border-b border-slate-100" style={{ borderBottomColor: '#f1f5f9' }}>
+        <td className="py-3 px-4" style={{ fontWeight: 700 }}>Bold</td>
+        <td className="py-3 px-4 font-mono text-sm text-slate-500">700</td>
+        <td className="py-3 px-4 text-sm text-slate-600">Primary headings</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
