@@ -4,65 +4,102 @@ import { Meta } from '@storybook/blocks';
 
 # Grid System
 
-We use a standard **12-column grid system** to organize content. It's built on top of CSS Grid and Flexbox, fully responsive and fluid.
+Our grid system is built on the **2x Grid** philosophy. It uses a base unit of **8px** (2x mini unit of 4px) to ensure consistent visual rhythm, alignment, and scalability across all screen sizes.
 
-## Columns
+<br />
 
-The grid is divided into 12 vertical columns. You can span content across any number of columns.
+## The 2x Grid Base
+Every spacing, sizing, and layout decision in the Enterprise Design System is a multiple of **8px**.
+-   **Mini Unit (4px)**: Used for micro-spacing within components (e.g., icon padding).
+-   **Base Unit (8px)**: The fundamental building block for layout and geometry.
 
-<div className="grid grid-cols-12 gap-4 p-4 bg-bg-subtle rounded-lg mb-8 h-64">
-  <div className="col-span-1 bg-action-primary/20 border border-action-primary text-action-primary text-center flex items-center justify-center text-xs rounded">1</div>
-  <div className="col-span-1 bg-action-primary/20 border border-action-primary text-action-primary text-center flex items-center justify-center text-xs rounded">1</div>
-  <div className="col-span-1 bg-action-primary/20 border border-action-primary text-action-primary text-center flex items-center justify-center text-xs rounded">1</div>
-  <div className="col-span-1 bg-action-primary/20 border border-action-primary text-action-primary text-center flex items-center justify-center text-xs rounded">1</div>
-  <div className="col-span-1 bg-action-primary/20 border border-action-primary text-action-primary text-center flex items-center justify-center text-xs rounded">1</div>
-  <div className="col-span-1 bg-action-primary/20 border border-action-primary text-action-primary text-center flex items-center justify-center text-xs rounded">1</div>
-  <div className="col-span-1 bg-action-primary/20 border border-action-primary text-action-primary text-center flex items-center justify-center text-xs rounded">1</div>
-  <div className="col-span-1 bg-action-primary/20 border border-action-primary text-action-primary text-center flex items-center justify-center text-xs rounded">1</div>
-  <div className="col-span-1 bg-action-primary/20 border border-action-primary text-action-primary text-center flex items-center justify-center text-xs rounded">1</div>
-  <div className="col-span-1 bg-action-primary/20 border border-action-primary text-action-primary text-center flex items-center justify-center text-xs rounded">1</div>
-  <div className="col-span-1 bg-action-primary/20 border border-action-primary text-action-primary text-center flex items-center justify-center text-xs rounded">1</div>
-  <div className="col-span-1 bg-action-primary/20 border border-action-primary text-action-primary text-center flex items-center justify-center text-xs rounded">1</div>
+<br />
 
-  <div className="col-span-4 bg-action-primary/20 border border-action-primary text-action-primary text-center flex items-center justify-center text-xs rounded">4</div>
-  <div className="col-span-4 bg-action-primary/20 border border-action-primary text-action-primary text-center flex items-center justify-center text-xs rounded">4</div>
-  <div className="col-span-4 bg-action-primary/20 border border-action-primary text-action-primary text-center flex items-center justify-center text-xs rounded">4</div>
+# Grid Fundamentals
 
-  <div className="col-span-6 bg-action-primary/20 border border-action-primary text-action-primary text-center flex items-center justify-center text-xs rounded">6</div>
-  <div className="col-span-6 bg-action-primary/20 border border-action-primary text-action-primary text-center flex items-center justify-center text-xs rounded">6</div>
-  
-  <div className="col-span-12 bg-action-primary/20 border border-action-primary text-action-primary text-center flex items-center justify-center text-xs rounded">12</div>
+The grid consists of three core elements: **Columns**, **Gutters**, and **Margins**.
+
+## 1. Columns
+Content is placed within columns. Use a **12-column** grid for most standard layouts to allow for flexible division into halves, thirds, quarters, and sixths.
+
+<div className="grid grid-cols-12 gap-4 h-32 mb-8 mt-4">
+  <div className="col-span-1 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-action-primary font-mono">1</div>
+  <div className="col-span-1 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-action-primary font-mono">2</div>
+  <div className="col-span-1 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-action-primary font-mono">3</div>
+  <div className="col-span-1 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-action-primary font-mono">4</div>
+  <div className="col-span-1 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-action-primary font-mono">5</div>
+  <div className="col-span-1 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-action-primary font-mono">6</div>
+  <div className="col-span-1 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-action-primary font-mono">7</div>
+  <div className="col-span-1 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-action-primary font-mono">8</div>
+  <div className="col-span-1 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-action-primary font-mono">9</div>
+  <div className="col-span-1 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-action-primary font-mono">10</div>
+  <div className="col-span-1 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-action-primary font-mono">11</div>
+  <div className="col-span-1 bg-action-primary/10 border border-dashed border-action-primary flex items-center justify-center text-xs text-action-primary font-mono">12</div>
 </div>
 
-## Gaps
+<br />
 
-We use our spacing scale for gaps between columns and rows.
+## 2. Gutters
+Gutters are the gaps between columns. They help separate content and are defined by our spacing tokens.
+*   **Compact (`gap-4` / 16px)**: High-density dashboards and data tables.
+*   **Standard (`gap-6` / 24px)**: Default application layouts.
+*   **Wide (`gap-8` / 32px)**: Marketing pages or low-density views.
 
-- `gap-4` (16px) is the default component gap.
-- `gap-6` (24px) is the default layout gap.
-- `gap-8` (32px) is used for major section separation.
+<br />
+
+## 3. Margins
+Margins are the outer spacing of the grid container. They prevent content from touching the edges of the screen.
+*   **Mobile**: `px-4` (16px)
+*   **Tablet**: `px-6` (24px)
+*   **Desktop**: `px-8` (32px) or centered `container`
 
 <br />
 <br />
 
-## Breakpoints
+# Breakpoint Systems
 
-Design for mobile first, then scale up using these breakpoints:
+We offer two breakpoint systems depending on the application type.
 
-| Breakpoint | Width | Prefix |
-| :--- | :--- | :--- |
-| **Small** | 640px | `sm:` |
-| **Medium** | 768px | `md:` |
-| **Large** | 1024px | `lg:` |
-| **X-Large** | 1280px | `xl:` |
-| **2X-Large** | 1536px | `2xl:` |
+## A. Standard System (Mobile-First)
+Best for public-facing websites and simple applications. Starts at mobile and scales up.
 
-## Container
+<br />
 
-Use the `container` class to center content and apply horizontal padding.
+| Breakpoint | Prefix | Width | Column Count |
+| :--- | :--- | :--- | :--- |
+| **Small** | `sm:` | 640px | 4 (Fluid) |
+| **Medium** | `md:` | 768px | 8 (Fluid) |
+| **Large** | `lg:` | 1024px | 12 (Fluid) |
+| **X-Large** | `xl:` | 1280px | 12 (Fixed Max) |
+
+<br />
+<br />
+
+## B. Enterprise Dashboard System (High Density)
+Optimized for complex, data-rich interfaces (e.g., admin panels, trading terminals) where **sidebar navigation** consumes horizontal space and users have large displays.
+
+<br />
+
+| Breakpoint | Prefix | Min Width | usage Criteria | Recommended Columns |
+| :--- | :--- | :--- | :--- | :--- |
+| **Compact** | (Default) | < 1024px | Mobile/Tablet Portrait views of dashboard. | 4 (Stacked) |
+| **Laptop** | `lg:` | 1024px | Standard laptop with sidebar open. | 8 or 12 |
+| **Desktop** | `xl:` | 1440px | Standard monitor (1080p+). ideal for tables. | 12 |
+| **Ultra** | `2xl:` | 1920px | Large monitors. High density data. | **16** (For fine-grained control) |
+
+<br />
+
+> **Note on 16 Columns**: In "Ultra" mode, switching to a 16-column grid allows for more precise widget placement in complex dashboards. Use `grid-cols-16` (custom utility) if enabled, or stick to `grid-cols-12` for consistency.
+
+<br />
+<br />
+
+# Usage Example
 
 ```tsx
-<div className="container mx-auto px-4">
-  {/* Page Content */}
+// Standard Dashboard Layout
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-12 gap-6">
+  {/* Card spans full width on mobile, half on tablet, 1/4 on laptop, 3/12 on desktop */}
+  <div className="col-span-1 lg:col-span-1 xl:col-span-3">Stat Card</div>
 </div>
 ```
