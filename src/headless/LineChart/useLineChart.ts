@@ -1,8 +1,3 @@
-import { useState, useMemo, useCallback } from 'react';
-import { UseLineChartProps, UseLineChartReturn } from './LineChart.types';
-
-const DEFAULT_WIDTH = 400;
-const DEFAULT_HEIGHT = 300;
 const PADDING = { top: 20, right: 20, bottom: 40, left: 60 };
 
 /**
@@ -16,8 +11,8 @@ export function useLineChart(props: UseLineChartProps): UseLineChartReturn {
         smooth = false,
         showGrid = true,
         gridLines: customGridLines = 5,
-        width = DEFAULT_WIDTH,
-        height = DEFAULT_HEIGHT,
+        width = 400,
+        height = 300,
     } = props;
 
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -31,18 +26,17 @@ export function useLineChart(props: UseLineChartProps): UseLineChartReturn {
         };
     }, [data, customMinY, customMaxY]);
 
-    const chartWidth = width - PADDING.left - PADDING.right;
-    const chartHeight = height - PADDING.top - PADDING.bottom;
-
-    // Calculate point positions
-    const points = useMemo(() => {
-        const xStep = chartWidth / (data.length - 1 || 1);
+    // Calculate point positions and chart dimensions in one memo block
+    const { points, chartWidth, chartHeight } = useMemo(() => {
+        const innerWidth = width - PADDING.left - PADDING.right;
+        const innerHeight = height - PADDING.top - PADDING.bottom;
+        const xStep = innerWidth / (data.length - 1 || 1);
         const yRange = maxY - minY || 1;
 
-        return data.map((point, index) => {
+        const calculatedPoints = data.map((point, index) => {
             const x = PADDING.left + index * xStep;
             const normalizedY = (point.y - minY) / yRange;
-            const y = PADDING.top + chartHeight - normalizedY * chartHeight;
+            const y = PADDING.top + innerHeight - normalizedY * innerHeight;
 
             return {
                 x,
@@ -51,7 +45,13 @@ export function useLineChart(props: UseLineChartProps): UseLineChartReturn {
                 label: String(point.x),
             };
         });
-    }, [data, chartWidth, chartHeight, maxY, minY]);
+
+        return {
+            points: calculatedPoints,
+            chartWidth: innerWidth,
+            chartHeight: innerHeight,
+        };
+    }, [data, width, height, maxY, minY]);
 
     // Generate SVG path
     const pathData = useMemo(() => {
