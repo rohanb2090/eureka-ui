@@ -1,8 +1,8 @@
 import { useState, useMemo, useCallback } from 'react';
 import { UseLineChartProps, UseLineChartReturn } from './LineChart.types';
 
-const CHART_WIDTH = 400;
-const CHART_HEIGHT = 300;
+const DEFAULT_WIDTH = 400;
+const DEFAULT_HEIGHT = 300;
 const PADDING = { top: 20, right: 20, bottom: 40, left: 60 };
 
 /**
@@ -16,6 +16,8 @@ export function useLineChart(props: UseLineChartProps): UseLineChartReturn {
         smooth = false,
         showGrid = true,
         gridLines: customGridLines = 5,
+        width = DEFAULT_WIDTH,
+        height = DEFAULT_HEIGHT,
     } = props;
 
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -29,8 +31,8 @@ export function useLineChart(props: UseLineChartProps): UseLineChartReturn {
         };
     }, [data, customMinY, customMaxY]);
 
-    const chartWidth = CHART_WIDTH - PADDING.left - PADDING.right;
-    const chartHeight = CHART_HEIGHT - PADDING.top - PADDING.bottom;
+    const chartWidth = width - PADDING.left - PADDING.right;
+    const chartHeight = height - PADDING.top - PADDING.bottom;
 
     // Calculate point positions
     const points = useMemo(() => {

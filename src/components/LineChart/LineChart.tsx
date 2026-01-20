@@ -38,7 +38,7 @@ export function LineChart({
         getPointProps,
         gridLines: gridLineValues,
         hoveredIndex,
-    } = useLineChart({ data, maxY, minY, smooth, showPoints, showGrid, gridLines });
+    } = useLineChart({ data, maxY, minY, smooth, showPoints, showGrid, gridLines, width, height });
 
     const chartWidth = width - PADDING.left - PADDING.right;
     const chartHeight = height - PADDING.top - PADDING.bottom;

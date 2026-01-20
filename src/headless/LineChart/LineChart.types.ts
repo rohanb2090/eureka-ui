@@ -11,6 +11,8 @@ export interface UseLineChartProps {
     showPoints?: boolean;
     showGrid?: boolean;
     gridLines?: number;
+    width?: number;
+    height?: number;
 }
 
 export interface UseLineChartReturn {
