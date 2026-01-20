@@ -1,4 +1,6 @@
-import { useState, useCallback, useLayoutEffect } from 'react';
+import { useState, useCallback, useLayoutEffect, useEffect } from 'react';
+
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
 interface Size {
     width: number;
@@ -20,7 +22,7 @@ export function useElementSize<T extends HTMLElement = HTMLDivElement>(): [
         setRef(newNode);
     }, []);
 
-    useLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
         if (!node) {
             return;
         }
@@ -34,12 +36,14 @@ export function useElementSize<T extends HTMLElement = HTMLDivElement>(): [
 
         handleResize();
 
-        const resizeObserver = new ResizeObserver(() => handleResize());
-        resizeObserver.observe(node);
+        if (typeof ResizeObserver !== 'undefined') {
+            const resizeObserver = new ResizeObserver(() => handleResize());
+            resizeObserver.observe(node);
 
-        return () => {
-            resizeObserver.disconnect();
-        };
+            return () => {
+                resizeObserver.disconnect();
+            };
+        }
     }, [node]);
 
     return [onRef, size];

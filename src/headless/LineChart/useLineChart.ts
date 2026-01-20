@@ -30,7 +30,7 @@ export function useLineChart(props: UseLineChartProps): UseLineChartReturn {
     }, [data, customMinY, customMaxY]);
 
     // Calculate point positions and chart dimensions in one memo block
-    const { points, chartWidth, chartHeight } = useMemo(() => {
+    const { points } = useMemo(() => {
         const innerWidth = width - PADDING.left - PADDING.right;
         const innerHeight = height - PADDING.top - PADDING.bottom;
         const xStep = innerWidth / (data.length - 1 || 1);
@@ -51,8 +51,6 @@ export function useLineChart(props: UseLineChartProps): UseLineChartReturn {
 
         return {
             points: calculatedPoints,
-            chartWidth: innerWidth,
-            chartHeight: innerHeight,
         };
     }, [data, width, height, maxY, minY]);
 

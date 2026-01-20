@@ -16,8 +16,10 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag',
   },
-  async viteFinal(config) {
-    config.base = '/eureka-ui/';
+  async viteFinal(config, { configType }) {
+    if (configType === 'PRODUCTION' && process.env.STORYBOOK_GHP_DEPLOY) {
+      config.base = '/eureka-ui/';
+    }
     return config;
   },
 };
