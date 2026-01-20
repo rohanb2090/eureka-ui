@@ -5,7 +5,7 @@
 
 Open-source headless-first React component library with semantic tokens and full accessibility support.
 
-[📚 **Storybook**](https://[username].github.io/eureka-ui/) | [🐛 **Issues**](https://github.com/[username]/eureka-ui/issues) | [💬 **Discussions**](https://github.com/[username]/eureka-ui/discussions)
+[📚 **Storybook**](https://rohanb2090.github.io/eureka-ui/) | [🐛 **Issues**](https://github.com/rohanb2090/eureka-ui/issues) | [💬 **Discussions**](https://github.com/rohanb2090/eureka-ui/discussions)
 
 ---
 

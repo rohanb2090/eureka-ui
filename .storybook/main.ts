@@ -17,7 +17,9 @@ const config: StorybookConfig = {
     autodocs: 'tag',
   },
   async viteFinal(config, { configType }) {
-    if (configType === 'PRODUCTION' && process.env.STORYBOOK_GHP_DEPLOY) {
+    // Only apply base path for GitHub Pages deployment
+    // @ts-ignore
+    if (configType === 'PRODUCTION' && typeof process !== 'undefined' && process.env.STORYBOOK_GHP_DEPLOY) {
       config.base = '/eureka-ui/';
     }
     return config;

@@ -2,95 +2,203 @@ import { Meta } from '@storybook/blocks';
 
 <Meta title="Foundations/Colors" />
 
+<style>{`
+  .dark-preview-text {
+    color: #f8fafc !important;
+  }
+  .dark-preview-label {
+    color: #94a3b8 !important;
+  }
+`}</style>
+
 # Color Palette
 
-The Enterprise Design System uses a semantic color system based on the **Blues/Purples/Rich Black** palette.
+The Enterprise Design System uses a semantic color system based on a high-contrast, accessible palette.
 
 ## Primitive Palette
-The raw colors extracted from the design tokens.
+These are the base colors used to build semantic tokens.
 
-<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
-  {[
-    { name: 'Rich Black', hex: '#0c0c16', var: '--color-rich-black' },
-    { name: 'Medium Slate Blue', hex: '#6666ff', var: '--color-medium-slate-blue' },
-    { name: 'Periwinkle', hex: '#b8baff', var: '--color-periwinkle' },
-    { name: 'Columbia Blue', hex: '#c9e8ff', var: '--color-columbia-blue' },
-    { name: 'Celadon', hex: '#b9f0d7', var: '--color-celadon' }
-  ].map((color) => (
-    <div key={color.name} className="flex items-center gap-4 p-3 rounded-lg border border-slate-200" style={{ backgroundColor: '#ffffff' }}>
-      <div className="w-12 h-12 rounded shadow-sm" style={{ backgroundColor: color.hex }}></div>
-      <div className="flex flex-col">
-        <span className="text-sm font-bold" style={{ color: '#0f172a' }}>{color.name}</span>
-        <span className="text-xs font-mono" style={{ color: '#64748b' }}>{color.hex}</span>
-        <span className="text-[10px] font-mono" style={{ color: '#94a3b8' }}>{color.var}</span>
-      </div>
+### Neutral
+Used for surfaces, borders, and text.
+<div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4 mb-8">
+  <div className="flex flex-col gap-2 p-2 rounded border border-slate-200" style={{ backgroundColor: '#ffffff' }}>
+    <div style={{ width: '100%', height: '64px', borderRadius: '4px', backgroundColor: '#FFFFFF', border: '1px solid #e2e8f0', boxShadow: '0 1px 2px rgba(0,0,0,0.05)' }}></div>
+    <div className="flex flex-col">
+      <span className="text-[10px] font-bold" style={{ color: '#0f172a' }}>N0</span>
+      <span className="text-[10px] font-mono uppercase" style={{ color: '#64748b' }}>#FFFFFF</span>
     </div>
-  ))}
-</div>
-
-## Semantic Tokens (Theme Aware)
-
-The system automatically switches these tokens based on `[data-theme="light"]` or `[data-theme="dark"]`.
-
-### Actions & Surface
-<div className="p-6 rounded-xl mb-8 border border-slate-200" style={{ backgroundColor: '#f8fafc' }}>
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-    <div>
-      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Light Mode Previews</h4>
-      <div className="space-y-3">
-        <div className="flex items-center gap-3 p-2 rounded bg-white border border-slate-100">
-           <div className="w-8 h-8 rounded" style={{ backgroundColor: '#6666ff' }}></div>
-           <span className="text-xs font-medium" style={{ color: '#0f172a' }}>Action Primary</span>
-        </div>
-        <div className="flex items-center gap-3 p-2 rounded bg-white border border-slate-100">
-           <div className="w-8 h-8 rounded" style={{ backgroundColor: '#0c0c16' }}></div>
-           <span className="text-xs font-medium" style={{ color: '#0f172a' }}>Background Page</span>
-        </div>
-      </div>
+  </div>
+  <div className="flex flex-col gap-2 p-2 rounded border border-slate-200" style={{ backgroundColor: '#ffffff' }}>
+    <div style={{ width: '100%', height: '64px', borderRadius: '4px', backgroundColor: '#F8F9FA', border: '1px solid #e2e8f0', boxShadow: '0 1px 2px rgba(0,0,0,0.05)' }}></div>
+    <div className="flex flex-col">
+      <span className="text-[10px] font-bold" style={{ color: '#0f172a' }}>N50</span>
+      <span className="text-[10px] font-mono uppercase" style={{ color: '#64748b' }}>#F8F9FA</span>
     </div>
-    
-    <div className="p-4 rounded-lg" style={{ backgroundColor: '#0f172a', border: '1px solid #1e293b' }}>
-      <h4 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Dark Mode Previews</h4>
-      <div className="space-y-3">
-        <div className="flex items-center gap-3 p-2 rounded" style={{ backgroundColor: '#1e293b', border: '1px solid #334155' }}>
-           <div className="w-8 h-8 rounded" style={{ backgroundColor: '#6666ff' }}></div>
-           <span className="text-xs font-medium" style={{ color: '#f8fafc' }}>Action Primary</span>
-        </div>
-        <div className="flex items-center gap-3 p-2 rounded" style={{ backgroundColor: '#0c0c16', border: '1px solid #334155' }}>
-           <div className="w-8 h-8 rounded" style={{ backgroundColor: '#0c0c16' }}></div>
-           <span className="text-xs font-medium" style={{ color: '#f8fafc' }}>Background Page</span>
-        </div>
-      </div>
+  </div>
+  <div className="flex flex-col gap-2 p-2 rounded border border-slate-200" style={{ backgroundColor: '#ffffff' }}>
+    <div style={{ width: '100%', height: '64px', borderRadius: '4px', backgroundColor: '#F1F3F5', border: '1px solid #e2e8f0', boxShadow: '0 1px 2px rgba(0,0,0,0.05)' }}></div>
+    <div className="flex flex-col">
+      <span className="text-[10px] font-bold" style={{ color: '#0f172a' }}>N100</span>
+      <span className="text-[10px] font-mono uppercase" style={{ color: '#64748b' }}>#F1F3F5</span>
+    </div>
+  </div>
+  <div className="flex flex-col gap-2 p-2 rounded border border-slate-200" style={{ backgroundColor: '#ffffff' }}>
+    <div style={{ width: '100%', height: '64px', borderRadius: '4px', backgroundColor: '#E9ECEF', border: '1px solid #e2e8f0', boxShadow: '0 1px 2px rgba(0,0,0,0.05)' }}></div>
+    <div className="flex flex-col">
+      <span className="text-[10px] font-bold" style={{ color: '#0f172a' }}>N200</span>
+      <span className="text-[10px] font-mono uppercase" style={{ color: '#64748b' }}>#E9ECEF</span>
+    </div>
+  </div>
+  <div className="flex flex-col gap-2 p-2 rounded border border-slate-200" style={{ backgroundColor: '#ffffff' }}>
+    <div style={{ width: '100%', height: '64px', borderRadius: '4px', backgroundColor: '#DEE2E6', border: '1px solid #e2e8f0', boxShadow: '0 1px 2px rgba(0,0,0,0.05)' }}></div>
+    <div className="flex flex-col">
+      <span className="text-[10px] font-bold" style={{ color: '#0f172a' }}>N300</span>
+      <span className="text-[10px] font-mono uppercase" style={{ color: '#64748b' }}>#DEE2E6</span>
+    </div>
+  </div>
+  <div className="flex flex-col gap-2 p-2 rounded border border-slate-200" style={{ backgroundColor: '#ffffff' }}>
+    <div style={{ width: '100%', height: '64px', borderRadius: '4px', backgroundColor: '#CED4DA', border: '1px solid #e2e8f0', boxShadow: '0 1px 2px rgba(0,0,0,0.05)' }}></div>
+    <div className="flex flex-col">
+      <span className="text-[10px] font-bold" style={{ color: '#0f172a' }}>N400</span>
+      <span className="text-[10px] font-mono uppercase" style={{ color: '#64748b' }}>#CED4DA</span>
     </div>
   </div>
 </div>
 
-### Full Token List
-<div className="overflow-x-auto">
-  <table className="w-full text-left border-collapse">
-    <thead>
-      <tr className="border-b border-slate-200" style={{ borderBottomColor: '#e2e8f0' }}>
-        <th className="py-2 px-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Category</th>
-        <th className="py-2 px-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Token</th>
-        <th className="py-2 px-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Variable</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td className="py-2 px-4 font-bold text-sm" style={{ color: '#0f172a' }}>Actions</td>
-        <td className="py-2 px-4 text-sm" style={{ color: '#334155' }}>Primary Default</td>
-        <td className="py-2 px-4 font-mono text-xs text-slate-400">--action-primary</td>
-      </tr>
-      <tr>
-        <td className="py-2 px-4 font-bold text-sm" style={{ color: '#0f172a' }}>Backgrounds</td>
-        <td className="py-2 px-4 text-sm" style={{ color: '#334155' }}>Page</td>
-        <td className="py-2 px-4 font-mono text-xs text-slate-400">--bg-page</td>
-      </tr>
-      <tr>
-        <td className="py-2 px-4 font-bold text-sm" style={{ color: '#0f172a' }}>Text</td>
-        <td className="py-2 px-4 text-sm" style={{ color: '#334155' }}>Primary</td>
-        <td className="py-2 px-4 font-mono text-xs text-slate-400">--text-primary</td>
-      </tr>
-    </tbody>
-  </table>
+### Primary
+Our core brand color used for primary actions.
+<div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-4 mb-8">
+  <div className="flex flex-col gap-2 p-2 rounded border border-slate-200" style={{ backgroundColor: '#ffffff' }}>
+    <div style={{ width: '100%', height: '64px', borderRadius: '4px', backgroundColor: '#E7F5FF', boxShadow: '0 1px 2px rgba(0,0,0,0.05)' }}></div>
+    <div className="flex flex-col">
+      <span className="text-[10px] font-bold" style={{ color: '#0f172a' }}>P50</span>
+      <span className="text-[10px] font-mono uppercase" style={{ color: '#64748b' }}>#E7F5FF</span>
+    </div>
+  </div>
+  <div className="flex flex-col gap-2 p-2 rounded border border-slate-200" style={{ backgroundColor: '#ffffff' }}>
+    <div style={{ width: '100%', height: '64px', borderRadius: '4px', backgroundColor: '#D0EBFF', boxShadow: '0 1px 2px rgba(0,0,0,0.05)' }}></div>
+    <div className="flex flex-col">
+      <span className="text-[10px] font-bold" style={{ color: '#0f172a' }}>P100</span>
+      <span className="text-[10px] font-mono uppercase" style={{ color: '#64748b' }}>#D0EBFF</span>
+    </div>
+  </div>
+  <div className="flex flex-col gap-2 p-2 rounded border border-slate-200" style={{ backgroundColor: '#ffffff' }}>
+    <div style={{ width: '100%', height: '64px', borderRadius: '4px', backgroundColor: '#A5D8FF', boxShadow: '0 1px 2px rgba(0,0,0,0.05)' }}></div>
+    <div className="flex flex-col">
+      <span className="text-[10px] font-bold" style={{ color: '#0f172a' }}>P200</span>
+      <span className="text-[10px] font-mono uppercase" style={{ color: '#64748b' }}>#A5D8FF</span>
+    </div>
+  </div>
+  <div className="flex flex-col gap-2 p-2 rounded border border-slate-200" style={{ backgroundColor: '#ffffff' }}>
+    <div style={{ width: '100%', height: '64px', borderRadius: '4px', backgroundColor: '#74C0FC', boxShadow: '0 1px 2px rgba(0,0,0,0.05)' }}></div>
+    <div className="flex flex-col">
+      <span className="text-[10px] font-bold" style={{ color: '#0f172a' }}>P300</span>
+      <span className="text-[10px] font-mono uppercase" style={{ color: '#64748b' }}>#74C0FC</span>
+    </div>
+  </div>
+  <div className="flex flex-col gap-2 p-2 rounded border border-slate-200" style={{ backgroundColor: '#ffffff' }}>
+    <div style={{ width: '100%', height: '64px', borderRadius: '4px', backgroundColor: '#4DABF7', boxShadow: '0 1px 2px rgba(0,0,0,0.05)' }}></div>
+    <div className="flex flex-col">
+      <span className="text-[10px] font-bold" style={{ color: '#0f172a' }}>P400</span>
+      <span className="text-[10px] font-mono uppercase" style={{ color: '#64748b' }}>#4DABF7</span>
+    </div>
+  </div>
+  <div className="flex flex-col gap-2 p-2 rounded border border-slate-200" style={{ backgroundColor: '#ffffff' }}>
+    <div style={{ width: '100%', height: '64px', borderRadius: '4px', backgroundColor: '#339AF0', boxShadow: '0 1px 2px rgba(0,0,0,0.05)' }}></div>
+    <div className="flex flex-col">
+      <span className="text-[10px] font-bold" style={{ color: '#0f172a' }}>P500</span>
+      <span className="text-[10px] font-mono uppercase" style={{ color: '#64748b' }}>#339AF0</span>
+    </div>
+  </div>
+  <div className="flex flex-col gap-2 p-2 rounded border border-slate-200" style={{ backgroundColor: '#ffffff' }}>
+    <div style={{ width: '100%', height: '64px', borderRadius: '4px', backgroundColor: '#228BE6', boxShadow: '0 1px 2px rgba(0,0,0,0.05)' }}></div>
+    <div className="flex flex-col">
+      <span className="text-[10px] font-bold" style={{ color: '#0f172a' }}>P600</span>
+      <span className="text-[10px] font-mono uppercase" style={{ color: '#64748b' }}>#228BE6</span>
+    </div>
+  </div>
+  <div className="flex flex-col gap-2 p-2 rounded border border-slate-200" style={{ backgroundColor: '#ffffff' }}>
+    <div style={{ width: '100%', height: '64px', borderRadius: '4px', backgroundColor: '#1C7ED6', boxShadow: '0 1px 2px rgba(0,0,0,0.05)' }}></div>
+    <div className="flex flex-col">
+      <span className="text-[10px] font-bold" style={{ color: '#0f172a' }}>P700</span>
+      <span className="text-[10px] font-mono uppercase" style={{ color: '#64748b' }}>#1C7ED6</span>
+    </div>
+  </div>
+  <div className="flex flex-col gap-2 p-2 rounded border border-slate-200" style={{ backgroundColor: '#ffffff' }}>
+    <div style={{ width: '100%', height: '64px', borderRadius: '4px', backgroundColor: '#1971C2', boxShadow: '0 1px 2px rgba(0,0,0,0.05)' }}></div>
+    <div className="flex flex-col">
+      <span className="text-[10px] font-bold" style={{ color: '#0f172a' }}>P800</span>
+      <span className="text-[10px] font-mono uppercase" style={{ color: '#64748b' }}>#1971C2</span>
+    </div>
+  </div>
+  <div className="flex flex-col gap-2 p-2 rounded border border-slate-200" style={{ backgroundColor: '#ffffff' }}>
+    <div style={{ width: '100%', height: '64px', borderRadius: '4px', backgroundColor: '#1864AB', boxShadow: '0 1px 2px rgba(0,0,0,0.05)' }}></div>
+    <div className="flex flex-col">
+      <span className="text-[10px] font-bold" style={{ color: '#0f172a' }}>P900</span>
+      <span className="text-[10px] font-mono uppercase" style={{ color: '#64748b' }}>#1864AB</span>
+    </div>
+  </div>
+</div>
+
+## Semantic Tokens (Theme Aware)
+
+The following tokens automatically adapt to the user's color scheme.
+
+### Action Tokens
+<div className="p-6 rounded-xl mb-8 border border-slate-200" style={{ backgroundColor: '#f1f5f9' }}>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="p-4 rounded-lg bg-white border border-slate-200 shadow-sm text-slate-900">
+      <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Light Mode</h4>
+      <div className="space-y-4">
+        <div className="flex items-center gap-4">
+          <div style={{ width: '40px', height: '40px', borderRadius: '4px', backgroundColor: '#339AF0', boxShadow: '0 1px 2px rgba(0,0,0,0.1)' }}></div>
+          <div className="flex flex-col">
+            <span className="text-xs font-bold">Action Primary</span>
+            <span className="text-[10px] font-mono text-slate-400">--action-primary</span>
+          </div>
+        </div>
+        <div className="flex items-center gap-4">
+          <div style={{ width: '40px', height: '40px', borderRadius: '4px', backgroundColor: '#228BE6', boxShadow: '0 1px 2px rgba(0,0,0,0.1)' }}></div>
+          <div className="flex flex-col">
+            <span className="text-xs font-bold">Action Hover</span>
+            <span className="text-[10px] font-mono text-slate-400">--action-primary-hover</span>
+          </div>
+        </div>
+        <div className="flex items-center gap-4">
+          <div style={{ width: '40px', height: '40px', borderRadius: '4px', backgroundColor: '#FA5252', boxShadow: '0 1px 2px rgba(0,0,0,0.1)' }}></div>
+          <div className="flex flex-col">
+            <span className="text-xs font-bold">Action Destructive</span>
+            <span className="text-[10px] font-mono text-slate-400">--action-destructive</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg" style={{ backgroundColor: '#0f172a', border: '1px solid #1e293b' }}>
+      <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">Dark Mode</h4>
+      <div className="space-y-4">
+        <div className="flex items-center gap-4">
+          <div style={{ width: '40px', height: '40px', borderRadius: '4px', backgroundColor: '#4DABF7', boxShadow: '0 1px 2px rgba(0,0,0,0.2)' }}></div>
+          <div className="flex flex-col">
+            <span className="text-xs font-bold dark-preview-text">Action Primary</span>
+            <span className="text-[10px] font-mono dark-preview-label">--action-primary</span>
+          </div>
+        </div>
+        <div className="flex items-center gap-4">
+          <div style={{ width: '40px', height: '40px', borderRadius: '4px', backgroundColor: '#74C0FC', boxShadow: '0 1px 2px rgba(0,0,0,0.2)' }}></div>
+          <div className="flex flex-col">
+            <span className="text-xs font-bold dark-preview-text">Action Hover</span>
+            <span className="text-[10px] font-mono dark-preview-label">--action-primary-hover</span>
+          </div>
+        </div>
+        <div className="flex items-center gap-4">
+          <div style={{ width: '40px', height: '40px', borderRadius: '4px', backgroundColor: '#C92A2A', boxShadow: '0 1px 2px rgba(0,0,0,0.2)' }}></div>
+          <div className="flex flex-col">
+            <span className="text-xs font-bold dark-preview-text">Action Destructive</span>
+            <span className="text-[10px] font-mono dark-preview-label">--action-destructive</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
