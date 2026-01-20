@@ -2,179 +2,114 @@ import { Meta } from '@storybook/blocks';
 
 <Meta title="Foundations/Grid System" />
 
-# Grid System
+# Responsive Layout Grid
 
-Our grid system is built on the **2x Grid** philosophy. It uses a base unit of **8px** (2x mini unit of 4px) to ensure consistent visual rhythm, alignment, and scalability across all screen sizes.
+The responsive layout grid adapts to screen size and orientation, ensuring consistency across layouts. It uses a **column-based structure** that scales from mobile to desktop.
 
-<br />
+## Key Concepts
 
-## The 2x Grid Base
-Every spacing, sizing, and layout decision in the Enterprise Design System is a multiple of **8px**.
--   **Mini Unit (4px)**: Used for micro-spacing within components (e.g., icon padding).
--   **Base Unit (8px)**: The fundamental building block for layout and geometry.
+The grid consists of three elements: **Columns**, **Gutters**, and **Margins**.
 
-<br />
-
-# Grid Fundamentals
-
-The grid consists of three core elements: **Columns**, **Gutters**, and **Margins**.
-
-## Grid Anatomy
-
-<div className="w-full border border-border-default rounded bg-bg-canvas mb-12 p-6">
-  {/* The Grid Visual - Simplified */}
-  <div className="flex w-full h-48 border-2 border-slate-300 rounded overflow-hidden mb-6">
-    
-    {/* Left Margin */}
-    <div className="w-12 h-full bg-green-100 border-r-2 border-green-300 flex items-center justify-center">
-      <span className="text-[10px] font-mono text-green-700 -rotate-90 whitespace-nowrap">Margin</span>
-    </div>
-
-    {/* Grid Container (Columns + Gutters) */}
-    <div className="flex-1 grid grid-cols-12 gap-3 h-full bg-slate-50 p-3">
-      {Array.from({ length: 12 }).map((_, i) => (
-        <div key={i} className="bg-pink-100 h-full border border-pink-200 rounded-sm hover:bg-pink-200 transition-colors flex items-center justify-center">
-          {i === 5 && <span className="text-[10px] text-pink-600 font-mono">Col</span>}
+<div className="flex flex-col gap-8 my-12">
+  
+  {/* Anatomy Visual */}
+  <div className="w-full border border-border-default rounded-lg bg-white overflow-hidden">
+    <div className="relative h-64 w-full flex items-center justify-center p-6 bg-slate-50">
+      
+      {/* Container */}
+      <div className="h-full w-full max-w-4xl flex relative">
+        
+        {/* Left Margin */}
+        <div className="h-full w-8 bg-green-200 border-x border-green-300 flex items-center justify-center relative z-10">
+          <span className="text-[10px] font-mono text-green-800 -rotate-90">Margin</span>
         </div>
-      ))}
-    </div>
 
-    {/* Right Margin */}
-    <div className="w-12 h-full bg-green-100 border-l-2 border-green-300 flex items-center justify-center">
-      <span className="text-[10px] font-mono text-green-700 -rotate-90 whitespace-nowrap">Margin</span>
-    </div>
-  </div>
-
-  {/* Legend */}
-  <div className="flex flex-wrap gap-6 text-sm">
-    <div className="flex items-center gap-2">
-      <div className="w-6 h-6 bg-green-100 border-2 border-green-300 rounded"></div>
-      <span className="font-mono text-slate-700">Margin (outer spacing)</span>
-    </div>
-    <div className="flex items-center gap-2">
-      <div className="w-6 h-6 bg-pink-100 border border-pink-200 rounded"></div>
-      <span className="font-mono text-slate-700">Column (content areas)</span>
-    </div>
-    <div className="flex items-center gap-2">
-      <div className="w-6 h-6 bg-slate-50 border border-slate-200 rounded"></div>
-      <span className="font-mono text-slate-700">Gutter (gaps between columns)</span>
-    </div>
-  </div>
-
-  {/* Dimensions */}
-  <div className="mt-6 text-xs text-slate-500 font-mono text-center">
-    Standard breakpoints: 1280px / 1440px / 1920px
-  </div>
-</div>
-
-## 1. Columns
-Content is placed within columns. Use a **12-column** grid for most standard layouts.
-
-## 2. Gutters
-Gutters are the gaps between columns. We use a **Pink** color to visualize gaps below.
-
-<div className="flex flex-col gap-8 mb-12">
-    {/* Gap 4 */}
-    <div>
-        <div className="text-xs font-mono mb-2 text-text-secondary">Compact (gap-4 / 16px)</div>
-        <div className="relative border border-border-default rounded bg-bg-canvas p-4">
-            {/* The pink background on the grid container shows through the gaps */}
-            <div className="grid grid-cols-3 gap-4 bg-pink-500/30 rounded">
-                 <div className="h-16 bg-bg-surface border border-border-default flex items-center justify-center text-xs z-10">Col</div>
-                 <div className="h-16 bg-bg-surface border border-border-default flex items-center justify-center text-xs z-10">Col</div>
-                 <div className="h-16 bg-bg-surface border border-border-default flex items-center justify-center text-xs z-10">Col</div>
-            </div>
-            <div className="flex items-center gap-2 mt-2">
-                <div className="w-4 h-4 bg-pink-500/30 rounded"></div>
-                <span className="text-[10px] text-text-secondary uppercase tracking-wider">Gutter (16px)</span>
-            </div>
+        {/* Columns & Gutters */}
+        <div className="flex-1 flex gap-4 h-full bg-white px-4">
+             <div className="flex-1 bg-pink-100 border-x border-pink-200 h-full flex items-center justify-center relative">
+               <span className="text-[10px] font-mono text-pink-700">Col</span>
+             </div>
+             <div className="flex-1 bg-pink-100 border-x border-pink-200 h-full flex items-center justify-center relative">
+               <span className="text-[10px] font-mono text-pink-700">Col</span>
+             </div>
+             <div className="flex-1 bg-pink-100 border-x border-pink-200 h-full flex items-center justify-center relative">
+               <span className="text-[10px] font-mono text-pink-700">Col</span>
+             </div>
+             <div className="flex-1 bg-pink-100 border-x border-pink-200 h-full flex items-center justify-center relative">
+               <span className="text-[10px] font-mono text-pink-700">Col</span>
+             </div>
         </div>
+
+        {/* Right Margin */}
+        <div className="h-full w-8 bg-green-200 border-x border-green-300 flex items-center justify-center relative z-10">
+          <span className="text-[10px] font-mono text-green-800 -rotate-90">Margin</span>
+        </div>
+        
+        {/* Gutter Callout (Overlay) */}
+         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-full bg-slate-200/50 border-x border-slate-300 flex items-center justify-center">
+             <span className="text-[10px] font-mono text-slate-600 -rotate-90 bg-white/80 px-1 rounded">Gutter</span>
+         </div>
+
+      </div>
     </div>
     
-     {/* Gap 8 */}
-    <div>
-        <div className="text-xs font-mono mb-2 text-text-secondary">Wide (gap-8 / 32px)</div>
-        <div className="relative border border-border-default rounded bg-bg-canvas p-4">
-            <div className="grid grid-cols-3 gap-8 bg-pink-500/30 rounded">
-                 <div className="h-16 bg-bg-surface border border-border-default flex items-center justify-center text-xs z-10">Col</div>
-                 <div className="h-16 bg-bg-surface border border-border-default flex items-center justify-center text-xs z-10">Col</div>
-                 <div className="h-16 bg-bg-surface border border-border-default flex items-center justify-center text-xs z-10">Col</div>
-            </div>
-             <div className="flex items-center gap-2 mt-2">
-                <div className="w-4 h-4 bg-pink-500/30 rounded"></div>
-                <span className="text-[10px] text-text-secondary uppercase tracking-wider">Gutter (32px)</span>
-            </div>
-        </div>
+    <div className="p-4 border-t border-border-default bg-white text-xs text-text-secondary flex gap-6">
+       <div className="flex items-center gap-2">
+         <div className="w-3 h-3 bg-pink-100 border border-pink-200"></div> Columns (Content)
+       </div>
+       <div className="flex items-center gap-2">
+         <div className="w-3 h-3 bg-slate-200 border border-slate-300"></div> Gutters (Spacing)
+       </div>
+       <div className="flex items-center gap-2">
+         <div className="w-3 h-3 bg-green-200 border border-green-300"></div> Margins (Safe Area)
+       </div>
     </div>
+  </div>
 </div>
 
-## 3. Margins
-Margins are the outer spacing of the grid container. We use **Blue** to visualize margins.
+## Responsive Behavior
 
-<div className="mb-12">
-    <div className="text-xs font-mono mb-2 text-text-secondary">Example: Desktop Margin (px-8)</div>
-    <div className="w-full border border-border-default rounded p-4">
-        {/* The Blue container represents the margin area */}
-        <div className="bg-action-primary/20 p-8 w-full rounded">
-            {/* The inner white box is the actual grid content */}
-            <div className="w-full h-24 bg-bg-surface border border-dashed border-text-disabled flex items-center justify-center text-text-secondary relative">
-                Grid Content
-            </div>
-        </div>
-         <div className="flex items-center gap-2 mt-2">
-            <div className="w-4 h-4 bg-action-primary/20 rounded"></div>
-            <span className="text-[10px] text-text-secondary uppercase tracking-wider">Margin / Padding (32px)</span>
-        </div>
-    </div>
-</div>
+The grid adapts the number of columns and spacing specifications based on the breakpoint.
 
-<br />
-<br />
+### 1. Mobile (< 600dp)
+**4 Columns**. Best for portraits and compact lists.
+*   **Columns**: 4
+*   **Margins**: 16px
+*   **Gutters**: 16px
 
-# Breakpoint Systems
+### 2. Tablet (600dp - 840dp)
+**8 Columns**. Used for tablet portrait and large phones.
+*   **Columns**: 8
+*   **Margins**: 32px
+*   **Gutters**: 24px
 
-We offer two breakpoint systems depending on the application type.
-
-## A. Standard System (Mobile-First)
-Best for public-facing websites and simple applications. Starts at mobile and scales up.
+### 3. Desktop (> 840dp)
+**12 Columns**. Standard layout for web applications.
+*   **Columns**: 12
+*   **Margins**: Auto / Max-width
+*   **Gutters**: 24px
 
 <br />
 
-| Breakpoint | Prefix | Width | Column Count |
-| :--- | :--- | :--- | :--- |
-| **Small** | `sm:` | 640px | 4 (Fluid) |
-| **Medium** | `md:` | 768px | 8 (Fluid) |
-| **Large** | `lg:` | 1024px | 12 (Fluid) |
-| **X-Large** | `xl:` | 1280px | 12 (Fixed Max) |
+## Breakpoint Table
 
-<br />
-<br />
-
-## B. Enterprise Dashboard System (High Density)
-Optimized for complex, data-rich interfaces (e.g., admin panels, trading terminals) where **sidebar navigation** consumes horizontal space and users have large displays.
-
-<br />
-
-| Breakpoint | Prefix | Min Width | usage Criteria | Recommended Columns |
+| Breakpoint | Range (dp) | Columns | Gutter | Margin |
 | :--- | :--- | :--- | :--- | :--- |
-| **Compact** | (Default) | < 1024px | Mobile/Tablet Portrait views of dashboard. | 4 (Stacked) |
-| **Laptop** | `lg:` | 1024px | Standard laptop with sidebar open. | 8 or 12 |
-| **Desktop** | `xl:` | 1440px | Standard monitor (1080p+). ideal for tables. | 12 |
-| **Ultra** | `2xl:` | 1920px | Large monitors. High density data. | **16** (For fine-grained control) |
+| **Small** | 0 - 599 | 4 | 16px | 16px |
+| **Medium** | 600 - 904 | 8 | 24px | 32px |
+| **Large** | 905 - 1239 | 12 | 24px | Auto |
+| **X-Large** | 1240 - 1439 | 12 | 24px | Auto |
+| **2X-Large** | 1440+ | 12 | 24px | Auto |
 
 <br />
 
-> **Note on 16 Columns**: In "Ultra" mode, switching to a 16-column grid allows for more precise widget placement in complex dashboards. Use `grid-cols-16` (custom utility) if enabled, or stick to `grid-cols-12` for consistency.
+# Usage
 
-<br />
-<br />
-
-# Usage Example
+Use the grid to align content. Content should span **columns**, not gutters.
 
 ```tsx
-// Standard Dashboard Layout
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-12 gap-6">
-  {/* Card spans full width on mobile, half on tablet, 1/4 on laptop, 3/12 on desktop */}
-  <div className="col-span-1 lg:col-span-1 xl:col-span-3">Stat Card</div>
+<div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-4 lg:gap-6">
+  <div className="col-span-4">Main Content</div>
+  <div className="col-span-4 lg:col-span-8">Side / Context</div>
 </div>
 ```
