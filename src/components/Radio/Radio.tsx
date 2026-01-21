@@ -22,7 +22,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
         const groupContext = useContext(RadioGroupContext);
 
         // Merge props with context if available
-        let finalProps = { ...props };
+        const finalProps = { ...props };
 
         if (groupContext) {
             // Group overrides properties
