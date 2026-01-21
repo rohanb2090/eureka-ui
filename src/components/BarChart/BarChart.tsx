@@ -30,7 +30,16 @@ export function BarChart({
         getBarProps,
         gridLines: gridLineValues,
         hoveredIndex,
-    } = useBarChart({ data, orientation, maxValue, showGrid, gridLines });
+    } = useBarChart({
+        data,
+        orientation,
+        maxValue,
+        showGrid,
+        gridLines,
+        width,
+        height,
+        padding: PADDING
+    });
 
     const chartWidth = width - PADDING.left - PADDING.right;
     const chartHeight = height - PADDING.top - PADDING.bottom;

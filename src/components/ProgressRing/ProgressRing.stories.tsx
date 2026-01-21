@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ProgressRing } from './ProgressRing';
 
 const meta = {
-    title: 'Components/ProgressRing',
+    title: 'Data Visualization/ProgressRing',
     component: ProgressRing,
     parameters: {
         layout: 'centered',

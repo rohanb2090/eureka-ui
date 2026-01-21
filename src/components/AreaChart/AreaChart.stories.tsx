@@ -21,7 +21,7 @@ const salesData = [
 ];
 
 const meta = {
-    title: 'Components/AreaChart',
+    title: 'Data Visualization/AreaChart',
     component: AreaChart,
     parameters: {
         layout: 'centered',

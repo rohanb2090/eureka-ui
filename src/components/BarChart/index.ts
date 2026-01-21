@@ -1,2 +1,10 @@
 export { BarChart } from './BarChart';
+export { HorizontalBarChart } from './HorizontalBarChart';
+export { StackedBarChart } from './StackedBarChart';
+export { GroupedBarChart } from './GroupedBarChart';
+export { Histogram } from './Histogram';
 export type { BarChartProps } from './BarChart';
+export type { HorizontalBarChartProps } from './HorizontalBarChart';
+export type { StackedBarChartProps } from './StackedBarChart';
+export type { GroupedBarChartProps } from './GroupedBarChart';
+export type { HistogramProps } from './Histogram';

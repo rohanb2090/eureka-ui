@@ -18,7 +18,7 @@ const categoryData = [
 ];
 
 const meta = {
-    title: 'Components/BarChart',
+    title: 'Data Visualization/BarChart',
     component: BarChart,
     parameters: {
         layout: 'centered',

@@ -7,7 +7,7 @@ const volatile = [25, 35, 20, 40, 15, 38, 30];
 const stable = [30, 31, 29, 30, 32, 30, 31];
 
 const meta = {
-    title: 'Components/SparkLine',
+    title: 'Data Visualization/SparkLine',
     component: SparkLine,
     parameters: {
         layout: 'centered',

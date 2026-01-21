@@ -15,7 +15,7 @@ const columns = [
 ];
 
 const meta = {
-    title: 'Components/Table',
+    title: 'Data Visualization/Table',
     component: Table,
     parameters: {
         layout: 'padded',

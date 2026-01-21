@@ -18,7 +18,7 @@ const expenseData = [
 ];
 
 const meta = {
-    title: 'Components/PieChart',
+    title: 'Data Visualization/PieChart',
     component: PieChart,
     parameters: {
         layout: 'centered',

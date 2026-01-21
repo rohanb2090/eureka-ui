@@ -12,6 +12,9 @@ export interface UseBarChartProps {
     maxValue?: number;
     showGrid?: boolean;
     gridLines?: number;
+    width?: number;
+    height?: number;
+    padding?: { top: number; right: number; bottom: number; left: number };
 }
 
 export interface BarDimensions {

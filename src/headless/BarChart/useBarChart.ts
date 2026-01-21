@@ -27,6 +27,9 @@ export function useBarChart(props: UseBarChartProps): UseBarChartReturn {
         maxValue: customMaxValue,
         showGrid = true,
         gridLines: customGridLines = 5,
+        width = CHART_WIDTH,
+        height = CHART_HEIGHT,
+        padding = PADDING,
     } = props;
 
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -38,8 +41,8 @@ export function useBarChart(props: UseBarChartProps): UseBarChartReturn {
     }, [data, customMaxValue]);
 
     // Calculate available space for bars
-    const chartWidth = CHART_WIDTH - PADDING.left - PADDING.right;
-    const chartHeight = CHART_HEIGHT - PADDING.top - PADDING.bottom;
+    const chartWidth = width - padding.left - padding.right;
+    const chartHeight = height - padding.top - padding.bottom;
 
     // Calculate bar dimensions
     const bars: BarDimensions[] = useMemo(() => {
@@ -53,8 +56,8 @@ export function useBarChart(props: UseBarChartProps): UseBarChartReturn {
             return data.map((point, index) => {
                 const barHeight = (point.value / maxValue) * chartHeight;
                 return {
-                    x: PADDING.left + index * (barWidth + barGap),
-                    y: PADDING.top + (chartHeight - barHeight),
+                    x: padding.left + index * (barWidth + barGap),
+                    y: padding.top + (chartHeight - barHeight),
                     width: barWidth,
                     height: barHeight,
                     value: point.value,
@@ -70,8 +73,8 @@ export function useBarChart(props: UseBarChartProps): UseBarChartReturn {
             return data.map((point, index) => {
                 const barWidth = (point.value / maxValue) * chartWidth;
                 return {
-                    x: PADDING.left,
-                    y: PADDING.top + index * (barHeight + barGap),
+                    x: padding.left,
+                    y: padding.top + index * (barHeight + barGap),
                     width: barWidth,
                     height: barHeight,
                     value: point.value,
@@ -80,7 +83,7 @@ export function useBarChart(props: UseBarChartProps): UseBarChartReturn {
                 };
             });
         }
-    }, [data, orientation, maxValue, chartWidth, chartHeight]);
+    }, [data, orientation, maxValue, chartWidth, chartHeight, padding]);
 
     // Calculate grid lines
     const gridLines = useMemo(() => {

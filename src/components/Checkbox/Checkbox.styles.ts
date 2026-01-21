@@ -2,7 +2,6 @@ import { cva, type VariantProps } from 'class-variance-authority';
 
 export const checkboxVariants = cva(
     [
-        'rounded',
         'border',
         'transition-colors duration-150',
         'cursor-pointer',

@@ -21,7 +21,7 @@ const revenueData = [
 ];
 
 const meta = {
-    title: 'Components/LineChart',
+    title: 'Data Visualization/LineChart',
     component: LineChart,
     parameters: {
         layout: 'centered',

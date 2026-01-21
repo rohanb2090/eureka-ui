@@ -75,7 +75,7 @@ export function PieChart({
                             className="flex items-center gap-2"
                         >
                             <div
-                                className="w-3 h-3 rounded-sm"
+                                className="w-3 h-3"
                                 style={{ backgroundColor: segment.color }}
                             />
                             <span className="text-sm text-text-secondary">

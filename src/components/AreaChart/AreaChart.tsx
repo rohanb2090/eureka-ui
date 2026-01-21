@@ -23,13 +23,14 @@ export function AreaChart({
     showGrid = true,
     gridLines = 5,
     showLabels = true,
+    showYAxis = true,
     fillColor = 'var(--action-primary)',
     fillOpacity = 0.2,
     lineColor = 'var(--action-primary)',
     className,
     width = CHART_WIDTH,
     height = CHART_HEIGHT,
-}: AreaChartProps) {
+}: AreaChartProps & { showYAxis?: boolean }) {
     const {
         pathData,
         points,
@@ -58,30 +59,34 @@ export function AreaChart({
                 style={{ overflow: 'visible' }}
             >
                 {/* Grid lines */}
-                {showGrid && gridLineValues.map((value, index) => {
+                {gridLineValues.map((value, index) => {
                     const normalizedY = (value - calculatedMinY) / yRange;
                     const y = PADDING.top + chartHeight - normalizedY * chartHeight;
 
                     return (
                         <g key={`grid-${index}`}>
-                            <line
-                                x1={PADDING.left}
-                                y1={y}
-                                x2={PADDING.left + chartWidth}
-                                y2={y}
-                                stroke="var(--border-subtle)"
-                                strokeWidth="1"
-                                strokeDasharray="4 2"
-                            />
-                            <text
-                                x={PADDING.left - 8}
-                                y={y + 4}
-                                textAnchor="end"
-                                className="text-xs pointer-events-none"
-                                fill="var(--text-secondary)"
-                            >
-                                {Math.round(value)}
-                            </text>
+                            {showGrid && (
+                                <line
+                                    x1={PADDING.left}
+                                    y1={y}
+                                    x2={PADDING.left + chartWidth}
+                                    y2={y}
+                                    stroke="var(--border-subtle)"
+                                    strokeWidth="1"
+                                    strokeDasharray="4 2"
+                                />
+                            )}
+                            {showYAxis && (
+                                <text
+                                    x={PADDING.left - 8}
+                                    y={y + 4}
+                                    textAnchor="end"
+                                    className="text-xs pointer-events-none"
+                                    fill="var(--text-secondary)"
+                                >
+                                    {Math.round(value)}
+                                </text>
+                            )}
                         </g>
                     );
                 })}
