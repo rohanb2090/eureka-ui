@@ -198,9 +198,9 @@ const DashboardContent = ({ isLoading = false }: { isLoading?: boolean }) => {
                 <div className="grid grid-cols-12 gap-8">
                     {/* Revenue Timeline */}
                     <Surface variant="card" className="col-span-12 xl:col-span-8 p-8 flex flex-col gap-6 shadow-sm border border-border-subtle">
-                        <div className="flex justify-between items-center">
-                            <h3 className="text-xl font-bold">Revenue Projections</h3>
-                            <Tabs defaultValue="month">
+                        <div className="flex flex-row justify-between items-start mb-2">
+                            <h3 className="text-xl font-bold whitespace-nowrap">Revenue Projections</h3>
+                            <Tabs defaultValue="month" className="ml-auto">
                                 <TabsList>
                                     <TabsTrigger value="day">Day</TabsTrigger>
                                     <TabsTrigger value="month">Month</TabsTrigger>
@@ -208,7 +208,7 @@ const DashboardContent = ({ isLoading = false }: { isLoading?: boolean }) => {
                                 </TabsList>
                             </Tabs>
                         </div>
-                        <div ref={revenueRef} className="h-[350px] w-full">
+                        <div ref={revenueRef} className="min-h-[350px] flex-1 w-full flex justify-center items-center">
                             {revenueWidth > 0 && (
                                 <LineChart
                                     data={REVENUE_DATA}
@@ -264,8 +264,8 @@ const DashboardContent = ({ isLoading = false }: { isLoading?: boolean }) => {
                 <div className="grid grid-cols-12 gap-8">
                     {/* Engagement Area Chart */}
                     <Surface variant="card" className="col-span-12 xl:col-span-8 p-8 flex flex-col gap-6 shadow-sm border border-border-subtle">
-                        <h3 className="text-xl font-bold">Engagement Trends</h3>
-                        <div ref={engagementRef} className="h-[300px] w-full">
+                        <h3 className="text-xl font-bold whitespace-nowrap">Engagement Trends</h3>
+                        <div ref={engagementRef} className="min-h-[300px] flex-1 w-full flex justify-center items-center">
                             {engagementWidth > 0 && (
                                 <AreaChart
                                     data={ENGAGEMENT_TREND}

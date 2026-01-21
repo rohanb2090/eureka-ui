@@ -28,7 +28,7 @@ export const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(
 
         return (
             <TabsContext.Provider value={{ value: currentValue, onValueChange: handleValueChange }}>
-                <div ref={ref} className={cn("w-full", className)} {...props}>
+                <div ref={ref} className={className} {...props}>
                     {children}
                 </div>
             </TabsContext.Provider>
