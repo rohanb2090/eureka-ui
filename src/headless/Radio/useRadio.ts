@@ -165,6 +165,13 @@ export function useRadioGroup(props: UseRadioGroupProps): UseRadioGroupReturn {
         };
     }, [name, currentValue, isDisabled, isRequired, controlledValue, onChange]);
 
+    const handleChange = useCallback((value: string) => {
+        if (controlledValue === undefined) {
+            setUncontrolledValue(value);
+        }
+        onChange?.(value);
+    }, [controlledValue, onChange]);
+
     return {
         groupProps: {
             role: 'radiogroup',
@@ -172,5 +179,7 @@ export function useRadioGroup(props: UseRadioGroupProps): UseRadioGroupReturn {
             ...(ariaLabelledby && { 'aria-labelledby': ariaLabelledby }),
         },
         getRadioProps,
+        value: currentValue,
+        onChange: handleChange,
     };
 }

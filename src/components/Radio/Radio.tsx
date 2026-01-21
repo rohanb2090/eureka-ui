@@ -1,7 +1,17 @@
-import { forwardRef, ReactNode } from 'react';
+import { forwardRef, ReactNode, createContext, useContext } from 'react';
 import { useRadio, useRadioGroup, UseRadioProps, UseRadioGroupProps } from '../../headless/Radio';
 import { radioVariants, RadioVariantProps } from './Radio.styles';
 import { cn } from '../../utils/cn';
+
+// Context for RadioGroup
+interface RadioGroupContextValue {
+    value?: string;
+    onChange: (value: string) => void;
+    name?: string;
+    isDisabled?: boolean;
+}
+
+const RadioGroupContext = createContext<RadioGroupContextValue | undefined>(undefined);
 
 export interface RadioProps extends UseRadioProps, RadioVariantProps {
     className?: string;
@@ -9,7 +19,35 @@ export interface RadioProps extends UseRadioProps, RadioVariantProps {
 
 export const Radio = forwardRef<HTMLInputElement, RadioProps>(
     ({ size = 'md', className, ...props }, ref) => {
-        const { inputProps, state } = useRadio(props);
+        const groupContext = useContext(RadioGroupContext);
+
+        // Merge props with context if available
+        let finalProps = { ...props };
+
+        if (groupContext) {
+            // Group overrides properties
+            if (groupContext.name && !finalProps.name) {
+                finalProps.name = groupContext.name;
+            }
+
+            if (groupContext.isDisabled) {
+                finalProps.isDisabled = true;
+            }
+
+            // Determine checked state based on group value
+            if (finalProps.value !== undefined) {
+                finalProps.isChecked = groupContext.value === finalProps.value;
+            }
+
+            // Wrap onChange to notify group
+            const originalOnChange = finalProps.onChange;
+            finalProps.onChange = (value, e) => {
+                originalOnChange?.(value, e);
+                groupContext.onChange(value);
+            };
+        }
+
+        const { inputProps, state } = useRadio(finalProps);
 
         return (
             <input
@@ -36,11 +74,13 @@ export interface RadioGroupProps extends UseRadioGroupProps {
 }
 
 export function RadioGroup({ children, className, ...props }: RadioGroupProps) {
-    const { groupProps } = useRadioGroup(props);
+    const { groupProps, value, onChange } = useRadioGroup(props);
 
     return (
-        <div {...groupProps} className={cn('space-y-2', className)}>
-            {children}
-        </div>
+        <RadioGroupContext.Provider value={{ value, onChange, name: props.name, isDisabled: props.isDisabled }}>
+            <div {...groupProps} className={cn('space-y-2', className)}>
+                {children}
+            </div>
+        </RadioGroupContext.Provider>
     );
 }

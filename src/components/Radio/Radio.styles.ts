@@ -6,6 +6,8 @@ export const radioVariants = cva(
         'border',
         'transition-colors duration-150',
         'cursor-pointer',
+        'appearance-none',
+        'grid place-content-center',
 
         // Focus
         'focus:outline-none',
@@ -13,8 +15,18 @@ export const radioVariants = cva(
         'focus:ring-[var(--border-focus)]',
         'focus:ring-offset-2',
 
+        // Dot (pseudo-element)
+        'before:content-[""]',
+        'before:block', // Explicitly block
+        'before:w-[0.65em] before:h-[0.65em]',
+        'before:rounded-full',
+        'before:scale-0 checked:before:scale-100',
+        'before:transition-transform before:duration-150',
+        'before:bg-current', // Use current text color
+
         // Checked state
-        'text-[var(--action-primary)]',
+        'checked:border-[var(--action-primary)]',
+        'checked:text-[var(--action-primary)]', // Text color determines dot color
 
         // Disabled
         'disabled:opacity-[var(--opacity-disabled)]',

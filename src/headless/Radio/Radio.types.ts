@@ -129,4 +129,10 @@ export interface UseRadioGroupReturn {
 
     /** Function to get props for individual radio in the group */
     getRadioProps: (radioProps: Omit<UseRadioProps, 'name' | 'isChecked' | 'onChange'>) => UseRadioProps;
+
+    /** Current selected value */
+    value?: string;
+
+    /** Change handler for the group */
+    onChange: (value: string) => void;
 }
