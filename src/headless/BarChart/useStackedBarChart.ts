@@ -61,7 +61,7 @@ export function useStackedBarChart(props: UseStackedBarChartProps): UseStackedBa
                 totalValue: bar.total
             };
         });
-    }, [barsData, maxValue, chartWidth, chartHeight]);
+    }, [barsData, maxValue, chartWidth, chartHeight, data.length]);
 
     const gridLineValues = useMemo(() => {
         if (!showGrid) return [];

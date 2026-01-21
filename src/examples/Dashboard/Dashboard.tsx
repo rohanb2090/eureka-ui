@@ -90,7 +90,7 @@ const COLUMNS = [
     {
         id: 'status',
         header: 'Status',
-        render: (row: any) => {
+        render: (row: { status: string }) => {
             const variant = row.status === 'Completed' ? 'success' : row.status === 'Pending' ? 'warning' : 'neutral';
             return <Badge label={row.status} variant={variant} size="sm" />;
         }

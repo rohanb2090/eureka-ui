@@ -26,6 +26,7 @@ export function Modal({
     const [mounted, setMounted] = React.useState(false);
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         setMounted(true);
         if (isOpen) {
             document.body.style.overflow = 'hidden';

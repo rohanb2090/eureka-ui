@@ -12,7 +12,6 @@ export function useScatterPlot(props: UseScatterPlotProps): UseScatterPlotReturn
         xMax: customXMax,
         yMin: customYMin,
         yMax: customYMax,
-        showGrid = true,
         width = CHART_WIDTH,
         height = CHART_HEIGHT,
     } = props;

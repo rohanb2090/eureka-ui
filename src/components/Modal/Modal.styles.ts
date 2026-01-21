@@ -1,4 +1,4 @@
-import { cva, type VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
 
 export const modalVariants = cva(
     'fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6',

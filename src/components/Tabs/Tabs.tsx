@@ -37,7 +37,10 @@ export const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(
 );
 Tabs.displayName = "Tabs";
 
-export interface TabsListProps extends React.HTMLAttributes<HTMLDivElement> { }
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+export interface TabsListProps extends React.HTMLAttributes<HTMLDivElement> {
+    _stub?: never;
+}
 
 export const TabsList = React.forwardRef<HTMLDivElement, TabsListProps>(
     ({ className, children, ...props }, ref) => {

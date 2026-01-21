@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Modal } from './Modal';
 import { Button } from '../Button';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const ModalDemo = (args: any) => {
     const [isOpen, setIsOpen] = useState(false);

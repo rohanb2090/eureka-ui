@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { UseGroupedBarChartProps, UseGroupedBarChartReturn, GroupedBarDimensions } from './GroupedBarChart.types';
+export * from './GroupedBarChart.types';
 
 const CHART_WIDTH = 400;
 const CHART_HEIGHT = 300;
