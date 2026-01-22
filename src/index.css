@@ -46,6 +46,7 @@
   --opacity-disabled: 0.4;
 }
 
+:root,
 [data-theme="light"] {
   /* Light Theme Semantic Mapping */
   --bg-page: var(--gray-50);
