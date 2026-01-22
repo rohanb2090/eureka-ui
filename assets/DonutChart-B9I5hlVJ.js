@@ -1,0 +1,1 @@
+import{j as o}from"./jsx-runtime-BYYWji4R.js";import{P as r}from"./PieChart-BKrefR_Z.js";function n(t){return o.jsx(r,{...t,variant:"donut"})}n.__docgenInfo={description:"",methods:[],displayName:"DonutChart"};export{n as D};
