@@ -1,5 +1,6 @@
 import { usePieChart, UsePieChartProps } from '../../headless/PieChart';
 import { cn } from '../../utils/cn';
+import { useChartTheme } from '../../utils/useChartTheme';
 
 export interface PieChartProps extends UsePieChartProps {
     className?: string;
@@ -16,6 +17,8 @@ export function PieChart({
     showPercentages = true,
     className,
 }: PieChartProps) {
+    const theme = useChartTheme();
+
     const {
         segments,
         total,
@@ -23,6 +26,17 @@ export function PieChart({
         getSegmentProps,
         hoveredIndex,
     } = usePieChart({ data, variant });
+
+    // Helper to resolve colors
+    const resolveColor = (colorString: string) => {
+        if (!colorString) return theme.actionPrimary;
+        if (colorString.includes('var(--action-primary)')) return theme.actionPrimary;
+        if (colorString.includes('var(--status-success)')) return theme.statusSuccess;
+        if (colorString.includes('var(--status-warning)')) return theme.statusWarning;
+        if (colorString.includes('var(--status-error)')) return theme.statusError;
+        if (colorString.includes('var(--status-info)')) return theme.statusInfo;
+        return colorString;
+    };
 
     return (
         <div className={cn('inline-flex flex-col items-center gap-4', className)}>
@@ -38,7 +52,7 @@ export function PieChart({
                         key={`segment-${index}`}
                         {...getSegmentProps(index)}
                         d={segment.path}
-                        fill={segment.color}
+                        fill={resolveColor(segment.color)}
                         className={cn(
                             'transition-opacity cursor-pointer',
                             'focus:outline-none focus:ring-2 focus:ring-border-focus',
@@ -59,7 +73,8 @@ export function PieChart({
                         y="105"
                         textAnchor="middle"
                         className="text-2xl font-bold pointer-events-none"
-                        fill="var(--text-primary)"
+                        fill={theme.textPrimary}
+                        style={{ fontFamily: 'inherit' }}
                     >
                         {total}
                     </text>

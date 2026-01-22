@@ -1,5 +1,6 @@
 import { useSparkLine, UseSparkLineProps } from '../../headless/SparkLine';
 import { cn } from '../../utils/cn';
+import { useChartTheme } from '../../utils/useChartTheme';
 
 export interface SparkLineProps extends UseSparkLineProps {
     className?: string;
@@ -14,10 +15,14 @@ export function SparkLine({
     showDot = true,
     width = 100,
     height = 32,
-    lineColor = 'var(--action-primary)',
-    dotColor = 'var(--action-primary)',
+    lineColor,
+    dotColor,
     className,
 }: SparkLineProps) {
+    const theme = useChartTheme();
+    const effectiveLineColor = lineColor || theme.actionPrimary;
+    const effectiveDotColor = dotColor || theme.actionPrimary;
+
     const {
         pathData,
         lastPoint,
@@ -36,7 +41,7 @@ export function SparkLine({
             <path
                 d={pathData}
                 fill="none"
-                stroke={lineColor}
+                stroke={effectiveLineColor}
                 strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -47,7 +52,7 @@ export function SparkLine({
                     cx={lastPoint.x}
                     cy={lastPoint.y}
                     r="2"
-                    fill={dotColor}
+                    fill={effectiveDotColor}
                 />
             )}
         </svg>

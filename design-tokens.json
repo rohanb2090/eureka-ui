@@ -1,0 +1,202 @@
+{
+  "global": {
+    "color": {
+      "rich-black": {
+        "value": "#0c0c16",
+        "type": "color"
+      },
+      "medium-slate-blue": {
+        "value": "#6666ff",
+        "type": "color"
+      },
+      "periwinkle": {
+        "value": "#b8baff",
+        "type": "color"
+      },
+      "columbia-blue": {
+        "value": "#c9e8ff",
+        "type": "color"
+      },
+      "celadon": {
+        "value": "#b9f0d7",
+        "type": "color"
+      },
+      "bg-page": {
+        "value": "var(--color-rich-black)",
+        "type": "color"
+      },
+      "bg-surface": {
+        "value": "var(--gray-900)",
+        "type": "color"
+      },
+      "bg-subtle": {
+        "value": "var(--gray-800)",
+        "type": "color"
+      },
+      "bg-elevated": {
+        "value": "var(--gray-700)",
+        "type": "color"
+      },
+      "text-primary": {
+        "value": "#ffffff",
+        "type": "color"
+      },
+      "text-secondary": {
+        "value": "var(--color-periwinkle)",
+        "type": "color"
+      },
+      "text-tertiary": {
+        "value": "var(--gray-400)",
+        "type": "color"
+      },
+      "text-disabled": {
+        "value": "var(--gray-600)",
+        "type": "color"
+      },
+      "text-inverse": {
+        "value": "var(--gray-950)",
+        "type": "color"
+      },
+      "border-default": {
+        "value": "var(--gray-700)",
+        "type": "color"
+      },
+      "border-subtle": {
+        "value": "var(--gray-800)",
+        "type": "color"
+      },
+      "border-strong": {
+        "value": "var(--gray-600)",
+        "type": "color"
+      },
+      "border-focus": {
+        "value": "var(--color-periwinkle)",
+        "type": "color"
+      },
+      "action-primary": {
+        "value": "var(--color-periwinkle)",
+        "type": "color"
+      },
+      "action-primary-hover": {
+        "value": "var(--color-columbia-blue)",
+        "type": "color"
+      },
+      "action-primary-active": {
+        "value": "#a0a0ff",
+        "type": "color"
+      },
+      "action-secondary": {
+        "value": "var(--gray-800)",
+        "type": "color"
+      },
+      "action-secondary-hover": {
+        "value": "var(--gray-700)",
+        "type": "color"
+      },
+      "action-destructive": {
+        "value": "#ef4444",
+        "type": "color"
+      },
+      "action-destructive-hover": {
+        "value": "#f87171",
+        "type": "color"
+      },
+      "action-text-on-primary": {
+        "value": "var(--gray-950)",
+        "type": "color"
+      },
+      "status-info": {
+        "value": "var(--color-medium-slate-blue)",
+        "type": "color"
+      },
+      "status-info-subtle": {
+        "value": "rgba(102, 102, 255, 0.15)",
+        "type": "color"
+      },
+      "status-success": {
+        "value": "var(--color-celadon)",
+        "type": "color"
+      },
+      "status-success-subtle": {
+        "value": "rgba(185, 240, 215, 0.15)",
+        "type": "color"
+      },
+      "status-warning": {
+        "value": "#fbbf24",
+        "type": "color"
+      },
+      "status-warning-subtle": {
+        "value": "rgba(251, 191, 36, 0.15)",
+        "type": "color"
+      },
+      "status-error": {
+        "value": "#ef4444",
+        "type": "color"
+      },
+      "status-error-subtle": {
+        "value": "rgba(239, 68, 68, 0.15)",
+        "type": "color"
+      },
+      "status-neutral": {
+        "value": "var(--gray-400)",
+        "type": "color"
+      },
+      "status-neutral-subtle": {
+        "value": "var(--gray-800)",
+        "type": "color"
+      }
+    },
+    "spacing": {
+      "xs": {
+        "value": "4px",
+        "type": "spacing"
+      },
+      "sm": {
+        "value": "8px",
+        "type": "spacing"
+      },
+      "md": {
+        "value": "12px",
+        "type": "spacing"
+      },
+      "lg": {
+        "value": "16px",
+        "type": "spacing"
+      },
+      "xl": {
+        "value": "24px",
+        "type": "spacing"
+      },
+      "2xl": {
+        "value": "32px",
+        "type": "spacing"
+      },
+      "3xl": {
+        "value": "40px",
+        "type": "spacing"
+      },
+      "4xl": {
+        "value": "48px",
+        "type": "spacing"
+      }
+    },
+    "borderRadius": {
+      "sm": {
+        "value": "0px",
+        "type": "borderRadius"
+      },
+      "md": {
+        "value": "0px",
+        "type": "borderRadius"
+      },
+      "lg": {
+        "value": "0px",
+        "type": "borderRadius"
+      },
+      "pill": {
+        "value": "9999px",
+        "type": "borderRadius"
+      }
+    }
+  }
+}

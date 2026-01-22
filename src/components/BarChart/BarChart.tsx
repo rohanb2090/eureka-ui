@@ -1,5 +1,6 @@
 import { useBarChart, UseBarChartProps } from '../../headless/BarChart';
 import { cn } from '../../utils/cn';
+import { useChartTheme } from '../../utils/useChartTheme';
 
 export interface BarChartProps extends UseBarChartProps {
     className?: string;
@@ -23,6 +24,8 @@ export function BarChart({
     width = CHART_WIDTH,
     height = CHART_HEIGHT,
 }: BarChartProps) {
+    const theme = useChartTheme();
+
     const {
         bars,
         maxValue: calculatedMax,
@@ -66,7 +69,7 @@ export function BarChart({
                                 y1={y}
                                 x2={PADDING.left + chartWidth}
                                 y2={y}
-                                stroke="var(--border-subtle)"
+                                stroke={theme.borderSubtle}
                                 strokeWidth="1"
                                 strokeDasharray="4 2"
                             />
@@ -76,7 +79,8 @@ export function BarChart({
                                     y={y + 4}
                                     textAnchor="end"
                                     className="text-xs"
-                                    fill="var(--text-secondary)"
+                                    fill={theme.textSecondary}
+                                    style={{ fontFamily: 'inherit' }}
                                 >
                                     {Math.round(value)}
                                 </text>
@@ -94,7 +98,7 @@ export function BarChart({
                             y={bar.y}
                             width={bar.width}
                             height={bar.height}
-                            fill={bar.color}
+                            fill={bar.color && bar.color !== 'var(--action-primary)' ? bar.color : theme.actionPrimary}
                             className={cn(
                                 'transition-opacity cursor-pointer',
                                 'focus:outline-none focus:ring-2 focus:ring-border-focus',
@@ -115,7 +119,8 @@ export function BarChart({
                                 }
                                 textAnchor={orientation === 'vertical' ? 'middle' : 'end'}
                                 className="text-xs pointer-events-none"
-                                fill="var(--text-secondary)"
+                                fill={theme.textSecondary}
+                                style={{ fontFamily: 'inherit' }}
                             >
                                 {bar.label}
                             </text>
@@ -128,7 +133,8 @@ export function BarChart({
                                 y={orientation === 'vertical' ? bar.y - 8 : bar.y + bar.height / 2 + 4}
                                 textAnchor={orientation === 'vertical' ? 'middle' : 'start'}
                                 className="text-sm font-medium pointer-events-none"
-                                fill="var(--text-primary)"
+                                fill={theme.textPrimary}
+                                style={{ fontFamily: 'inherit' }}
                             >
                                 {bar.value}
                             </text>
@@ -142,7 +148,7 @@ export function BarChart({
                     y1={PADDING.top + chartHeight}
                     x2={PADDING.left + chartWidth}
                     y2={PADDING.top + chartHeight}
-                    stroke="var(--border-default)"
+                    stroke={theme.borderDefault}
                     strokeWidth="2"
                 />
                 <line
@@ -150,7 +156,7 @@ export function BarChart({
                     y1={PADDING.top}
                     x2={PADDING.left}
                     y2={PADDING.top + chartHeight}
-                    stroke="var(--border-default)"
+                    stroke={theme.borderDefault}
                     strokeWidth="2"
                 />
             </svg>

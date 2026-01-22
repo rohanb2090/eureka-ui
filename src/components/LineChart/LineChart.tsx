@@ -1,5 +1,6 @@
 import { useLineChart, UseLineChartProps } from '../../headless/LineChart';
 import { cn } from '../../utils/cn';
+import { useChartTheme } from '../../utils/useChartTheme';
 
 export interface LineChartProps extends UseLineChartProps {
     className?: string;
@@ -22,12 +23,18 @@ export function LineChart({
     gridLines = 5,
     showLabels = true,
     showYAxis = true,
-    lineColor = 'var(--action-primary)',
-    pointColor = 'var(--action-primary)',
+    lineColor,
+    pointColor,
     className,
     width = 400,
     height = 300,
 }: LineChartProps & { showYAxis?: boolean }) {
+    const theme = useChartTheme();
+
+    // Use resolved hex colors if no specific color provided
+    const effectiveLineColor = lineColor || theme.actionPrimary;
+    const effectivePointColor = pointColor || theme.actionPrimary;
+
     const {
         pathData,
         points,
@@ -65,7 +72,7 @@ export function LineChart({
                                     y1={y}
                                     x2={PADDING.left + chartWidth}
                                     y2={y}
-                                    stroke="var(--border-subtle)"
+                                    stroke={theme.borderSubtle}
                                     strokeWidth="1"
                                     strokeDasharray="4 2"
                                 />
@@ -76,7 +83,8 @@ export function LineChart({
                                     y={y + 4}
                                     textAnchor="end"
                                     className="text-xs pointer-events-none"
-                                    fill="var(--text-secondary)"
+                                    fill={theme.textSecondary}
+                                    style={{ fontFamily: 'inherit' }}
                                 >
                                     {Math.round(value)}
                                 </text>
@@ -89,7 +97,7 @@ export function LineChart({
                 <path
                     d={pathData}
                     fill="none"
-                    stroke={lineColor}
+                    stroke={effectiveLineColor}
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -103,8 +111,8 @@ export function LineChart({
                             cx={point.x}
                             cy={point.y}
                             r={hoveredIndex === index ? 6 : 4}
-                            fill="white"
-                            stroke={pointColor}
+                            fill={theme.bgSurface}
+                            stroke={effectivePointColor}
                             strokeWidth="2"
                             className={cn(
                                 'transition-all cursor-pointer',
@@ -119,7 +127,8 @@ export function LineChart({
                                 y={PADDING.top + chartHeight + 20}
                                 textAnchor="middle"
                                 className="text-xs pointer-events-none"
-                                fill="var(--text-secondary)"
+                                fill={theme.textSecondary}
+                                style={{ fontFamily: 'inherit' }}
                             >
                                 {point.label}
                             </text>
@@ -132,7 +141,8 @@ export function LineChart({
                                 y={point.y - 12}
                                 textAnchor="middle"
                                 className="text-sm font-medium pointer-events-none"
-                                fill="var(--text-primary)"
+                                fill={theme.textPrimary}
+                                style={{ fontFamily: 'inherit' }}
                             >
                                 {point.value}
                             </text>
@@ -146,7 +156,7 @@ export function LineChart({
                     y1={PADDING.top + chartHeight}
                     x2={PADDING.left + chartWidth}
                     y2={PADDING.top + chartHeight}
-                    stroke="var(--border-default)"
+                    stroke={theme.borderDefault}
                     strokeWidth="2"
                 />
                 <line
@@ -154,7 +164,7 @@ export function LineChart({
                     y1={PADDING.top}
                     x2={PADDING.left}
                     y2={PADDING.top + chartHeight}
-                    stroke="var(--border-default)"
+                    stroke={theme.borderDefault}
                     strokeWidth="2"
                 />
             </svg>

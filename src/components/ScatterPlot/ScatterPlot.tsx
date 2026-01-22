@@ -1,6 +1,7 @@
 import { useScatterPlot } from '../../headless/ScatterPlot/useScatterPlot';
 import { UseScatterPlotProps } from '../../headless/ScatterPlot/ScatterPlot.types';
 import { cn } from '../../utils/cn';
+import { useChartTheme } from '../../utils/useChartTheme';
 
 export interface ScatterPlotProps extends UseScatterPlotProps {
     className?: string;
@@ -26,6 +27,8 @@ export function ScatterPlot({
     width = DEFAULT_WIDTH,
     height = DEFAULT_HEIGHT,
 }: ScatterPlotProps & { showYAxis?: boolean }) {
+    const theme = useChartTheme();
+
     const {
         points,
         xTicks,
@@ -47,8 +50,19 @@ export function ScatterPlot({
     const finalYMin = calculatedYMin ?? 0;
     const finalYMax = calculatedYMax ?? 10;
 
+    // Helper to resolve point colors
+    const resolveColor = (colorString?: string) => {
+        if (!colorString) return theme.actionPrimary;
+        if (colorString.includes('var(--action-primary)')) return theme.actionPrimary;
+        if (colorString.includes('var(--status-success)')) return theme.statusSuccess;
+        if (colorString.includes('var(--status-warning)')) return theme.statusWarning;
+        if (colorString.includes('var(--status-error)')) return theme.statusError;
+        if (colorString.includes('var(--status-info)')) return theme.statusInfo;
+        return colorString;
+    };
+
     return (
-        <div className={cn('inline-block bg-[var(--bg-surface)] p-4', className)}>
+        <div className={cn('inline-block bg-bg-surface p-4', className)} style={{ backgroundColor: theme.bgSurface }}>
             <svg
                 width={width}
                 height={height}
@@ -67,7 +81,7 @@ export function ScatterPlot({
                                     y1={y}
                                     x2={PADDING.left + chartWidth}
                                     y2={y}
-                                    stroke="var(--border-subtle)"
+                                    stroke={theme.borderSubtle}
                                     strokeWidth="1"
                                     strokeDasharray="4 2"
                                 />
@@ -78,7 +92,8 @@ export function ScatterPlot({
                                     y={y + 4}
                                     textAnchor="end"
                                     className="text-[10px]"
-                                    fill="var(--text-tertiary)"
+                                    fill={theme.textSecondary}
+                                    style={{ fontFamily: 'inherit' }}
                                 >
                                     {tick.toFixed(1)}
                                 </text>
@@ -98,7 +113,8 @@ export function ScatterPlot({
                                 y={PADDING.top + chartHeight + 20}
                                 textAnchor="middle"
                                 className="text-[10px]"
-                                fill="var(--text-tertiary)"
+                                fill={theme.textSecondary}
+                                style={{ fontFamily: 'inherit' }}
                             >
                                 {tick.toFixed(1)}
                             </text>
@@ -115,7 +131,7 @@ export function ScatterPlot({
                             cx={p.cx}
                             cy={p.cy}
                             r={isHovered ? p.r + 2 : p.r}
-                            fill={p.color || 'var(--action-primary)'}
+                            fill={resolveColor(p.color)}
                             className={cn(
                                 'transition-all duration-150 cursor-pointer',
                                 hoveredPoint && !isHovered && 'opacity-30'
@@ -132,7 +148,7 @@ export function ScatterPlot({
                     y1={PADDING.top + chartHeight}
                     x2={PADDING.left + chartWidth}
                     y2={PADDING.top + chartHeight}
-                    stroke="var(--border-default)"
+                    stroke={theme.borderDefault}
                     strokeWidth="2"
                 />
                 <line
@@ -140,7 +156,7 @@ export function ScatterPlot({
                     y1={PADDING.top}
                     x2={PADDING.left}
                     y2={PADDING.top + chartHeight}
-                    stroke="var(--border-default)"
+                    stroke={theme.borderDefault}
                     strokeWidth="2"
                 />
 
@@ -151,7 +167,8 @@ export function ScatterPlot({
                         y={height + 10}
                         textAnchor="middle"
                         className="text-xs font-semibold"
-                        fill="var(--text-secondary)"
+                        fill={theme.textSecondary}
+                        style={{ fontFamily: 'inherit' }}
                     >
                         {xLabel}
                     </text>
@@ -163,7 +180,8 @@ export function ScatterPlot({
                         y={PADDING.top + chartHeight / 2}
                         textAnchor="middle"
                         className="text-xs font-semibold"
-                        fill="var(--text-secondary)"
+                        fill={theme.textSecondary}
+                        style={{ fontFamily: 'inherit' }}
                     >
                         {yLabel}
                     </text>

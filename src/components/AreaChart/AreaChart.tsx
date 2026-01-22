@@ -1,5 +1,6 @@
 import { useLineChart, UseLineChartProps } from '../../headless/LineChart';
 import { cn } from '../../utils/cn';
+import { useChartTheme } from '../../utils/useChartTheme';
 
 export interface AreaChartProps extends UseLineChartProps {
     className?: string;
@@ -24,13 +25,18 @@ export function AreaChart({
     gridLines = 5,
     showLabels = true,
     showYAxis = true,
-    fillColor = 'var(--action-primary)',
+    fillColor,
     fillOpacity = 0.2,
-    lineColor = 'var(--action-primary)',
+    lineColor,
     className,
     width = CHART_WIDTH,
     height = CHART_HEIGHT,
 }: AreaChartProps & { showYAxis?: boolean }) {
+    const theme = useChartTheme();
+
+    const effectiveFillColor = fillColor || theme.actionPrimary;
+    const effectiveLineColor = lineColor || theme.actionPrimary;
+
     const {
         pathData,
         points,
@@ -71,7 +77,7 @@ export function AreaChart({
                                     y1={y}
                                     x2={PADDING.left + chartWidth}
                                     y2={y}
-                                    stroke="var(--border-subtle)"
+                                    stroke={theme.borderSubtle}
                                     strokeWidth="1"
                                     strokeDasharray="4 2"
                                 />
@@ -82,7 +88,8 @@ export function AreaChart({
                                     y={y + 4}
                                     textAnchor="end"
                                     className="text-xs pointer-events-none"
-                                    fill="var(--text-secondary)"
+                                    fill={theme.textSecondary}
+                                    style={{ fontFamily: 'inherit' }}
                                 >
                                     {Math.round(value)}
                                 </text>
@@ -94,7 +101,7 @@ export function AreaChart({
                 {/* Area fill */}
                 <path
                     d={areaPath}
-                    fill={fillColor}
+                    fill={effectiveFillColor}
                     opacity={fillOpacity}
                 />
 
@@ -102,7 +109,7 @@ export function AreaChart({
                 <path
                     d={pathData}
                     fill="none"
-                    stroke={lineColor}
+                    stroke={effectiveLineColor}
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -116,7 +123,8 @@ export function AreaChart({
                         y={PADDING.top + chartHeight + 20}
                         textAnchor="middle"
                         className="text-xs pointer-events-none"
-                        fill="var(--text-secondary)"
+                        fill={theme.textSecondary}
+                        style={{ fontFamily: 'inherit' }}
                     >
                         {point.label}
                     </text>
@@ -128,7 +136,7 @@ export function AreaChart({
                     y1={PADDING.top + chartHeight}
                     x2={PADDING.left + chartWidth}
                     y2={PADDING.top + chartHeight}
-                    stroke="var(--border-default)"
+                    stroke={theme.borderDefault}
                     strokeWidth="2"
                 />
                 <line
@@ -136,7 +144,7 @@ export function AreaChart({
                     y1={PADDING.top}
                     x2={PADDING.left}
                     y2={PADDING.top + chartHeight}
-                    stroke="var(--border-default)"
+                    stroke={theme.borderDefault}
                     strokeWidth="2"
                 />
             </svg>
