@@ -1,8 +1,8 @@
-import{j as e}from"./jsx-runtime-Blucd9Qg.js";import{useMDXComponents as d}from"./index-BRkUXrbv.js";import{M as t}from"./index-BQySRhLY.js";import"./index-CcKhGcwW.js";import"./_commonjsHelpers-Cpj98o6Y.js";import"./iframe-o8bJGnei.js";import"./index-DBC7rmMa.js";import"./index-Bhelpi4i.js";import"./index-DrFu-skq.js";function r(l){const s={code:"code",h1:"h1",h2:"h2",li:"li",p:"p",strong:"strong",ul:"ul",...d(),...l.components};return e.jsxs(e.Fragment,{children:[e.jsx(t,{title:"Foundations/Elevation"}),`
+import{j as e}from"./jsx-runtime-Blucd9Qg.js";import{useMDXComponents as d}from"./index-BRkUXrbv.js";import{M as t}from"./index-CjjDbFB3.js";import"./index-CcKhGcwW.js";import"./_commonjsHelpers-Cpj98o6Y.js";import"./iframe-B3nmCcLC.js";import"./index-DBC7rmMa.js";import"./index-Bhelpi4i.js";import"./index-DrFu-skq.js";function r(l){const s={code:"code",h1:"h1",h2:"h2",li:"li",p:"p",strong:"strong",ul:"ul",...d(),...l.components};return e.jsxs(e.Fragment,{children:[e.jsx(t,{title:"Foundations/Elevation"}),`
 `,e.jsx(s.h1,{id:"elevation-z-axis",children:"Elevation (Z-Axis)"}),`
 `,e.jsx(s.p,{children:"Elevation is the relative distance between two surfaces along the z-axis. Elements with higher elevation values are visually distinguished by larger, softer shadows."}),`
 `,e.jsx(s.h2,{id:"depth-model",children:"Depth Model"}),`
-`,e.jsx(s.p,{children:"In the Enterprise Design System, all elements base themselves on a 0dp surface level (background)."}),`
+`,e.jsx(s.p,{children:"In the Eureka UI Design System, all elements base themselves on a 0dp surface level (background)."}),`
 `,e.jsxs(s.ul,{children:[`
 `,e.jsxs(s.li,{children:[e.jsx(s.strong,{children:"Depths"})," are measured in ",e.jsx(s.code,{children:"dp"})," (density-independent pixels)."]}),`
 `,e.jsxs(s.li,{children:[e.jsx(s.strong,{children:"Shadows"})," are the only visual cue for depth (we do not use Z-axis translation)."]}),`
