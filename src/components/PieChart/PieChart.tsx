@@ -35,6 +35,11 @@ export function PieChart({
         if (colorString.includes('var(--status-warning)')) return theme.statusWarning;
         if (colorString.includes('var(--status-error)')) return theme.statusError;
         if (colorString.includes('var(--status-info)')) return theme.statusInfo;
+        if (colorString.includes('var(--chart-1)')) return theme.chart1;
+        if (colorString.includes('var(--chart-2)')) return theme.chart2;
+        if (colorString.includes('var(--chart-3)')) return theme.chart3;
+        if (colorString.includes('var(--chart-4)')) return theme.chart4;
+        if (colorString.includes('var(--chart-5)')) return theme.chart5;
         return colorString;
     };
 

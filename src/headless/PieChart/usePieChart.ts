@@ -2,11 +2,11 @@ import { useState, useMemo, useCallback } from 'react';
 import { UsePieChartProps, UsePieChartReturn, PieSegment } from './PieChart.types';
 
 const DEFAULT_COLORS = [
-    'var(--action-primary)',
-    'var(--status-success)',
-    'var(--status-warning)',
-    'var(--status-error)',
-    'var(--status-info)',
+    'var(--chart-1)',
+    'var(--chart-2)',
+    'var(--chart-3)',
+    'var(--chart-4)',
+    'var(--chart-5)',
 ];
 
 /**
