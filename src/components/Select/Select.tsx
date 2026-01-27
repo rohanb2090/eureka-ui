@@ -1,4 +1,5 @@
 import { forwardRef } from 'react';
+import { ChevronDown } from 'lucide-react';
 import { useSelect, UseSelectProps } from '../../headless/Select';
 import { selectVariants, SelectVariantProps } from './Select.styles';
 import { cn } from '../../utils/cn';
@@ -12,28 +13,31 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         const { selectProps, state } = useSelect({ options, placeholder, ...props });
 
         return (
-            <select
-                ref={ref}
-                {...selectProps}
-                className={cn(
-                    selectVariants({
+            <div className={cn('relative w-full', className)}>
+                <select
+                    ref={ref}
+                    {...selectProps}
+                    className={selectVariants({
                         size,
                         state: state.isInvalid ? 'invalid' : 'default',
-                    }),
-                    className
-                )}
-            >
-                {placeholder && (
-                    <option value="" disabled>
-                        {placeholder}
-                    </option>
-                )}
-                {options.map((option) => (
-                    <option key={option.value} value={option.value} disabled={option.isDisabled}>
-                        {option.label}
-                    </option>
-                ))}
-            </select>
+                        className: cn('appearance-none pr-10'), // pr-10 (40px) matches icon space
+                    })}
+                >
+                    {placeholder && (
+                        <option value="" disabled>
+                            {placeholder}
+                        </option>
+                    )}
+                    {options.map((option) => (
+                        <option key={option.value} value={option.value} disabled={option.isDisabled}>
+                            {option.label}
+                        </option>
+                    ))}
+                </select>
+                <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-text-tertiary">
+                    <ChevronDown size={16} />
+                </div>
+            </div>
         );
     }
 );
