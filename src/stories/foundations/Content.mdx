@@ -1,0 +1,62 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Foundations/UX Copy & Content" />
+
+# UX Copy and Content
+
+Content is a core component of the user experience. Clear, consistent, and useful content is essential to the usability of an interface. This guide provides rules and best practices for writing for Eureka UI.
+
+## Voice and Tone
+
+Our voice is the consistent personality of Eureka UI. Our tone adapts to the user's emotional state and the specific context.
+
+### Voice Traits
+-   **Rational**: We are clear, precise, and logical. We explain complex things simply.
+-   **Helpful**: We are supportive and guide the user to success.
+-   **Human**: We speak like a person, not a robot. We use standard English and avoid jargon.
+
+### Tone Spectrum
+-   **Neutral**: Used for navigation, labels, and standard interactions.
+-   **Urgent**: Used for errors and critical alerts. Be direct and prescriptive.
+-   **Celebratory**: Used sparingly for major successes.
+
+## Mechanics
+
+### Capitalization
+-   **Sentence case**: Use sentence case for almost everything (headings, buttons, labels, menu items).
+    -   *Do*: "Save changes", "Create new project"
+    -   *Don't*: "Save Changes", "Create New Project"
+-   **Title Case**: Only use for proper nouns or specific feature names.
+
+### Punctuation
+-   **Periods**: Do not use periods in headers, buttons, or standalone links. Use periods for complete sentences in body text, tooltips, and descriptions.
+-   **Exclamation marks**: Avoid them. If you must, use only one. Never use them in error messages.
+
+## Common UI Patterns
+
+### Buttons
+Buttons should always start with a strong, active verb that describes the action.
+-   *Do*: "Save", "Delete", "Add item", "View details"
+-   *Don't*: "Click here", "Submit", "OK", "Yes"
+
+### Error Messages
+Error messages should answer three questions:
+1.  **What happened?** (Be specific)
+2.  **Why did it happen?** (Provide context)
+3.  **How do I fix it?** (Offer a solution)
+
+*Example*:
+-   *Bad*: "System error 404.", "Invalid input."
+-   *Good*: "We couldn't save your changes because the connection was lost. Please check your internet and try again."
+
+### Empty States
+Use empty states to educate and encourage.
+-   Explain *why* it's empty.
+-   Provide a clear call to action to populate it.
+
+*Example*: "No projects yet. Create your first project to get started."
+
+## Accessibility
+-   **Alt text**: Always provide descriptive alt text for images.
+-   **Screen readers**: Ensure content is structured logically with proper headings (h1-h6).
+-   **Links**: Link text should differ from regular text and describe the destination. Avoid "click here".
