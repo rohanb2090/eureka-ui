@@ -15,6 +15,11 @@ export interface ChartTheme {
     statusWarning: string;
     statusError: string;
     statusInfo: string;
+    chart1: string;
+    chart2: string;
+    chart3: string;
+    chart4: string;
+    chart5: string;
 }
 
 const DEFAULT_THEME: ChartTheme = {
@@ -28,6 +33,11 @@ const DEFAULT_THEME: ChartTheme = {
     statusWarning: '#f59e0b',
     statusError: '#dc2626',
     statusInfo: '#6666ff',
+    chart1: '#6666FF',
+    chart2: '#b8baff',
+    chart3: '#b9f0d7',
+    chart4: '#fbbf24',
+    chart5: '#ef4444',
 };
 
 export function useChartTheme(): ChartTheme {
@@ -54,6 +64,11 @@ export function useChartTheme(): ChartTheme {
                 statusWarning: getVar('--status-warning') || DEFAULT_THEME.statusWarning,
                 statusError: getVar('--status-error') || DEFAULT_THEME.statusError,
                 statusInfo: getVar('--status-info') || DEFAULT_THEME.statusInfo,
+                chart1: getVar('--chart-1') || DEFAULT_THEME.chart1,
+                chart2: getVar('--chart-2') || DEFAULT_THEME.chart2,
+                chart3: getVar('--chart-3') || DEFAULT_THEME.chart3,
+                chart4: getVar('--chart-4') || DEFAULT_THEME.chart4,
+                chart5: getVar('--chart-5') || DEFAULT_THEME.chart5,
             });
         };
 

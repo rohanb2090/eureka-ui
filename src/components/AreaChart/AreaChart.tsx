@@ -34,8 +34,8 @@ export function AreaChart({
 }: AreaChartProps & { showYAxis?: boolean }) {
     const theme = useChartTheme();
 
-    const effectiveFillColor = fillColor || theme.actionPrimary;
-    const effectiveLineColor = lineColor || theme.actionPrimary;
+    const effectiveFillColor = fillColor || theme.chart1;
+    const effectiveLineColor = lineColor || theme.chart1;
 
     const {
         pathData,

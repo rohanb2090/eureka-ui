@@ -144,6 +144,26 @@
       "status-neutral-subtle": {
         "value": "var(--gray-800)",
         "type": "color"
+      },
+      "chart-1": {
+        "value": "oklch(0.6801 0.1583 276.9349)",
+        "type": "color"
+      },
+      "chart-2": {
+        "value": "oklch(0.7845 0.1325 181.9120)",
+        "type": "color"
+      },
+      "chart-3": {
+        "value": "oklch(0.8790 0.1534 91.6054)",
+        "type": "color"
+      },
+      "chart-4": {
+        "value": "oklch(0.7253 0.1752 349.7607)",
+        "type": "color"
+      },
+      "chart-5": {
+        "value": "oklch(0.8003 0.1821 151.7110)",
+        "type": "color"
       }
     },
     "spacing": {

@@ -43,6 +43,8 @@ function extractVariables(cssContent) {
             tokens.spacing[name.replace('spacing-', '')] = { value: cleanValue, type: 'spacing' };
         } else if (name.startsWith('radius-')) {
             tokens.borderRadius[name.replace('radius-', '')] = { value: cleanValue, type: 'borderRadius' };
+        } else if (name.startsWith('chart-')) {
+            tokens.colors[name] = { value: cleanValue, type: 'color' };
         }
     }
 

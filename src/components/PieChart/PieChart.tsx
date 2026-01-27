@@ -29,7 +29,7 @@ export function PieChart({
 
     // Helper to resolve colors
     const resolveColor = (colorString: string) => {
-        if (!colorString) return theme.actionPrimary;
+        if (!colorString) return theme.chart1;
         if (colorString.includes('var(--action-primary)')) return theme.actionPrimary;
         if (colorString.includes('var(--status-success)')) return theme.statusSuccess;
         if (colorString.includes('var(--status-warning)')) return theme.statusWarning;

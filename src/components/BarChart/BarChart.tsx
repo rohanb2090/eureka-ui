@@ -98,7 +98,7 @@ export function BarChart({
                             y={bar.y}
                             width={bar.width}
                             height={bar.height}
-                            fill={bar.color && bar.color !== 'var(--action-primary)' ? bar.color : theme.actionPrimary}
+                            fill={bar.color && bar.color !== 'var(--action-primary)' ? bar.color : theme.chart1}
                             className={cn(
                                 'transition-opacity cursor-pointer',
                                 'focus:outline-none focus:ring-2 focus:ring-border-focus',

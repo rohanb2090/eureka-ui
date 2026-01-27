@@ -85,6 +85,13 @@
   --status-error-subtle: #fee2e2;
   --status-neutral: var(--gray-500);
   --status-neutral-subtle: var(--gray-100);
+
+  /* Data Visualization - Light Theme */
+  --chart-1: oklch(0.5106 0.2301 276.9656);
+  --chart-2: oklch(0.7038 0.1230 182.5025);
+  --chart-3: oklch(0.7686 0.1647 70.0804);
+  --chart-4: oklch(0.6559 0.2118 354.3084);
+  --chart-5: oklch(0.7227 0.1920 149.5793);
 }
 
 [data-theme="dark"] {
@@ -124,6 +131,13 @@
   --status-error-subtle: rgba(239, 68, 68, 0.15);
   --status-neutral: var(--gray-400);
   --status-neutral-subtle: var(--gray-800);
+
+  /* Data Visualization - Dark Theme */
+  --chart-1: oklch(0.6801 0.1583 276.9349);
+  --chart-2: oklch(0.7845 0.1325 181.9120);
+  --chart-3: oklch(0.8790 0.1534 91.6054);
+  --chart-4: oklch(0.7253 0.1752 349.7607);
+  --chart-5: oklch(0.8003 0.1821 151.7110);
 }
 
 @layer base {

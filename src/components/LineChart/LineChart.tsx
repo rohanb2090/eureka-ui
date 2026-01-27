@@ -32,8 +32,9 @@ export function LineChart({
     const theme = useChartTheme();
 
     // Use resolved hex colors if no specific color provided
-    const effectiveLineColor = lineColor || theme.actionPrimary;
-    const effectivePointColor = pointColor || theme.actionPrimary;
+    // Use resolved hex colors if no specific color provided
+    const effectiveLineColor = lineColor || theme.chart1;
+    const effectivePointColor = pointColor || theme.chart1;
 
     const {
         pathData,
