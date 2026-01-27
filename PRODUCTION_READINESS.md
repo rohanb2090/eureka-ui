@@ -1,6 +1,6 @@
 # Production Readiness Checklist
 
-This document defines the criteria for the Enterprise Design System to be considered **production-ready** and safe for adoption by product teams.
+This document defines the criteria for the Eureka UI Design System to be considered **production-ready** and safe for adoption by product teams.
 
 ---
 
