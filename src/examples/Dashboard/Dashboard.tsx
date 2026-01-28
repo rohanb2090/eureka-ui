@@ -22,6 +22,7 @@ import { DonutChart } from '../../components/PieChart';
 import { MetricCard } from '../../components/MetricCard';
 import { Avatar } from '../../components/Avatar';
 import { Badge } from '../../components/Badge';
+import { Select } from '../../components/Select';
 import { useElementSize } from '../../hooks/useElementSize';
 import { cn } from '../../utils/cn';
 import { Skeleton } from '../../components/Skeleton';
@@ -229,8 +230,8 @@ export const Dashboard = ({ isLoading = false }: DashboardProps) => {
                             <Bell size={20} />
                             <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-status-error rounded-full border border-bg-surface" />
                         </button>
-                        <Button className="gap-2">
-                            <Plus size={16} />
+                        <Button className="flex items-center gap-2">
+                            <Plus size={16} className="shrink-0" />
                             New Appointment
                         </Button>
                     </div>
@@ -250,11 +251,17 @@ export const Dashboard = ({ isLoading = false }: DashboardProps) => {
                                         <h3 className="text-lg font-bold">Patient Flow Analytics</h3>
                                         <p className="text-sm text-text-secondary">Hourly footfall vs capacity</p>
                                     </div>
-                                    <select className="bg-bg-subtle border-none text-sm rounded-md px-3 py-1 cursor-pointer focus:ring-2 focus:ring-action-primary">
-                                        <option>Today</option>
-                                        <option>Yesterday</option>
-                                        <option>Last Week</option>
-                                    </select>
+                                    <div className="w-32">
+                                        <Select
+                                            options={[
+                                                { label: 'Today', value: 'today' },
+                                                { label: 'Yesterday', value: 'yesterday' },
+                                                { label: 'Last Week', value: 'last_week' },
+                                            ]}
+                                            placeholder="Today"
+                                            size="sm"
+                                        />
+                                    </div>
                                 </div>
                                 <div ref={patientFlowRef} className="h-[300px] w-full flex justify-center">
                                     {flowWidth > 0 && (
