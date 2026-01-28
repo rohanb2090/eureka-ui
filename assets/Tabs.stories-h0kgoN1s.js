@@ -1,0 +1,27 @@
+import{j as e}from"./jsx-runtime-Blucd9Qg.js";import{e as b,r as p}from"./index-CcKhGcwW.js";import{c as T}from"./cn-CytzSlOG.js";import"./_commonjsHelpers-Cpj98o6Y.js";const f=p.createContext(void 0),c=b.forwardRef(({className:o,defaultValue:a,value:s,onValueChange:r,children:i,...t},l)=>{const[C,_]=p.useState(a||""),L=s!==void 0?s:C,A=x=>{s===void 0&&_(x),r==null||r(x)};return e.jsx(f.Provider,{value:{value:L,onValueChange:A},children:e.jsx("div",{ref:l,className:o,...t,children:i})})});c.displayName="Tabs";const g=b.forwardRef(({className:o,children:a,...s},r)=>e.jsx("div",{ref:r,className:T("inline-flex h-10 items-center justify-center bg-bg-muted p-1 text-text-secondary border border-border-default",o),...s,children:a}));g.displayName="TabsList";const n=b.forwardRef(({className:o,value:a,children:s,...r},i)=>{const t=p.useContext(f);if(!t)throw new Error("TabsTrigger must be used within a Tabs component");const l=t.value===a;return e.jsx("button",{ref:i,type:"button",role:"tab","aria-selected":l,onClick:()=>t.onValueChange(a),className:T("inline-flex items-center justify-center whitespace-nowrap px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",l?"bg-bg-surface text-text-primary shadow-sm":"hover:bg-bg-subtle hover:text-text-primary",o),...r,children:s})});n.displayName="TabsTrigger";const m=b.forwardRef(({className:o,value:a,children:s,...r},i)=>{const t=p.useContext(f);if(!t)throw new Error("TabsContent must be used within a Tabs component");return t.value!==a?null:e.jsx("div",{ref:i,role:"tabpanel",className:T("mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",o),...r,children:s})});m.displayName="TabsContent";c.__docgenInfo={description:"",methods:[],displayName:"Tabs",props:{defaultValue:{required:!1,tsType:{name:"string"},description:""},value:{required:!1,tsType:{name:"string"},description:""},onValueChange:{required:!1,tsType:{name:"signature",type:"function",raw:"(value: string) => void",signature:{arguments:[{type:{name:"string"},name:"value"}],return:{name:"void"}}},description:""}}};g.__docgenInfo={description:"",methods:[],displayName:"TabsList",props:{_stub:{required:!1,tsType:{name:"never"},description:""}}};n.__docgenInfo={description:"",methods:[],displayName:"TabsTrigger",props:{value:{required:!0,tsType:{name:"string"},description:""}}};m.__docgenInfo={description:"",methods:[],displayName:"TabsContent",props:{value:{required:!0,tsType:{name:"string"},description:""}}};const P={title:"Components/Tabs",component:c,tags:["autodocs"],argTypes:{}},d={render:()=>e.jsxs(c,{defaultValue:"account",className:"w-[400px]",children:[e.jsxs(g,{className:"grid w-full grid-cols-2",children:[e.jsx(n,{value:"account",children:"Account"}),e.jsx(n,{value:"password",children:"Password"})]}),e.jsxs(m,{value:"account",className:"p-4 border border-border-subtle mt-2",children:[e.jsx("h3",{className:"text-lg font-medium",children:"Account"}),e.jsx("p",{className:"text-text-secondary",children:"Make changes to your account here."})]}),e.jsxs(m,{value:"password",className:"p-4 border border-border-subtle mt-2",children:[e.jsx("h3",{className:"text-lg font-medium",children:"Password"}),e.jsx("p",{className:"text-text-secondary",children:"Change your password here."})]})]})},u={render:()=>e.jsx(c,{defaultValue:"day",children:e.jsxs(g,{children:[e.jsx(n,{value:"day",children:"Day"}),e.jsx(n,{value:"month",children:"Month"}),e.jsx(n,{value:"year",children:"Year"}),e.jsx(n,{value:"all",disabled:!0,children:"All Time"})]})})};var h,v,y;d.parameters={...d.parameters,docs:{...(h=d.parameters)==null?void 0:h.docs,source:{originalSource:`{
+  render: () => <Tabs defaultValue="account" className="w-[400px]">
+            <TabsList className="grid w-full grid-cols-2">
+                <TabsTrigger value="account">Account</TabsTrigger>
+                <TabsTrigger value="password">Password</TabsTrigger>
+            </TabsList>
+            <TabsContent value="account" className="p-4 border border-border-subtle mt-2">
+                <h3 className="text-lg font-medium">Account</h3>
+                <p className="text-text-secondary">Make changes to your account here.</p>
+            </TabsContent>
+            <TabsContent value="password" className="p-4 border border-border-subtle mt-2">
+                <h3 className="text-lg font-medium">Password</h3>
+                <p className="text-text-secondary">Change your password here.</p>
+            </TabsContent>
+        </Tabs>
+}`,...(y=(v=d.parameters)==null?void 0:v.docs)==null?void 0:y.source}}};var w,N,j;u.parameters={...u.parameters,docs:{...(w=u.parameters)==null?void 0:w.docs,source:{originalSource:`{
+  render: () => <Tabs defaultValue="day">
+            <TabsList>
+                <TabsTrigger value="day">Day</TabsTrigger>
+                <TabsTrigger value="month">Month</TabsTrigger>
+                <TabsTrigger value="year">Year</TabsTrigger>
+                <TabsTrigger value="all" disabled>
+                    All Time
+                </TabsTrigger>
+            </TabsList>
+        </Tabs>
+}`,...(j=(N=u.parameters)==null?void 0:N.docs)==null?void 0:j.source}}};const R=["Default","Compact"];export{u as Compact,d as Default,R as __namedExportsOrder,P as default};
