@@ -1,380 +1,328 @@
 import { useState } from 'react';
+import {
+    LayoutDashboard,
+    Users,
+    Calendar,
+    FileText,
+    Activity,
+    Settings,
+    LogOut,
+    Bell,
+    Search,
+    Plus,
+    Stethoscope,
+    Clock,
+    ChevronRight,
+    MoreVertical,
+    ClipboardList
+} from 'lucide-react';
 import { Surface } from '../../components/Surface';
 import { Button } from '../../components/Button';
 import { LineChart } from '../../components/LineChart';
-import { AreaChart } from '../../components/AreaChart';
-import { PieChart, DonutChart } from '../../components/PieChart';
-import { Table } from '../../components/Table';
-import { Skeleton } from '../../components/Skeleton';
-import { ToastProvider, useToast } from '../../components/Toast';
-import { useElementSize } from '../../hooks/useElementSize';
+import { HorizontalBarChart } from '../../components/BarChart';
+import { DonutChart } from '../../components/PieChart';
 import { MetricCard } from '../../components/MetricCard';
-import { GaugeChart } from '../../components/GaugeChart';
-import { MeterChart } from '../../components/MeterChart';
-import { ProgressRing } from '../../components/ProgressRing';
-import { HorizontalBarChart, StackedBarChart } from '../../components/BarChart';
-import { ScatterPlot } from '../../components/ScatterPlot';
-import { Modal } from '../../components/Modal';
-import { Badge } from '../../components/Badge';
-import { Tabs, TabsList, TabsTrigger } from '../../components/Tabs';
 import { Avatar } from '../../components/Avatar';
+import { Badge } from '../../components/Badge';
+import { useElementSize } from '../../hooks/useElementSize';
+import { cn } from '../../utils/cn';
+import { Skeleton } from '../../components/Skeleton';
 
-// Mock Data
-const REVENUE_DATA = [
-    { x: 'Jan', y: 4000 }, { x: 'Feb', y: 3000 }, { x: 'Mar', y: 2000 },
-    { x: 'Apr', y: 2780 }, { x: 'May', y: 1890 }, { x: 'Jun', y: 2390 },
-    { x: 'Jul', y: 4490 },
+// --- Mock Data ---
+
+const PATIENT_FLOW_DATA = [
+    { x: '8am', y: 12 }, { x: '9am', y: 28 }, { x: '10am', y: 45 },
+    { x: '11am', y: 38 }, { x: '12pm', y: 25 }, { x: '1pm', y: 30 },
+    { x: '2pm', y: 42 }, { x: '3pm', y: 35 }, { x: '4pm', y: 20 },
+    { x: '5pm', y: 15 },
 ];
 
-const MARKET_SHARE_DATA = [
-    { label: 'Enterprise', value: 45, color: 'var(--color-medium-slate-blue)' },
-    { label: 'Mid-Market', value: 30, color: 'var(--color-periwinkle)' },
-    { label: 'SMB', value: 25, color: 'var(--color-celadon)' },
+const DIAGNOSIS_DATA = [
+    { label: 'General Checkup', value: 35 },
+    { label: 'Pediatrics', value: 28 },
+    { label: 'Cardiology', value: 15 },
+    { label: 'Dermatology', value: 12 },
+    { label: 'Orthopedics', value: 10 },
 ];
 
-const ENGAGEMENT_TREND = [
-    { x: 'Week 1', y: 400 }, { x: 'Week 2', y: 600 }, { x: 'Week 3', y: 550 },
-    { x: 'Week 4', y: 800 }, { x: 'Week 5', y: 720 }, { x: 'Week 6', y: 950 },
+const DEMOGRAPHICS_DATA = [
+    { label: 'Adults', value: 55, color: 'var(--chart-1)' },
+    { label: 'Children', value: 30, color: 'var(--chart-2)' },
+    { label: 'Seniors', value: 15, color: 'var(--chart-3)' },
 ];
 
-const REVENUE_BREAKDOWN = [
-    {
-        label: 'Q1',
-        values: [
-            { id: 'q1-x', label: 'Product X', value: 400 },
-            { id: 'q1-y', label: 'Product Y', value: 300 },
-            { id: 'q1-z', label: 'Product Z', value: 200 }
-        ]
-    },
-    {
-        label: 'Q2',
-        values: [
-            { id: 'q2-x', label: 'Product X', value: 500 },
-            { id: 'q2-y', label: 'Product Y', value: 450 },
-            { id: 'q2-z', label: 'Product Z', value: 300 }
-        ]
-    },
-    {
-        label: 'Q3',
-        values: [
-            { id: 'q3-x', label: 'Product X', value: 600 },
-            { id: 'q3-y', label: 'Product Y', value: 500 },
-            { id: 'q3-z', label: 'Product Z', value: 400 }
-        ]
-    },
+const APPOINTMENTS = [
+    { id: 1, time: '09:30 AM', patient: 'Sarah Johnson', type: 'Checkup', doctor: 'Dr. Smith', status: 'In Progress' },
+    { id: 2, time: '10:00 AM', patient: 'Michael Chen', type: 'Follow-up', doctor: 'Dr. Lee', status: 'Waiting' },
+    { id: 3, time: '10:15 AM', patient: 'Emily Davis', type: 'Lab Results', doctor: 'Dr. Smith', status: 'Checked In' },
+    { id: 4, time: '10:45 AM', patient: 'Robert Wilson', type: 'Consultation', doctor: 'Dr. Patel', status: 'Scheduled' },
+    { id: 5, time: '11:00 AM', patient: 'Jessica Brown', type: 'Vaccination', doctor: 'Dr. Lee', status: 'Scheduled' },
 ];
 
-const REGIONAL_DATA = [
-    { label: 'Americas', value: 45 },
-    { label: 'EMEA', value: 38 },
-    { label: 'APAC', value: 28 },
-    { label: 'LATAM', value: 15 },
-];
+// --- Components ---
 
-const PERFORMANCE_POINTS = [
-    { x: 10, y: 20, size: 5, label: 'A' },
-    { x: 40, y: 50, size: 10, label: 'B' },
-    { x: 80, y: 90, size: 8, label: 'C' },
-    { x: 60, y: 30, size: 12, label: 'D' },
-];
-
-const RECENT_TRANSACTIONS = [
-    { id: '1', user: 'John Doe', amount: '$120.00', status: 'Completed', date: '2023-01-01' },
-    { id: '2', user: 'Jane Smith', amount: '$250.50', status: 'Pending', date: '2023-01-02' },
-    { id: '3', user: 'Bob Johnson', amount: '$75.00', status: 'Completed', date: '2023-01-03' },
-];
-
-const COLUMNS = [
-    { id: 'user', header: 'User' },
-    { id: 'amount', header: 'Amount' },
-    {
-        id: 'status',
-        header: 'Status',
-        render: (row: { status: string }) => {
-            const variant = row.status === 'Completed' ? 'success' : row.status === 'Pending' ? 'warning' : 'neutral';
-            return <Badge label={row.status} variant={variant} size="sm" />;
-        }
-    },
-];
-
-const DashboardContent = ({ isLoading = false }: { isLoading?: boolean }) => {
-    const { show } = useToast();
-    const [revenueRef, { width: revenueWidth }] = useElementSize();
-    const [engagementRef, { width: engagementWidth }] = useElementSize();
-    const [regionalRef, { width: regionalWidth }] = useElementSize();
-    const [healthRef, { width: healthWidth }] = useElementSize();
-    const [scatterRef, { width: scatterWidth }] = useElementSize();
-    const [drillDownOpen, setDrillDownOpen] = useState(false);
-    const [showGridLines, setShowGridLines] = useState(false);
-    const [selectedMetric, setSelectedMetric] = useState<string | null>(null);
-
-    const handleMetricClick = (label: string) => {
-        setSelectedMetric(label);
-        setDrillDownOpen(true);
-    };
-
-    if (isLoading) {
-        return (
-            <div className="p-8 space-y-6">
-                <div className="flex justify-between items-center mb-8">
-                    <Skeleton className="h-10 w-48" />
-                    <Skeleton className="h-10 w-32" />
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {[...Array(4)].map((_, i) => (
-                        <Skeleton key={i} className="h-32" />
-                    ))}
-                </div>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <Skeleton className="h-80" />
-                    <Skeleton className="h-80" />
-                </div>
-                <Skeleton className="h-64" />
-            </div>
-        );
-    }
+const Sidebar = () => {
+    const navItems = [
+        { icon: LayoutDashboard, label: 'Overview', active: true },
+        { icon: Users, label: 'Patients', active: false },
+        { icon: Calendar, label: 'Appointments', active: false },
+        { icon: ClipboardList, label: 'Prescriptions', active: false },
+        { icon: Activity, label: 'Analytics', active: false },
+        { icon: Settings, label: 'Settings', active: false },
+    ];
 
     return (
-        <div className="min-h-screen bg-bg-page text-text-primary transition-colors duration-200">
-            {/* Top Navigation */}
-            <header className="bg-bg-surface border-b border-border-subtle px-8 py-4 flex justify-between items-center sticky top-0 z-10">
-                <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-action-primary flex items-center justify-center text-action-text-on-primary font-bold text-xl">E</div>
-                    <h1 className="text-xl font-bold">Eureka Enterprise</h1>
+        <aside className="w-64 bg-bg-surface border-r border-border-default flex flex-col h-screen sticky top-0">
+            <div className="p-6 flex items-center gap-3">
+                <div className="w-8 h-8 bg-action-primary rounded-lg flex items-center justify-center text-action-text-on-primary">
+                    <Stethoscope size={20} />
                 </div>
-                <div className="flex items-center gap-6">
-                    <div className="flex gap-2">
-                        <Button variant="ghost" size="sm">Docs</Button>
-                        <Button variant="ghost" size="sm">Support</Button>
+                <span className="font-bold text-lg text-text-primary tracking-tight">Eureka Care</span>
+            </div>
+
+            <nav className="flex-1 px-4 py-4 space-y-1">
+                {navItems.map((item) => (
+                    <button
+                        key={item.label}
+                        className={cn(
+                            "w-full flex items-center gap-3 px-4 py-3 rounded-md text-sm font-medium transition-colors",
+                            item.active
+                                ? "bg-action-primary/10 text-action-primary"
+                                : "text-text-secondary hover:bg-bg-subtle hover:text-text-primary"
+                        )}
+                    >
+                        <item.icon size={18} />
+                        {item.label}
+                    </button>
+                ))}
+            </nav>
+
+            <div className="p-4 border-t border-border-subtle">
+                <div className="flex items-center gap-3 p-2 rounded-md hover:bg-bg-subtle cursor-pointer transition-colors">
+                    <Avatar fallback="Dr" size="md" className="bg-action-secondary text-action-primary" />
+                    <div className="flex-1 min-w-0">
+                        <p className="text-sm font-medium text-text-primary truncate">Dr. Alex Morgan</p>
+                        <p className="text-xs text-text-secondary truncate">Chief Physician</p>
                     </div>
-                    <div className="w-8 h-8">
-                        <Avatar fallback="JD" size="md" className="cursor-pointer hover:border-action-primary transition-colors" />
-                    </div>
+                    <LogOut size={16} className="text-text-tertiary" />
                 </div>
-            </header>
+            </div>
+        </aside>
+    );
+};
 
-            <main className="p-8 max-w-[1600px] mx-auto space-y-10">
-                {/* Header Section */}
-                <div className="flex justify-between items-center">
-                    <div>
-                        <h2 className="text-3xl font-bold">Executive Overview</h2>
-                        <p className="text-text-secondary mt-1">Real-time performance metrics and regional analytics.</p>
-                    </div>
-                    <div className="flex gap-3">
-                        <Button variant="secondary" onClick={() => setShowGridLines(!showGridLines)}>
-                            {showGridLines ? 'Hide Grid' : 'Show Grid'}
-                        </Button>
-                        <Button variant="secondary" onClick={() => show({ message: 'Syncing data...', severity: 'info' })}>Refresh Data</Button>
-                        <Button>Export Analytics</Button>
-                    </div>
+const MetricSection = () => (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <MetricCard
+            label="Appointments Today"
+            value="42"
+            trend={{ value: '+8', direction: 'up' }}
+        />
+        <MetricCard
+            label="Waiting Room"
+            value="12"
+            trend={{ value: 'Peak', direction: 'neutral' }}
+            variant="default" // Using default visual
+        />
+        <MetricCard
+            label="Avg. Wait Time"
+            value="14m"
+            trend={{ value: '-2m', direction: 'up' }} // Improvement
+        />
+        <MetricCard
+            label="Daily Revenue"
+            value="$8,450"
+            trend={{ value: '+12%', direction: 'up' }}
+        />
+    </div>
+);
+
+const AppointmentRow = ({ appointment }: { appointment: typeof APPOINTMENTS[0] }) => {
+    const getStatusVariant = (status: string) => {
+        switch (status) {
+            case 'In Progress': return 'info';
+            case 'Waiting': return 'warning';
+            case 'Checked In': return 'success';
+            default: return 'neutral';
+        }
+    };
+
+    return (
+        <div className="flex items-center justify-between p-4 bg-bg-surface border border-border-subtle rounded-lg hover:border-border-strong transition-colors group">
+            <div className="flex items-center gap-4">
+                <div className="flex flex-col items-center justify-center w-12 h-12 bg-bg-subtle rounded-lg">
+                    <Clock size={16} className="text-text-tertiary mb-1" />
+                    <span className="text-xs font-bold text-text-secondary">{appointment.time.split(' ')[0]}</span>
                 </div>
-                {/* Key Metrics Row */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <MetricCard
-                        label="Total Revenue"
-                        value="$1,284,500"
-                        trend={{ value: '+12.5%', direction: 'up' }}
-                        onClick={() => handleMetricClick('Total Revenue')}
-                    />
-                    <MetricCard
-                        label="Active Subscriptions"
-                        value="42,890"
-                        trend={{ value: '+4.2%', direction: 'up' }}
-                        onClick={() => handleMetricClick('Active Subscriptions')}
-                    />
-                    <MetricCard
-                        label="System Healthy"
-                        value="99.98%"
-                        trend={{ value: 'Stable', direction: 'neutral' }}
-                    />
-                    <MetricCard
-                        label="Open Security Issues"
-                        value="12"
-                        trend={{ value: '-3', direction: 'down' }}
-                    />
+                <div>
+                    <h4 className="text-sm font-bold text-text-primary">{appointment.patient}</h4>
+                    <span className="text-xs text-text-secondary">{appointment.type} • {appointment.doctor}</span>
                 </div>
-
-                {/* Main Insights Grid */}
-                <div className="grid grid-cols-12 gap-8">
-                    {/* Revenue Timeline */}
-                    <Surface variant="card" className="col-span-12 xl:col-span-8 p-8 flex flex-col gap-6 shadow-sm border border-border-subtle">
-                        <div className="flex flex-row justify-between items-start mb-2">
-                            <h3 className="text-xl font-bold whitespace-nowrap">Revenue Projections</h3>
-                            <Tabs defaultValue="month" className="ml-auto">
-                                <TabsList>
-                                    <TabsTrigger value="day">Day</TabsTrigger>
-                                    <TabsTrigger value="month">Month</TabsTrigger>
-                                    <TabsTrigger value="year">Year</TabsTrigger>
-                                </TabsList>
-                            </Tabs>
-                        </div>
-                        <div ref={revenueRef} className="min-h-[350px] flex-1 w-full flex justify-center items-center">
-                            {revenueWidth > 0 && (
-                                <LineChart
-                                    data={REVENUE_DATA}
-                                    width={revenueWidth}
-                                    height={350}
-                                    smooth
-                                    showGrid={showGridLines}
-                                    showYAxis={showGridLines}
-                                />
-                            )}
-                        </div>
-                    </Surface>
-
-                    {/* Regional & Health Section */}
-                    <div className="col-span-12 xl:col-span-4 space-y-8">
-                        <Surface variant="card" className="p-8 shadow-sm border border-border-subtle">
-                            <h3 className="text-lg font-bold mb-6">Regional Performance</h3>
-                            <div ref={regionalRef} className="w-full">
-                                {regionalWidth > 0 && (
-                                    <HorizontalBarChart
-                                        data={REGIONAL_DATA}
-                                        width={regionalWidth}
-                                        height={240}
-                                        showLabels={true}
-                                        showGrid={showGridLines}
-                                    />
-                                )}
-                            </div>
-                        </Surface>
-
-                        <Surface variant="card" className="p-8 shadow-sm border border-border-subtle flex flex-col items-center">
-                            <h3 className="text-lg font-bold mb-4 w-full text-left">Internal Health</h3>
-                            <div ref={healthRef} className="flex flex-col xl:flex-row items-center justify-between gap-4 w-full">
-                                <GaugeChart
-                                    value={72}
-                                    label="CPU"
-                                    size={Math.min(160, Math.max(120, healthWidth * 0.4))}
-                                />
-                                <div className="flex flex-col items-center gap-2">
-                                    <ProgressRing value={85} size="lg" label="SLA" />
-                                    <span className="text-xs text-text-secondary uppercase tracking-wider font-bold">Uptime</span>
-                                </div>
-                            </div>
-                            <div className="w-full mt-6 space-y-4 text-left">
-                                <MeterChart label="Memory" value={45} thresholds={[{ value: 80, color: 'var(--status-critical)' }]} />
-                                <MeterChart label="Storage" value={88} thresholds={[{ value: 85, color: 'var(--status-critical)' }]} />
-                            </div>
-                        </Surface>
-                    </div>
-                </div>
-
-                {/* Secondary Data Hub */}
-                <div className="grid grid-cols-12 gap-8">
-                    {/* Engagement Area Chart */}
-                    <Surface variant="card" className="col-span-12 xl:col-span-8 p-8 flex flex-col gap-6 shadow-sm border border-border-subtle">
-                        <h3 className="text-xl font-bold whitespace-nowrap">Engagement Trends</h3>
-                        <div ref={engagementRef} className="min-h-[300px] flex-1 w-full flex justify-center items-center">
-                            {engagementWidth > 0 && (
-                                <AreaChart
-                                    data={ENGAGEMENT_TREND}
-                                    width={engagementWidth}
-                                    height={300}
-                                    smooth
-                                    fillOpacity={0.15}
-                                    showGrid={showGridLines}
-                                    showYAxis={showGridLines}
-                                />
-                            )}
-                        </div>
-                    </Surface>
-
-                    <div className="col-span-12 xl:col-span-4 space-y-8">
-                        {/* Market Distribution Pie */}
-                        <Surface variant="card" className="p-8 shadow-sm border border-border-subtle flex flex-col items-center">
-                            <h3 className="text-lg font-bold mb-6 w-full">Market Distribution</h3>
-                            <div className="flex-1 flex items-center justify-center">
-                                <PieChart data={MARKET_SHARE_DATA} size={180} />
-                            </div>
-                        </Surface>
-
-                        {/* Recent Transactions Table */}
-                        <Surface variant="card" className="p-8 shadow-sm border border-border-subtle overflow-hidden flex flex-col">
-                            <div className="flex justify-between items-center mb-6">
-                                <h3 className="text-lg font-bold">Security Audit Log</h3>
-                                <Button variant="ghost" size="sm">View Detail</Button>
-                            </div>
-                            <div className="flex-1 overflow-auto">
-                                <Table data={RECENT_TRANSACTIONS} columns={COLUMNS} />
-                            </div>
-                        </Surface>
-                    </div>
-                </div>
-
-                {/* Scatter Analysis Row */}
-                <div className="grid grid-cols-12 gap-8">
-                    <Surface variant="card" className="col-span-12 p-8 shadow-sm border border-border-subtle">
-                        <h3 className="text-lg font-bold mb-6">User Retention vs Engagement Analysis</h3>
-                        <div ref={scatterRef} className="h-[300px] flex justify-center w-full">
-                            {scatterWidth > 0 && (
-                                <ScatterPlot data={PERFORMANCE_POINTS} width={scatterWidth} height={300} showGrid={showGridLines} showYAxis={showGridLines} />
-                            )}
-                        </div>
-                    </Surface>
-                </div>
-            </main>
-
-            {/* Drill-down Modal */}
-            <Modal
-                isOpen={drillDownOpen}
-                onClose={() => setDrillDownOpen(false)}
-                title={`${selectedMetric || 'Metric'} - Detailed Analysis`}
-                size="lg"
-                footer={<Button onClick={() => setDrillDownOpen(false)}>Close Analysis</Button>}
-            >
-                <div className="space-y-8">
-                    <p className="text-text-secondary text-sm">
-                        Showing granular breakdowns and seasonal trends for the selected lifecycle metric.
-                    </p>
-
-                    <div className="grid grid-cols-2 gap-4">
-                        <MetricCard label="Projected Peak" value="$540,000" />
-                        <MetricCard label="Contribution" value="68.4%" trend={{ value: '+12%', direction: 'up' }} />
-                    </div>
-
-                    <div className="space-y-4">
-                        <h4 className="font-bold text-text-primary">Quarterly Performance Breakdown</h4>
-                        <div className="h-[200px] bg-bg-subtle p-4 flex items-center justify-center">
-                            <StackedBarChart
-                                data={REVENUE_BREAKDOWN}
-                                width={500}
-                                height={200}
-                                showGrid={false}
-                            />
-                        </div>
-                    </div>
-
-                    <div className="space-y-4">
-                        <h4 className="font-bold text-text-primary">Engagement Source</h4>
-                        <div className="flex justify-center p-4">
-                            <DonutChart
-                                data={[
-                                    { label: 'Direct', value: 45 },
-                                    { label: 'Referral', value: 30 },
-                                    { label: 'Social', value: 25 }
-                                ]}
-                                size={180}
-                            />
-                        </div>
-                    </div>
-                </div>
-            </Modal>
+            </div>
+            <div className="flex items-center gap-4">
+                <Badge label={appointment.status} variant={getStatusVariant(appointment.status)} />
+                <Button variant="ghost" size="sm" className="opacity-0 group-hover:opacity-100 transition-opacity">
+                    <MoreVertical size={16} />
+                </Button>
+            </div>
         </div>
     );
 };
 
 export interface DashboardProps {
-    /**
-     * Whether the dashboard is in a loading state
-     */
     isLoading?: boolean;
 }
 
-export const Dashboard = (props: DashboardProps) => {
+export const Dashboard = ({ isLoading = false }: DashboardProps) => {
+    const [patientFlowRef, { width: flowWidth }] = useElementSize();
+    const [diagnosisRef, { width: diagnosisWidth }] = useElementSize();
+
+    if (isLoading) {
+        return (
+            <div className="min-h-screen bg-bg-page flex">
+                <div className="w-64 bg-bg-surface border-r border-border-subtle p-6 space-y-4">
+                    <Skeleton className="h-8 w-32" />
+                    <div className="space-y-2 mt-8">
+                        {[...Array(5)].map((_, i) => <Skeleton key={i} className="h-10 w-full" />)}
+                    </div>
+                </div>
+                <div className="flex-1 p-8 space-y-8">
+                    <div className="flex justify-between">
+                        <Skeleton className="h-10 w-48" />
+                        <Skeleton className="h-10 w-32" />
+                    </div>
+                    <div className="grid grid-cols-4 gap-6">
+                        {[...Array(4)].map((_, i) => <Skeleton key={i} className="h-32" />)}
+                    </div>
+                    <div className="grid grid-cols-3 gap-6">
+                        <Skeleton className="h-80 col-span-2" />
+                        <Skeleton className="h-80 col-span-1" />
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     return (
-        <ToastProvider>
-            <DashboardContent {...props} />
-        </ToastProvider>
+        <div className="min-h-screen bg-bg-page flex font-sans text-text-primary">
+            <Sidebar />
+
+            <main className="flex-1 min-w-0 overflow-auto">
+                {/* Header */}
+                <header className="px-8 py-5 border-b border-border-subtle bg-bg-surface sticky top-0 z-10 flex justify-between items-center">
+                    <div>
+                        <h1 className="text-2xl font-bold text-text-primary">Dashboard</h1>
+                        <div className="flex items-center gap-2 text-sm text-text-secondary mt-1">
+                            <span>Overview</span>
+                            <ChevronRight size={14} />
+                            <span>Clinic Analytics</span>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center gap-4">
+                        <div className="relative hidden md:block">
+                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-text-tertiary" size={16} />
+                            <input
+                                type="text"
+                                placeholder="Search patients..."
+                                className="pl-10 pr-4 py-2 bg-bg-subtle border-none rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-action-primary w-64 transition-all"
+                            />
+                        </div>
+                        <button className="relative p-2 text-text-secondary hover:bg-bg-subtle rounded-full transition-colors">
+                            <Bell size={20} />
+                            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-status-error rounded-full border border-bg-surface" />
+                        </button>
+                        <Button className="gap-2">
+                            <Plus size={16} />
+                            New Appointment
+                        </Button>
+                    </div>
+                </header>
+
+                <div className="p-8 max-w-7xl mx-auto space-y-8">
+                    {/* Metrics */}
+                    <MetricSection />
+
+                    {/* Main Content Grid */}
+                    <div className="grid grid-cols-12 gap-8">
+                        {/* Patient Flow Chart */}
+                        <div className="col-span-12 lg:col-span-8 space-y-6">
+                            <Surface variant="card" className="p-6 border border-border-subtle shadow-sm">
+                                <div className="flex items-center justify-between mb-6">
+                                    <div>
+                                        <h3 className="text-lg font-bold">Patient Flow Analytics</h3>
+                                        <p className="text-sm text-text-secondary">Hourly footfall vs capacity</p>
+                                    </div>
+                                    <select className="bg-bg-subtle border-none text-sm rounded-md px-3 py-1 cursor-pointer focus:ring-2 focus:ring-action-primary">
+                                        <option>Today</option>
+                                        <option>Yesterday</option>
+                                        <option>Last Week</option>
+                                    </select>
+                                </div>
+                                <div ref={patientFlowRef} className="h-[300px] w-full flex justify-center">
+                                    {flowWidth > 0 && (
+                                        <LineChart
+                                            data={PATIENT_FLOW_DATA}
+                                            width={flowWidth}
+                                            height={300}
+                                            smooth
+                                            showGrid
+                                        />
+                                    )}
+                                </div>
+                            </Surface>
+
+                            <div className="space-y-4">
+                                <div className="flex items-center justify-between">
+                                    <h3 className="text-lg font-bold">Upcoming Appointments</h3>
+                                    <Button variant="ghost" size="sm" className="text-action-primary">View All</Button>
+                                </div>
+                                <div className="space-y-3">
+                                    {APPOINTMENTS.map(apt => (
+                                        <AppointmentRow key={apt.id} appointment={apt} />
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Side Panel: Demographics & Diagnosis */}
+                        <div className="col-span-12 lg:col-span-4 space-y-6">
+                            <Surface variant="card" className="p-6 border border-border-subtle shadow-sm flex flex-col items-center">
+                                <h3 className="text-lg font-bold mb-2 w-full text-left">Patient Demographics</h3>
+                                <p className="text-sm text-text-secondary w-full text-left mb-6">Age distribution today</p>
+
+                                <DonutChart
+                                    data={DEMOGRAPHICS_DATA}
+                                    size={180}
+                                    showLabels={false}
+                                />
+                                <div className="grid grid-cols-3 gap-2 w-full mt-6">
+                                    {DEMOGRAPHICS_DATA.map((item, i) => (
+                                        <div key={i} className="text-center p-2 rounded-lg bg-bg-subtle">
+                                            <span className="block text-xs text-text-secondary">{item.label}</span>
+                                            <span className="block font-bold text-lg">{item.value}%</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </Surface>
+
+                            <Surface variant="card" className="p-6 border border-border-subtle shadow-sm">
+                                <h3 className="text-lg font-bold mb-6">Common Diagnoses</h3>
+                                <div ref={diagnosisRef} className="w-full">
+                                    {diagnosisWidth > 0 && (
+                                        <HorizontalBarChart
+                                            data={DIAGNOSIS_DATA}
+                                            width={diagnosisWidth}
+                                            height={250}
+                                            showLabels
+                                        />
+                                    )}
+                                </div>
+                            </Surface>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
     );
 };
