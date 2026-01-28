@@ -1,9 +1,7 @@
-import { useState } from 'react';
 import {
     LayoutDashboard,
     Users,
     Calendar,
-    FileText,
     Activity,
     Settings,
     LogOut,
@@ -122,7 +120,6 @@ const MetricSection = () => (
             label="Waiting Room"
             value="12"
             trend={{ value: 'Peak', direction: 'neutral' }}
-            variant="default" // Using default visual
         />
         <MetricCard
             label="Avg. Wait Time"
