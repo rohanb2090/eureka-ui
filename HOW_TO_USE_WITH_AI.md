@@ -1,4 +1,4 @@
-# Using Eureka UI with AI Tools
+ # Using Eureka UI with AI Tools
 
 This guide explains how to leverage AI tools (Lovable, Bolt, ChatGPT, Claude) to build UIs consistent with the Eureka Design System.
 

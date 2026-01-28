@@ -230,8 +230,7 @@ export const Dashboard = ({ isLoading = false }: DashboardProps) => {
                             <Bell size={20} />
                             <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-status-error rounded-full border border-bg-surface" />
                         </button>
-                        <Button className="flex items-center gap-2">
-                            <Plus size={16} className="shrink-0" />
+                        <Button leftIcon={<Plus size={16} />}>
                             New Appointment
                         </Button>
                     </div>
